@@ -48,7 +48,6 @@
 |block|string|null :false|
 |building|string||
 |payment|string|null :false|
-|provider|string||
 |token|string|null :false|
 
 ### Association
