@@ -6,8 +6,8 @@
 |------|----|-------|
 |name|string|null: false|
 |price|integer|null: false|
-|buyer|references|foreign_key: true|
-|seller|references|null: false, foreign_key: true|
+|buyer_id|references|foreign_key: true|
+|seller_id|references|null: false, foreign_key: true|
 |status|string|null: false|
 |brand|references|foreign_key: true|
 |category|references|null: false, foreign_key: true|
@@ -48,7 +48,6 @@
 |block|string|null :false|
 |building|string||
 |payment|string|null :false|
-|uid|string||
 |provider|string||
 |token|string|null :false|
 
@@ -115,6 +114,16 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
+
+
+## providersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- belongs_to :user
 
 ## deliveriesテーブル
 
