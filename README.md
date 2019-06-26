@@ -120,7 +120,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|provider_name|string|null: false|
+|user_id|integer|null: false|
 
 ### Association
 - belongs_to :user
