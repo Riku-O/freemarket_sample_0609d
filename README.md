@@ -121,7 +121,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |provider_name|string|null: false|
-|user_id|integer|null: false|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
