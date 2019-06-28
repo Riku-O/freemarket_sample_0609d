@@ -7,7 +7,7 @@
 |name|string|null: false|
 |price|integer|null: false|
 |buyer_id|references|foreign_key: true|
-|seller_id|references|null: false, foreign_key: true|
+|saler_id|references|null: false, foreign_key: true|
 |status|string|null: false|
 |brand|references|foreign_key: true|
 |category|references|null: false, foreign_key: true|
@@ -21,8 +21,8 @@
 - has_many :likes, dependent::destroy
 - has_many :comments, dependent::destroy
 - has_one :delivery,dependent::destroy
-- belongs_to :user,class_name:"User",foreign_key:"seller_id"
-- belongs_to :user,class_name:"User",foreign_key:"burer_id"
+- belongs_to :seller, class_name:'User', foreign_key:'seller_id'
+- belongs_to :buyer, class_name:'User', foreign_key:'buyer_id'
 - belongs_to :brand
 - belongs_to :category
 
@@ -51,7 +51,9 @@
 |token|string|null :false|
 
 ### Association
-- has_many :items, dependent::destroy
+- has_many :buyed_items, foreign_key:buyer_id, class_name:'Item'
+- has_many :saling_items, foreign_key:'saler_id', class_name:'Item'
+- has_many :sold_items, foreign_key:'saler_id', class_name:'Item'
 - has_many :likes, dependent::destroy
 - has_many :comments, dependent::destroy
 - has_one :credit_card, dependent::destroy
