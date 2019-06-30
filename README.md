@@ -5,26 +5,28 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|price|integer|null: false|
 |buyer_id|references|foreign_key: true|
-|saler_id|references|null: false, foreign_key: true|
-|status|string|null: false|
-|brand|references|foreign_key: true|
-|category|references|null: false, foreign_key: true|
-|size|string|
+|seller_id|references|foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+|brand_id|references|foreign_key: true|
+|size_id|references|foreign_key: true|
 |condition|string|
-|introduction|text|
-|delivery|references|null: false, foreign_key: true|
+|shipment_id|references|null: false, foreign_key: true|
+|price|integer|null: false|
+|description|text|
+|deal_id|reference|null: false, foreign_key: true|
 
 ### Association
 - has_many :images, dependent::destroy
 - has_many :likes, dependent::destroy
 - has_many :comments, dependent::destroy
-- has_one :delivery,dependent::destroy
-- belongs_to :seller, class_name:'User', foreign_key:'seller_id'
+- has_one :shipment,dependent::destroy
 - belongs_to :buyer, class_name:'User', foreign_key:'buyer_id'
-- belongs_to :brand
+- belongs_to :seller, class_name:'User', foreign_key:'seller_id'
 - belongs_to :category
+- belongs_to :brand
+- belongs_to :size
+- belongs_to :deal
 
 
 ## usersテーブル
@@ -34,29 +36,51 @@
 |nickname|string|null: false|
 |email|string|null: false, add_index :users, email, unique: true|
 |password|string|null: false|
-|phone_number|string|null :false, add_index :users,phone_number, unique: true|
 |last_name|string|null :false|
 |first_name|string|null :false|
 |last_name_kana|string|null :false|
 |first_name_kana|string|null :false|
-|birthday|date|null :false|
-|avatar_image|text|
-|introduction|text|
+|birthday|null :false|
+|phone_number|string|null :false, add_index :users,phone_number, unique: true|
 |postcode|string|null :false|
 |prefecture||null :false|
 |city|string|null :false|
 |block|string|null :false|
 |building|string||
-|payment|string|null :false|
-|token|string|null :false|
 
 ### Association
-- has_many :buyed_items, foreign_key:buyer_id, class_name:'Item'
-- has_many :saling_items, foreign_key:'saler_id', class_name:'Item'
-- has_many :sold_items, foreign_key:'saler_id', class_name:'Item'
+- has_many :buyed_items, foreign_key:'buyed_id', class_name:'Item'
+- has_many :saling_items, foreign_key:'selled_id', class_name:'Item'
+- has_many :sold_items, foreign_key:'selled_id', class_name:'Item'
 - has_many :likes, dependent::destroy
 - has_many :comments, dependent::destroy
+- has_many :deals, dependent::destroy
+- has_one :profile, dependent::destroy
+- has_one :provider, dependent::destroy
 - has_one :credit_card, dependent::destroy
+
+
+## profilesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|avatar_image|text|
+|introduction|text|
+|user_id|references|null: false, foreign_key: true|
+
+### Association
+-belongs_to :user
+
+
+## imagesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|product_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :product
 
 
 ## brandsテーブル
@@ -79,6 +103,14 @@
 ### Association
 - has_many :items
 - has_ancestry
+
+## sizeテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- belongs_to :item
 
 
 ## likesテーブル
@@ -127,14 +159,15 @@
 ### Association
 - belongs_to :user
 
-## deliveriesテーブル
+
+## shipmentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|shipping_charge|string|null: false|
-|origin_region|string|
-|shipping_days|string|null: false|
-|item|references|null: false, foreign_key: true|
+|postage_burden|string|null: false|
+|method|string|null: false|
+|source_area|string|
+|shipping_date|string|null: false|
 
 ### Association
-- belongs_to :item
+- belongs_to :product
