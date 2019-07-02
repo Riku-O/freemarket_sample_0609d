@@ -40,7 +40,9 @@
 |first_name|string|null :false|
 |last_name_kana|string|null :false|
 |first_name_kana|string|null :false|
-|birthday|null :false|
+|birth_year|integer|null :false|
+|birth_month|integer|null :false|
+|birth_date|integer|null :false|
 |phone_number|string|null :false, add_index :users,phone_number, unique: true|
 |postcode|string|null :false|
 |prefecture||null :false|
@@ -49,9 +51,9 @@
 |building|string||
 
 ### Association
-- has_many :buyed_items, foreign_key:'buyed_id', class_name:'Item'
-- has_many :saling_items, foreign_key:'selled_id', class_name:'Item'
-- has_many :sold_items, foreign_key:'selled_id', class_name:'Item'
+- has_many :buyed_items, foreign_key:'buyer_id', class_name:'Item'
+- has_many :selling_items, foreign_key:'seller_id', class_name:'Item'
+- has_many :sold_items, foreign_key:'seller_id', class_name:'Item'
 - has_many :likes, dependent::destroy
 - has_many :comments, dependent::destroy
 - has_many :deals, dependent::destroy
@@ -104,6 +106,7 @@
 - has_many :items
 - has_ancestry
 
+
 ## sizeテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -117,8 +120,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|item|references|null: false, foreign_key: true|
-|user|references|null: false| foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -129,8 +132,11 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|token|string|null: false|
-|user|references|null: false, foreign_key: true|
+|card_number|integer|null: false|
+|validity_month|integer|null: false|
+|validity_year|integer|null: false|
+|security_code|integer|null: false|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
