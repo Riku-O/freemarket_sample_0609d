@@ -95,7 +95,7 @@
 - belongs_to :item
 
 
-## during_dealsテーブル
+## deal_itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -109,7 +109,7 @@
 - belongs_to :item
 
 
-## under_exhibitionテーブル
+## displayed_itemsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -130,7 +130,7 @@
 |deal_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :during_deal
+- belongs_to :deal_items
 
 
 ## completed_dealsテーブル
@@ -140,7 +140,7 @@
 |deal_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :during_deal
+- belongs_to :deal_items
 
 
 ## itemsテーブル
@@ -164,7 +164,6 @@
 - has_many :images, dependent::destroy
 - has_many :likes, dependent::destroy
 - has_many :comments, dependent::destroy
-- belongs_to :shipment, dependent::destroy
 - belongs_to :buyer, class_name:'User', foreign_key:'buyer_id'
 - belongs_to :seller, class_name:'User', foreign_key:'seller_id'
 - belongs_to :category
