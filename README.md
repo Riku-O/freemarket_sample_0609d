@@ -11,15 +11,15 @@
 |first_name|string|null :false|
 |last_name_kana|string|null :false|
 |first_name_kana|string|null :false|
-|birth_year|integer|null :false|
-|birth_month|integer|null :false|
-|birth_date|integer|null :false|
+|birth_year|date|null :false|
+|birth_month|date|null :false|
+|birth_date|date|null :false|
 |phone_number|string|null :false, add_index :users,phone_number, unique: true|
-|postcode|string|null :false|
-|prefecture||null :false|
+|postcode|integer|null :false|
+|prefecture|string|null :false|
 |city|string|null :false|
 |block|string|null :false|
-|building|string||
+|building|string|
 
 ### Association
 - has_many :buyed_items, foreign_key:'buyer_id', class_name:'Item'
@@ -148,16 +148,17 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|buyer_id|references|foreign_key: true|
-|seller_id|references|foreign_key: true|
+|user_id|references|foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
-|size_id|references|foreign_key: true|
-|condition|string|
-|shipment_id|references|null: false, foreign_key: true|
+|size|integer|
+|condition|string|null: false|
+|postage_burden|integer|null: false|
+|method|string|null: false|
+|source_area|string|null: false|
+|shipping_date|string|null: false|
 |price|integer|null: false|
-|description|text|
-|deal_id|reference|null: false, foreign_key: true|
+|description|text|null: false|
 
 ### Association
 - has_many :images, dependent::destroy
@@ -168,7 +169,6 @@
 - belongs_to :seller, class_name:'User', foreign_key:'seller_id'
 - belongs_to :category
 - belongs_to :brand
-- belongs_to :size
 - belongs_to :deal
 
 
@@ -177,20 +177,10 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|product_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :product
-
-
-## brandsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-### Association
-- has_many :items
+- belongs_to :item
 
 
 ## categoriesテーブル
@@ -205,23 +195,11 @@
 - has_ancestry
 
 
-## sizeテーブル
+## brandsテーブル
+
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
 
 ### Association
-- belongs_to :item
-
-
-## shipmentsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|postage_burden|string|null: false|
-|method|string|null: false|
-|source_area|string|
-|shipping_date|string|null: false|
-
-### Association
-- belongs_to :product
+- has_many :items
