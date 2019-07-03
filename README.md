@@ -25,9 +25,10 @@
 - has_many :buyed_items, foreign_key:'buyer_id', class_name:'Item'
 - has_many :selling_items, foreign_key:'seller_id', class_name:'Item'
 - has_many :sold_items, foreign_key:'seller_id', class_name:'Item'
+- has_many :displayed_items, dependent::destroy
+- has_many :deal_items, dependent::destroy
 - has_many :likes, dependent::destroy
 - has_many :comments, dependent::destroy
-- has_many :deals, dependent::destroy
 - has_one :profile, dependent::destroy
 - has_one :provider, dependent::destroy
 - has_one :credit_card, dependent::destroy
@@ -87,8 +88,20 @@
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|user|references|null: false, foreign_key: true|
-|item|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item
+
+
+## displayed_itemsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|item_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -104,22 +117,9 @@
 |buyer_id|references|null: false, foreign_key: true|
 
 ### Association
-- has_one :completed_deals
 - belongs_to :user
 - belongs_to :item
-
-
-## displayed_itemsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|item_id|references|null: false, foreign_key: true|
-|user_id|references|null: false, foreign_key: true|
-
-### Association
-- has_one :completed_deals
-- belongs_to :user
-- belongs_to :item
+- belongs_to :completed_deal
 
 
 ## deal_reviewsテーブル
