@@ -20,7 +20,7 @@
 - has_many :images, dependent::destroy
 - has_many :likes, dependent::destroy
 - has_many :comments, dependent::destroy
-- has_one :shipment,dependent::destroy
+- belongs_to :shipment, dependent::destroy
 - belongs_to :buyer, class_name:'User', foreign_key:'buyer_id'
 - belongs_to :seller, class_name:'User', foreign_key:'seller_id'
 - belongs_to :category
