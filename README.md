@@ -1,34 +1,5 @@
 # DB設計
 
-## itemsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|buyer_id|references|foreign_key: true|
-|seller_id|references|foreign_key: true|
-|category_id|references|null: false, foreign_key: true|
-|brand_id|references|foreign_key: true|
-|size_id|references|foreign_key: true|
-|condition|string|
-|shipment_id|references|null: false, foreign_key: true|
-|price|integer|null: false|
-|description|text|
-|deal_id|reference|null: false, foreign_key: true|
-
-### Association
-- has_many :images, dependent::destroy
-- has_many :likes, dependent::destroy
-- has_many :comments, dependent::destroy
-- belongs_to :shipment, dependent::destroy
-- belongs_to :buyer, class_name:'User', foreign_key:'buyer_id'
-- belongs_to :seller, class_name:'User', foreign_key:'seller_id'
-- belongs_to :category
-- belongs_to :brand
-- belongs_to :size
-- belongs_to :deal
-
-
 ## usersテーブル
 
 |Column|Type|Options|
@@ -62,6 +33,31 @@
 - has_one :credit_card, dependent::destroy
 
 
+## credit_cardsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|card_number|integer|null: false|
+|validity_month|integer|null: false|
+|validity_year|integer|null: false|
+|security_code|integer|null: false|
+|user_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+
+
+## providersテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|provider_name|string|null: false|
+|user_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+
+
 ## profilesテーブル
 
 |Column|Type|Options|
@@ -72,6 +68,35 @@
 
 ### Association
 -belongs_to :user
+
+
+## itemsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|buyer_id|references|foreign_key: true|
+|seller_id|references|foreign_key: true|
+|category_id|references|null: false, foreign_key: true|
+|brand_id|references|foreign_key: true|
+|size_id|references|foreign_key: true|
+|condition|string|
+|shipment_id|references|null: false, foreign_key: true|
+|price|integer|null: false|
+|description|text|
+|deal_id|reference|null: false, foreign_key: true|
+
+### Association
+- has_many :images, dependent::destroy
+- has_many :likes, dependent::destroy
+- has_many :comments, dependent::destroy
+- belongs_to :shipment, dependent::destroy
+- belongs_to :buyer, class_name:'User', foreign_key:'buyer_id'
+- belongs_to :seller, class_name:'User', foreign_key:'seller_id'
+- belongs_to :category
+- belongs_to :brand
+- belongs_to :size
+- belongs_to :deal
 
 
 ## imagesテーブル
@@ -128,20 +153,6 @@
 - belongs_to :item
 
 
-## credit_cardsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|card_number|integer|null: false|
-|validity_month|integer|null: false|
-|validity_year|integer|null: false|
-|security_code|integer|null: false|
-|user_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-
-
 ## commentsテーブル
 
 |Column|Type|Options|
@@ -153,17 +164,6 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-
-
-## providersテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|provider_name|string|null: false|
-|user_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
 
 
 ## shipmentsテーブル
