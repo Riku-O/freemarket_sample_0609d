@@ -51,7 +51,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|provider_name|string|null: false|
+|name|string|null: false|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
@@ -68,6 +68,79 @@
 
 ### Association
 -belongs_to :user
+
+
+## likesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|item_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item
+
+
+## commentsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|text|text|null: false|
+|user|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item
+
+
+## during_dealsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|item_id|references|null: false, foreign_key: true|
+|seller_id|references|null: false, foreign_key: true|
+|buyer_id|references|null: false, foreign_key: true|
+
+### Association
+- has_one :completed_deals
+- belongs_to :user
+- belongs_to :item
+
+
+## under_exhibitionテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|item_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+
+### Association
+- has_one :completed_deals
+- belongs_to :user
+- belongs_to :item
+
+
+## deal_reviewsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|review|text|null: false|
+|deal_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :during_deal
+
+
+## completed_dealsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|deal_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :during_deal
 
 
 ## itemsテーブル
@@ -138,31 +211,6 @@
 |name|string|null: false|
 
 ### Association
-- belongs_to :item
-
-
-## likesテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|item_id|references|null: false, foreign_key: true|
-|user_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :item
-
-
-## commentsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|text|text|null: false|
-|user|references|null: false, foreign_key: true|
-|item|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
 - belongs_to :item
 
 
