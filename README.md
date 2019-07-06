@@ -14,8 +14,8 @@
 |birth_year|date|null :false|
 |birth_month|date|null :false|
 |birth_date|date|null :false|
-|phone_number|string|null :false, add_index :users,phone_number, unique: true|
-|postcode|integer|null :false|
+|phone_number|integer|null :false, add_index :users,phone_number, unique: true|
+|postcode|string|null :false|
 |prefecture|string|null :false|
 |city|string|null :false|
 |block|string|null :false|
@@ -23,15 +23,15 @@
 
 ### Association
 - has_many :buyed_items, foreign_key:'buyer_id', class_name:'Item'
-- has_many :selling_items, foreign_key:'seller_id', class_name:'Item'
-- has_many :sold_items, foreign_key:'seller_id', class_name:'Item'
-- has_many :displayed_items, dependent::destroy
-- has_many :deal_items, dependent::destroy
+- has_many :selling_items, { where("buyer_id is NULL") }, foreign_key:'seller_id', class_name:'Item'
+- has_many :sold_items, { where("buyer_id is not NULL") }, foreign_key:'seller_id', class_name:'Item'
+- has_many :deal_reviews, dependent::destroy
+- has_many :completed_deals, dependent::destroy
 - has_many :likes, dependent::destroy
 - has_many :comments, dependent::destroy
-- has_one :profile, dependent::destroy
-- has_one :provider, dependent::destroy
 - has_one :credit_card, dependent::destroy
+- has_one :provider, dependent::destroy
+- has_one :profile, dependent::destroy
 
 
 ## credit_cardsテーブル
@@ -96,51 +96,17 @@
 - belongs_to :item
 
 
-## displayed_itemsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|item_id|references|null: false, foreign_key: true|
-|user_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :item
-
-
-## deal_itemsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|item_id|references|null: false, foreign_key: true|
-|seller_id|references|null: false, foreign_key: true|
-|buyer_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :item
-- belongs_to :completed_deal
-
-
-## deal_reviewsテーブル
+## reviewsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |review|text|null: false|
-|deal_id|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :deal_items
-
-
-## completed_dealsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|deal_id|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :deal_items
+- belongs_to :user
+- belongs_to :items
 
 
 ## itemsテーブル
@@ -148,27 +114,29 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|user_id|references|foreign_key: true|
+|seller_id|references|null: false, foreign_key: true|
+|buyer_id|references|foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
 |size|integer|
 |condition|string|null: false|
 |postage_burden|integer|null: false|
-|method|string|null: false|
+|shipping_method|string|null: false|
 |source_area|string|null: false|
 |shipping_date|string|null: false|
 |price|integer|null: false|
 |description|text|null: false|
+|state|string|null: false|
 
 ### Association
 - has_many :images, dependent::destroy
 - has_many :likes, dependent::destroy
 - has_many :comments, dependent::destroy
-- belongs_to :buyer, class_name:'User', foreign_key:'buyer_id'
-- belongs_to :seller, class_name:'User', foreign_key:'seller_id'
+- has_one :review, dependent::destroy
+- belongs_to :seller, class_name:'User'
+- belongs_to :buyer, class_name:'User'
 - belongs_to :category
 - belongs_to :brand
-- belongs_to :deal
 
 
 ## imagesテーブル
@@ -186,8 +154,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
 |path|string|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :items
