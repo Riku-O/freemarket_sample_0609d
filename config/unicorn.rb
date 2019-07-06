@@ -11,7 +11,7 @@ working_directory app_path
 pid "#{app_path}/tmp/pids/unicorn.pid"
 
 #ポート番号を指定
-listen 3000
+listen "#{app_path}/tmp/sockets/unicorn.sock"
 
 #エラーログを記録するファイルを作成する
 stderr_path "#{app_path}/log/unicorn.stderr.log"
@@ -37,7 +37,7 @@ before_fork do |server, worker|
   end
 
   old_pid = "#{server.config[:pid]}.oldbin"
-  if File.exist?(old_pid) && server.pid != old_pid
+  if File.exist?(old_pid)
     begin
       sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
       Process.kill(sig, File.read(old_pid).to_i)
