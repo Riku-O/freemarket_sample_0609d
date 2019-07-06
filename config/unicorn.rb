@@ -1,24 +1,23 @@
 #サーバ上でのアプリケーションコードが設置されているディレクトリを変数に入れておく
-app_path = File.expand_path('../../', __FILE__ )
+app_path = File.expand_path('../../../', __FILE__ )
 
 #アプリケーションサーバの性能を決定する、workerの数を決めている
 worker_processes 1
 
 #アプリケーションに設置されているディレクトリを指定する
-working_directory app_path
+working_directory "#{app_path}/current"
 
 #Unicornの起動に必要なファイルの設置場所を指定
-pid "#{app_path}/tmp/pids/unicorn.pid"
+pid "#{app_path}/shared/tmp/pids/unicorn.pid"
+
 
 #ポート番号を指定
 listen "#{app_path}/tmp/sockets/unicorn.sock"
 
 #エラーログを記録するファイルを作成する
-stderr_path "#{app_path}/log/unicorn.stderr.log"
-
+stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
 #通常のログを記録するファイルを作成する
-stdout_path "#{app_path}/log/unicorn.stdout.log"
-
+stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
 #Railsアプリからの応答を待つ上限時間を設定する
 timeout 60
 
@@ -37,7 +36,7 @@ before_fork do |server, worker|
   end
 
   old_pid = "#{server.config[:pid]}.oldbin"
-  if File.exist?(old_pid)
+  if File.exist?(old_pid) && server.pid != old_pid
     begin
       sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
       Process.kill(sig, File.read(old_pid).to_i)
