@@ -155,7 +155,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |path|string|null: false|
-|name|string|null: false|
+|item|string|null: false|
 
 ### Association
 - has_many :items
