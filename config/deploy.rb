@@ -2,7 +2,7 @@
 lock "3.11.0"
 
 set :application, "freemarket_sample_0609d"
-set :repo_url, "git@example.com:Riku-O/freemarket_sample_0609d.git"
+set :repo_url, "git@github.com:Riku-O/freemarket_sample_0609d.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
