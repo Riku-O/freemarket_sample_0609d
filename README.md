@@ -106,7 +106,21 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :items
+- belongs_to :item
+
+
+## dealsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|buyer_id|references|null: false, foreign_key: true|
+|seller_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :buyer, class_name: "User"
+- belongs_to :seller, class_name: "User"
+- belongs_to :item
 
 
 ## itemsテーブル
@@ -114,8 +128,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|seller_id|references|null: false, foreign_key: true|
-|buyer_id|references|foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
 |size|integer|
@@ -133,8 +146,7 @@
 - has_many :likes, dependent::destroy
 - has_many :comments, dependent::destroy
 - has_one :review, dependent::destroy
-- belongs_to :seller, class_name:'User'
-- belongs_to :buyer, class_name:'User'
+- belongs_to :user
 - belongs_to :category
 - belongs_to :brand
 
@@ -143,7 +155,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|image|string|null: false|
 |item_id|references|null: false, foreign_key: true|
 
 ### Association
