@@ -7,12 +7,11 @@ worker_processes 1
 #アプリケーションに設置されているディレクトリを指定する
 working_directory "#{app_path}/current"
 
-#Unicornの起動に必要なファイルの設置場所を指定
-pid "#{app_path}/shared/tmp/pids/unicorn.pid"
-
-
 #ポート番号を指定
 listen "#{app_path}/tmp/sockets/unicorn.sock"
+
+#Unicornの起動に必要なファイルの設置場所を指定
+pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 
 #エラーログを記録するファイルを作成する
 stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
