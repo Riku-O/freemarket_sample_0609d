@@ -1,6 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "3.11.0"
 
+set :log_level, :debug
 set :application, "freemarket_sample_0609d"
 set :repo_url, "git@github.com:Riku-O/freemarket_sample_0609d.git"
 
