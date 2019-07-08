@@ -97,6 +97,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    erb2haml (0.1.5)
+      html2haml
     erubi (1.8.0)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -287,6 +289,7 @@ DEPENDENCIES
   carrierwave
   chromedriver-helper
   coffee-rails (~> 4.2)
+  erb2haml
   font-awesome-rails
   haml-rails
   jbuilder (~> 2.5)
