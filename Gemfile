@@ -58,6 +58,14 @@ group :test do
   gem 'chromedriver-helper'
 end
 
+group :development, :test do
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+end
+
 group :production do
   gem 'unicorn', '5.4.1'
 end
@@ -67,3 +75,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'haml-rails'
 gem 'font-awesome-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'erb2haml'
