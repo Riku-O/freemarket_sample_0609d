@@ -17,6 +17,7 @@
 - has_many :likes, dependent::destroy
 - has_many :comments, dependent::destroy
 - has_one :credit_card, dependent::destroy
+- has_one :bank_account, dependent::destroy
 - has_one :provider, dependent::destroy
 - has_one :profile, dependent::destroy
 - has_one :address, dependent::destroy
@@ -48,6 +49,23 @@
 |validity_month|integer|null: false|
 |validity_year|integer|null: false|
 |security_code|integer|null: false|
+|user_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+
+
+## bank_accountsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|holder|string|null: false|
+|account_number|integer|null: false|
+|account_type|string|null: false|
+|bank_name|string|null: false|
+|bank_code|integer|null: false|
+|branch_name|string|null: false|
+|branch_code|integer|null: false|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
