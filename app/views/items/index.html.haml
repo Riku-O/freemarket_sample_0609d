@@ -1,0 +1,53 @@
+!!!
+%html{lang: "ja"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}/
+    %title 出品 - メルカリ スマホでかんたん フリマアプリ
+    %meta{:content => "CMで話題！フリマアプリ「メルカリ」は、スマホから誰でも簡単に売り買いが楽しめるフリマアプリです。購入時はクレジットカード・キャリア決済・コンビニ・銀行ATMで支払いでき、品物が届いてから出品者に入金される独自システムで安心です。", :name => "description"}/
+
+  %body
+    .single-container
+      %header.single-header
+        %h1
+          %a{:href => 'https://www.mercari.com/jp/',:id => 'header' }
+            %img{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2927923569",alt:"merucari"} 
+    %single-main
+      %section.l-single-container.buy-item-container
+        #sell-container
+          %div{"data-reactroot" => ""}
+            .sell-container-inner
+              %h2.l-single-head 商品の情報を入力
+              %form.sell-form
+                .sell-upload-box
+                  %h3.sell-upload-head
+                    / react-text: 7
+                    出品画像
+                    / /react-text
+                    %span.form-require 必須
+                  %p最大10枚までアップロードできます
+                  .sell-dropbox-container.clearfix.state-image-number-10
+                    .sell-upload-items-container
+                      .sell-upload-items.have-item-0
+                        %ul
+                    .sell-upload-drop-box.have-item-0
+                      %input.sell-upload-drop-file{:multiple => "", :name => "image1", :style => "display: none;", :type => "file"}/
+                      %pre.visible-pc ドラッグアンドドロップまたはクリックしてファイルをアップロード
+                      %i.icon-camera
+                      / react-empty: 18
+                      / react-empty: 19
+                      / react-empty: 20
+                      / react-empty: 21
+                      / react-empty: 22
+                      / react-empty: 23
+                      / react-empty: 24
+                      / react-empty: 25
+                      / react-empty: 26
+                      / react-empty: 27
+                .sell-content
+                  .form-group
+
+
+
+
+
