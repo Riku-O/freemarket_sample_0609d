@@ -67,7 +67,7 @@
 -belongs_to :user
 
 
-## addressテーブル
+## addressesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
