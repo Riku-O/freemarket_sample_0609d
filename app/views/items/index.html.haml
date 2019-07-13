@@ -1,16 +1,27 @@
 %main.main_container
-	%section.main_container_top
+	%section.main_container_banner
+		.main_container_banner_outer
 	%section.main_container_pick-up
 		%h2.main_container_pick-up_head
 			ピックアップカテゴリー
 		%section.main_container_pick-up_items-box-container.clearfix
+			%h3.main_container_pick-up_items-box-container.text-center
+				%a{:href => "#"} レディース新着アイテム
 		%section.main_container_pick-up_items-box-container.clearfix
+			%section.items-box
+				%a{:href => "#"}
+				%figure.items-box_photo
+					%img
+				.items-box_body
+					%h3.items-box_body_name アイテム説明
+					.items-box_body_num
+						.items-box_body_num_price アイテムプライス
 		%section.main_container_pick-up_items-box-container.clearfix
 	
 	%section.main_container_top
 	%section.main_container_pick-up
 		%h2.main_container_pick-up_head
-			ピックアップカテゴリー
+			ピックアップブランド
 		%section.main_container_pick-up_items-box-container.clearfix
 		%section.main_container_pick-up_items-box-container.clearfix
 		%section.main_container_pick-up_items-box-container.clearfix
