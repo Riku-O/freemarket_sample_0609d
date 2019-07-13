@@ -163,7 +163,7 @@
 |state|string|null: false|
 
 ### Association
-- has_many :images, dependent::destroy
+- has_many :item_images, dependent::destroy
 - has_many :likes, dependent::destroy
 - has_many :comments, dependent::destroy
 - has_one :review, dependent::destroy
@@ -172,7 +172,7 @@
 - belongs_to :brand
 
 
-## imagesテーブル
+## item_imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
