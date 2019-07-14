@@ -1,28 +1,33 @@
 %main.main_container
-	%section.main_container_banner
-		.main_container_banner_outer
+	%section.main_container-banner
+		.main_container-banner_base
+			.main_container_banner_base_image
+		
 	%section.main_container_pick-up
 		%h2.main_container_pick-up_head
 			ピックアップカテゴリー
-		-#	下記は別で切り出してrenderする。またアンパサンドを使用する
-		%section.main_container_pick-up_items-box-container.clearfix
+		-#	必須：下記は共通処理を別で切り出してrenderする。またアンパサンドを使用する
+		
+		%section.main_container_pick-up_items-box.clearfix
 			%h3.main_container_pick-up_items-box-container.text-center
 				%a{:href => "#"} レディース新着アイテム
+				
 			%section.main_container_pick-up_items-box-container.clearfix
 				%section.items-box
 					%a{:href => "#"}
 					%figure.items-box_photo
-						%img
+						%img_tag
 					.items-box_body
 						%h3.items-box_body_name MARY QUANT ポーチ
 						.items-box_body_num
 							.items-box_body_num_price ¥7,900
+							
 			%section.main_container_pick-up_items-box-container.clearfix
 				%section.main_container_pick-up_items-box-container.clearfix
 					%section.items-box
 						%a{:href => "#"}
 						%figure.items-box_photo
-							%img
+							%img_tag
 						.items-box_body
 							%h3.items-box_body_name タルボット トップス
 							.items-box_body_num
@@ -33,22 +38,37 @@
 					%section.items-box
 						%a{:href => "#"}
 						%figure.items-box_photo
-							%img
+							%img_tag
 						.items-box_body
 							%h3.items-box_body_name 女子はこういうの好きでしょ？
 							.items-box_num
 								.items-box_num_price ¥1,300000
-			%section.main_container_pick-up_items-box-container.clearfix
 								
-		%section.main_container_pick-up_items-box-container.clearfix
-
+			%section.main_container_pick-up_items-box-container.clearfix
+				%section.main_container_pick-up_items-box-container.clearfix
+					%section.items-box
+						%a{:href => "#"}
+						%figure.items-box_photo
+							%img_tag
+						.items-box_body
+							%h3.items-box_body_name 女子はこういうのも好きでしょ？
+							.items-box_num
+								.items-box_num_price ¥1,400000
+								
+		%section.main_container_pick-up_items-box.clearfix
+			%h3.main_container_pick-up_items-box-container.text-center
+				%a{:href => "#"} メンズ新着アイテム
+				
+		%section.main_container_pick-up_items-box.clearfix
+		%section.main_container_pick-up_items-box.clearfix
 		
 	%section.main_container_pick-up
 		%h2.main_container_pick-up_head
 			ピックアップブランド
-		%section.main_container_pick-up_items-box-container.clearfix
-		%section.main_container_pick-up_items-box-container.clearfix
-		%section.main_container_pick-up_items-box-container.clearfix
+		%section.main_container_pick-up_items-box.clearfix
+			%section.main_container_pick-up_items-box-container.clearfix
+			%section.main_container_pick-up_items-box-container.clearfix
+			%section.main_container_pick-up_items-box-container.clearfix
 
 %aside.app-banner
 	.app-banner_for_pc
