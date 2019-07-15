@@ -4,6 +4,14 @@
   &--banner {
     height: 390px;
     background-color: #B00100;
+    &__outer {
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    &inner {
+      height: 100%;
+    }
   }
 
   &__pick-up {
@@ -42,7 +50,7 @@
           height: 220px;
           position: relative;
           overflow: hidden;
-          image {
+          img {
             position: absolute;
             width: 100%;
           }
@@ -75,6 +83,62 @@
     }
   }
 
+  .app-banner {
+    //background-position: center;
+    //background-size: cover;
+    width: 100%;
+    height: 260px;
+    &__pc {
+      display: block;
+      overflow: hidden;
+      position: relative;
+      width: 750px;
+      height: 260px;
+      margin: 0 auto;
+      color: #fff;
+      &__inner {
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        h2 {
+          text-shadow: 0 0 5px rgba(0,0,0,0.4);
+          font-size: 24px;
+          margin: 0;
+          line-height: 1.4;
+        }
+        p {
+          text-shadow: 0 0 5px rgba(0,0,0,0.4);
+          font-size: 35px;
+          margin: 10px 0 0;
+        }
+      }
+      &__icon {
+        margin: 20px 0;
+        figure {
+          float: left;
+          img {
+            vertical-align: center;
+          }
+        }
+
+        ul {
+          float: left;
+          margin: 0 0 0 24px;
+          line-height: 68px;
+          list-style: none;
+          li {
+            float: left;
+          }
+        }
+      }
+    }
+    figure {
+      width: 262px;
+      height: 300px;
+    }
+  }
+
   .text-center {
     text-align: center;
   }
@@ -85,6 +149,10 @@
   }
 
   section {
+    display: block;
+  }
+
+  aside {
     display: block;
   }
 

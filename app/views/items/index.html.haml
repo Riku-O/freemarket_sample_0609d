@@ -1,7 +1,9 @@
+-#ヘッダーの読み込み
 %main.main-content
 	%section.main-content--banner
-		.main-content--banner__base
-			.main-content__banner__base__image
+		.main-content--banner__outer
+			.main-content--banner__inner
+		
 		
 	%section.main-content__pick-up
 		%h2.main-content__pick-up--top
@@ -16,35 +18,39 @@
 				%section.items-box
 					%a{:href => "#"}
 					%figure.items-box__photo
-						%image_tag
+						%img_tag
 					.items-box__body
 						%h3.items-box__body__name.font-2 MARY QUANT ポーチ
 						.items-box__body__num
 							.items-box__body__num--price.font-5 ¥7,900
+							%i.icon-like-border.font-2
 				%section.items-box
 					%a{:href => "#"}
 					%figure.items-box__photo
-						%image_tag
+						%img_tag
 					.items-box__body
 						%h3.items-box__body__name.font-2 タルボット トップス
 						.items-box__body__num
 							.items-box__body__num--price.font-5 ¥1,000000
+							%i.icon-like-border.font-2
 				%section.items-box
 					%a{:href => "#"}
 					%figure.items-box__photo
-						%image_tag
+						%img_tag
 					.items-box__body
 						%h3.items-box__body__name.font-2 女子はこういうの好きでしょ？
 						.items-box__body__num
 							.items-box__body__num--price.font-5 ¥1,300000
+							%i.icon-like-border.font-2
 				%section.items-box
 					%a{:href => "#"}
 					%figure.items-box__photo
-						%image_tag
+						%img_tag
 					.items-box__body
 						%h3.items-box__body__name.font-2 女子はこういうのも好きでしょ？
 						.items-box__body__num
 							.items-box__body__num--price.font-5 ¥1,400000
+							%i.icon-like-border.font-2
 							
 		%section.main-content__pick-up__items-box-container.clearfix
 			%h3.main-content__pick-up__items-box-container--top.text-center
@@ -54,19 +60,100 @@
 				%section.items-box
 					%a{:href => "#"}
 					%figure.items-box__photo
-						%image_tag
+						%img_tag
 					.items-box__body
-						%h3.items-box__name.font2 はいさい
-						.utems-box__body__num
+						%h3.items-box__body__name.font-2 はいさい
+						.items-box__body__num
 							.items-box__body__num--price.font-5 ¥1,000000
+							%i.icon-like-border.font-2
+				%section.items-box
+					%a{:href => "#"}
+					%figure.items-box__photo
+						%img_tag
+					.items-box__body
+						%h3.items-box__body__name.font-2 はいさい２
+						.items-box__body__num
+							.items-box__body__num--price.font-5 ¥2,000000
+							%i.icon-like-border.font-2
+				%section.items-box
+					%a{:href => "#"}
+					%figure.items-box__photo
+						%img_tag
+					.items-box__body
+						%h3.items-box__body__name.font-2 はいさい３
+						.items-box__body__num
+							.items-box__body__num--price.font-5 ¥3,000000
+							%i.icon-like-border.font-2
+				%section.items-box
+					%a{:href => "#"}
+					%figure.items-box__photo
+						%img_tag
+					.items-box__body
+						%h3.items-box__body__name.font-2 はいさい４
+						.items-box__body__num
+							.items-box__body__num--price.font-5 ¥4,000000
+							%i.icon-like-border.font-2
 			
-	%section.main-container__pick-up
-		%h2.main-container__pick-up__head
+	%section.main-content__pick-up
+		%h2.main-content__pick-up--top
 			ピックアップブランド
-		%section.main-container__pick-up__items-box.clearfix
-			%section.main-container__pick-up__items-box-container.clearfix
-			%section.main-container__pick-up__items-box-container.clearfix
-			%section.main-container__pick-up__items-box-container.clearfix
+		
+		%section.main-content__pick-up__items-box-container.clearfix
+			%h3.main-content__pick-up__items-box-container--top.text-center
+				%a{:href => "#"} シャネル新着アイテム
+			
+			%section.main-content__pick-up__items-box-content.clearfix
+				%section.items-box
+					%a{:href => "#"}
+					%figure.items-box__photo
+						%img_tag
+					.items-box__body
+						%h3.items-box__body__name.font-2 シャネルは高いね〜
+						.items-box__body__num
+							.items-box__body__num--price.font-5 ¥5,000000
+							%i.icon-like-border.font-2
+				%section.items-box
+					%a{:href => "#"}
+					%figure.items-box__photo
+						%img_tag
+					.items-box__body
+						%h3.items-box__body__name.font-2 シャネルの香水は高いね〜
+						.items-box__body__num
+							.items-box__body__num--price.font-5 ¥6,000000
+							%i.icon-like-border.font-2
+				%section.items-box
+					%a{:href => "#"}
+					%figure.items-box__photo
+						%img_tag
+					.items-box__body
+						%h3.items-box__body__name.font-2 シャネルはなんでも高いね〜
+						.items-box__body__num
+							.items-box__body__num--price.font-5 ¥7,000000
+							%i.icon-like-border.font-2
+				%section.items-box
+					%a{:href => "#"}
+					%figure.items-box__photo
+						%img_tag
+					.items-box__body
+						%h3.items-box__body__name.font-2 シャネル反対！！！！！
+						.items-box__body__num
+							.items-box__body__num--price.font-5 ¥8,000000
+							%i.icon-like-border.font-2
 
 %aside.app-banner
-	.app-banner_for_pc
+	.app-banner__pc
+		.app-banner__pc__inner
+			%h2 スマホで簡単
+			%p 今すぐダウンロード
+			.app-banner__pc__icon.clearfix
+				%figure
+					%img{:src => "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?2927923569"}
+				%ul.clearfix
+					%li
+						%a{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8"}
+							%img{:src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?2927923569"}
+					%li
+						%a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"}
+							%img{:src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?2927923569"}
+	%figure
+		%img{:src => "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?2927923569"}
