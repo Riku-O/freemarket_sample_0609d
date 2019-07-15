@@ -23,7 +23,8 @@
       }
     }
     &__items-box-content {
-      width: auto;
+      width: 940px;
+      height: 448px;
       margin: 0 auto;
       .items-box {
         background-color: #fff;
@@ -39,6 +40,36 @@
         }
         .items-box__photo {
           height: 220px;
+          position: relative;
+          overflow: hidden;
+          image {
+            position: absolute;
+            width: 100%;
+          }
+        }
+        .items-box__body {
+          padding: 16px;
+          height: 100px;
+          &__name {
+            overflow: hidden;
+            position: relative;
+            font-weight: 400;
+            height: 3em;
+            line-height: 1.5;
+            word-break: break-word;
+            white-space: normal;
+            margin: 0;
+            padding: 0;
+          }
+          &__num {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0 0;
+            &--price {
+              font-size: 17px;
+            }
+          }
         }
       }
     }
@@ -55,6 +86,16 @@
 
   section {
     display: block;
+  }
+
+  .font-2 {
+    font-size: 16px;
+    color: #333;
+  }
+
+  .font-5 {
+    font-weight: 600;
+    color: #333;
   }
 }
 
