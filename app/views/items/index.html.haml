@@ -1,74 +1,67 @@
-%main.main_container
-	%section.main_container-banner
-		.main_container-banner_base
-			.main_container_banner_base_image
+%main.main-content
+	%section.main-content--banner
+		.main-content--banner__base
+			.main-content__banner__base__image
 		
-	%section.main_container_pick-up
-		%h2.main_container_pick-up_head
+	%section.main-content__pick-up
+		%h2.main-content__pick-up--top
 			ピックアップカテゴリー
 		-#	必須：下記は共通処理を別で切り出してrenderする。またアンパサンドを使用する
 		
-		%section.main_container_pick-up_items-box.clearfix
-			%h3.main_container_pick-up_items-box-container.text-center
+		%section.main-content__pick-up__items-box-container.clearfix
+			%h3.main-content__pick-up__items-box-container--top.text-center
 				%a{:href => "#"} レディース新着アイテム
 				
-			%section.main_container_pick-up_items-box-container.clearfix
+			%section.main-content__pick-up__items-box-content.clearfix
 				%section.items-box
 					%a{:href => "#"}
-					%figure.items-box_photo
+					%figure.items-box__photo
+						%img_tag
+					.items-box__body
+						%h3.items-box__body__name MARY QUANT ポーチ
+						.items-box__body__num
+							.items-box__body__num__price ¥7,900
+				%section.items-box
+					%a{:href => "#"}
+					%figure.items-box__photo
+						%img_tag
+					.items-box__body
+						%h3.items-box__body__name タルボット トップス
+						.items-box__body__num
+							.items-box__body__num__price ¥1,000000
+				%section.items-box
+					%a{:href => "#"}
+					%figure.items-box__photo
 						%img_tag
 					.items-box_body
-						%h3.items-box_body_name MARY QUANT ポーチ
-						.items-box_body_num
-							.items-box_body_num_price ¥7,900
-							
-			%section.main_container_pick-up_items-box-container.clearfix
-				%section.main_container_pick-up_items-box-container.clearfix
-					%section.items-box
-						%a{:href => "#"}
-						%figure.items-box_photo
-							%img_tag
-						.items-box_body
-							%h3.items-box_body_name タルボット トップス
-							.items-box_body_num
-								.items-box_body_num_price ¥1,000000
-			
-			%section.main_container_pick-up_items-box-container.clearfix
-				%section.main_container_pick-up_items-box-container.clearfix
-					%section.items-box
-						%a{:href => "#"}
-						%figure.items-box_photo
-							%img_tag
-						.items-box_body
-							%h3.items-box_body_name 女子はこういうの好きでしょ？
-							.items-box_num
-								.items-box_num_price ¥1,300000
+						%h3.items-box__body__name 女子はこういうの好きでしょ？
+						.items-box__num
+							.items-box__num__price ¥1,300000
+				%section.items-box
+					%a{:href => "#"}
+					%figure.items-box__photo
+						%img_tag
+					.items-box_body
+						%h3.items-box__body__name 女子はこういうのも好きでしょ？
+						.items-box__num
+							.items-box__num__price ¥1,400000
 								
-			%section.main_container_pick-up_items-box-container.clearfix
-				%section.main_container_pick-up_items-box-container.clearfix
-					%section.items-box
-						%a{:href => "#"}
-						%figure.items-box_photo
-							%img_tag
-						.items-box_body
-							%h3.items-box_body_name 女子はこういうのも好きでしょ？
-							.items-box_num
-								.items-box_num_price ¥1,400000
-								
-		%section.main_container_pick-up_items-box.clearfix
-			%h3.main_container_pick-up_items-box-container.text-center
+		%section.main-content__pick-up__items-box-container.clearfix
+			%h3.main-content__pick-up__items-box-container--top.text-center
 				%a{:href => "#"} メンズ新着アイテム
+			
 				
-		%section.main_container_pick-up_items-box.clearfix
-		%section.main_container_pick-up_items-box.clearfix
+				
+		%section.main-container__pick-up__items-box.clearfix
+		%section.main-container__pick-up__items-box.clearfix
 		
-	%section.main_container_pick-up
-		%h2.main_container_pick-up_head
+	%section.main-container__pick-up
+		%h2.main-container__pick-up__head
 			ピックアップブランド
-		%section.main_container_pick-up_items-box.clearfix
-			%section.main_container_pick-up_items-box-container.clearfix
-			%section.main_container_pick-up_items-box-container.clearfix
-			%section.main_container_pick-up_items-box-container.clearfix
+		%section.main-container__pick-up__items-box.clearfix
+			%section.main-container__pick-up__items-box-container.clearfix
+			%section.main-container__pick-up__items-box-container.clearfix
+			%section.main-container__pick-up__items-box-container.clearfix
 
 %aside.app-banner
 	.app-banner_for_pc
