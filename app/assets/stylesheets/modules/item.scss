@@ -82,46 +82,50 @@
       }
     }
   }
+  .text-center {
+    text-align: center;
+  }
+}
 
-  .app-banner {
-    //background-position: center;
-    //background-size: cover;
-    width: 100%;
+.app-banner {
+  background: url(https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?72295318);
+  background-position: center;
+  background-size: cover;
+  &__pc {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 750px;
     height: 260px;
-    &__pc {
-      display: block;
-      overflow: hidden;
-      position: relative;
-      width: 750px;
-      height: 260px;
-      margin: 0 auto;
-      color: #fff;
-      &__inner {
-        left: 0;
-        position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
-        h2 {
-          text-shadow: 0 0 5px rgba(0,0,0,0.4);
-          font-size: 24px;
-          margin: 0;
-          line-height: 1.4;
-        }
-        p {
-          text-shadow: 0 0 5px rgba(0,0,0,0.4);
-          font-size: 35px;
-          margin: 10px 0 0;
-        }
+    margin: 0 auto;
+    color: #fff;
+    &__inner {
+      left: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      h2 {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 24px;
+        margin: 0;
+        line-height: 1.4;
+      }
+      p {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 35px;
+        margin: 10px 0 0;
       }
       &__icon {
-        margin: 20px 0;
+        margin: 20px 0 0;
         figure {
           float: left;
+          height: 68px;
+          width: 68px;
           img {
-            vertical-align: center;
+            height: 68px;
+            width: 68px;
           }
         }
-
         ul {
           float: left;
           margin: 0 0 0 24px;
@@ -129,41 +133,55 @@
           list-style: none;
           li {
             float: left;
+            margin: 0 0 16px;
+            a {
+              display: block;
+              line-height: 68px;
+              img {
+                vertical-align: middle;
+              }
+            }
           }
         }
       }
     }
-    figure {
-      width: 262px;
-      height: 300px;
+  }
+  .app-banner__pc > figure {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    height: 100%;
+    img {
+      width: 100%;
     }
-  }
-
-  .text-center {
-    text-align: center;
-  }
-
-  a {
-    color: #0099e8;
-    text-decoration: none;
-  }
-
-  section {
-    display: block;
-  }
-
-  aside {
-    display: block;
-  }
-
-  .font-2 {
-    font-size: 16px;
-    color: #333;
-  }
-
-  .font-5 {
-    font-weight: 600;
-    color: #333;
   }
 }
 
+a {
+  color: #0099e8;
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+section {
+  display: block;
+}
+
+aside {
+  display: block;
+}
+
+.font-2 {
+  font-size: 16px;
+  color: #333;
+}
+
+.font-5 {
+  font-weight: 600;
+  color: #333;
+}
