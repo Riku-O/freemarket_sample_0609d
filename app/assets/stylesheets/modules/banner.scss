@@ -14,6 +14,45 @@
         float: left;
         -webkit-tap-highlight-color: transparent;
         user-select: none;
+        &__top--main--visual {
+          height: 390px;
+          display: block;
+          &__top--main--visual > div {
+            position: relative;
+            height: 100%;
+            margin: 0 auto;
+            .top--main--visual--content {
+              position: absolute;
+              top: 50%;
+              left: 0;
+              transform: translate(0, -50%);
+              h2 {
+                font-size: 60px;
+                line-height: 1.2;
+              }
+              p {
+                
+              }
+            }
+            img {
+              position: absolute;
+              top: 0;
+              right: 0;
+              height: 100%;
+              width: auto;
+              vertical-align: bottom;
+            }
+          }
+        }
+        .top--banner {
+          display: block;
+          background-position: center;
+          background-size: auto;
+        }
+        .banner--camp {
+          background: url(https://www.mercari.com/jp/assets/img/common/jp/top/banner-camp.jpg);
+          background-repeat: repeat-x;
+        }
       }
     }
   }
