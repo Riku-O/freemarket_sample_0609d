@@ -1,0 +1,20 @@
+.main-content--banner {
+  height: 390px;
+  overflow: hidden;
+  position: relative;
+  &__outer {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    .main-content--banner__inner {
+      height: 100%;
+      position: relative;
+      &__feature--item {
+        min-height: 1px;
+        float: left;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+      }
+    }
+  }
+}

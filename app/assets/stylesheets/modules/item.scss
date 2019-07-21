@@ -2,18 +2,6 @@
   background-color: white;
   height: 100%;
   margin-bottom: 0;
-  &--banner {
-    height: 390px;
-    background-color: #B00100;
-    &__outer {
-      height: 100%;
-      position: relative;
-      overflow: hidden;
-    }
-    &inner {
-      height: 100%;
-    }
-  }
 
   &__pick-up {
     height: 100%;
