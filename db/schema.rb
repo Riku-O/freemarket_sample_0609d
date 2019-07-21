@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_21_094610) do
+ActiveRecord::Schema.define(version: 2019_07_21_094900) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "path", null: false
@@ -42,6 +42,21 @@ ActiveRecord::Schema.define(version: 2019_07_21_094610) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_informations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.date "birth_year", null: false
+    t.date "birth_month", null: false
+    t.date "birth_date", null: false
+    t.string "phone_number"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_informations_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -56,4 +71,5 @@ ActiveRecord::Schema.define(version: 2019_07_21_094610) do
   end
 
   add_foreign_key "item_images", "items"
+  add_foreign_key "user_informations", "users"
 end
