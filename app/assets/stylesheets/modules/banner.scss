@@ -11,27 +11,59 @@
       position: relative;
       &__feature--item {
         min-height: 1px;
-        float: left;
-        -webkit-tap-highlight-color: transparent;
+        position: relative;
         user-select: none;
-        &__top--main--visual {
+        width: 100%;
+        -webkit-tap-highlight-color: transparent;
+        &__top-main-visual {
           height: 390px;
           display: block;
-          &__top--main--visual > div {
-            position: relative;
+          background: url(https://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg);
+          background-size: cover;
+          div {
             height: 100%;
             margin: 0 auto;
-            .top--main--visual--content {
+            max-width: 860px;
+            position: relative;
+            .top-main-visual__content {
               position: absolute;
               top: 50%;
               left: 0;
               transform: translate(0, -50%);
               h2 {
+                margin-bottom: 0;
+                padding: 0;
                 font-size: 60px;
                 line-height: 1.2;
               }
               p {
-                
+                font-size: 18px;
+                margin: 16px 0 0;
+                line-height: 1.77778;
+              }
+              &__store {
+                margin: 24px 0 0 0;
+                line-height: 0;
+                height: 50px;
+                width: 480px;
+                a {
+                  width: 170px;
+                  height: 50px;
+                  display: inline-block;
+                  img#app {
+                    position: absolute;
+                    left: 0;
+                    width: 170px;
+                    vertical-align: bottom;
+                    margin-right: 20px;
+                  }
+                  img#google{
+                    position: absolute;
+                    right: 130px;
+                    width: 170px;
+                    vertical-align: bottom;
+                  }
+                }
               }
             }
             img {
@@ -44,16 +76,10 @@
             }
           }
         }
-        .top--banner {
-          display: block;
-          background-position: center;
-          background-size: auto;
-        }
-        .banner--camp {
-          background: url(https://www.mercari.com/jp/assets/img/common/jp/top/banner-camp.jpg);
-          background-repeat: repeat-x;
-        }
       }
     }
+  }
+  a {
+    text-decoration: none;
   }
 }
