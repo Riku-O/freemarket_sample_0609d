@@ -34,7 +34,7 @@
 |birth_year|date|null :false|
 |birth_month|date|null :false|
 |birth_date|date|null :false|
-|phone_number|integer|null :false, add_index :users,phone_number, unique: true|
+|phone_number|integer|null :false, unique: true|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
@@ -178,7 +178,7 @@
 |shipping_date|string|null: false|
 |price|integer|null: false|
 |description|text|null: false|
-|state|string|null: false|
+|status|integer|null: false|
 
 ### Association
 - has_many :item_images, dependent::destroy
