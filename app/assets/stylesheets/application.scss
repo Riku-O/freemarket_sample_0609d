@@ -1,6 +1,6 @@
-@import "./reset";
-@import "mixin";
-@import "variable";
+@import "variable/reset";
+@import "variable/mixin";
+@import "variable/variable";
 @import "modules/user-registration";
 @import "modules/item";
 @import "modules/banner";
