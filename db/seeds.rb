@@ -39,7 +39,6 @@ t = 1
   )
 end
 
-u = 1
 10.times do |n|
   image = Faker::Avatar.image
   item_id = t
@@ -47,10 +46,9 @@ u = 1
              image: image,
              item_id: item_id
   )
-  u += 1
+  t += 1
 end
 
-v = 1
 10.times do |n|
   phone_number = Faker::PhoneNumber.phone_number
   user_id = t
@@ -65,5 +63,5 @@ v = 1
                    phone_number: phone_number,
                    user_id: user_id
   )
-  v += 1
+  t += 1
 end
