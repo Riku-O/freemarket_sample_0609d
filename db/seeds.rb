@@ -41,7 +41,7 @@ end
 
 10.times do |n|
   image = Faker::Avatar.image
-  item_id = t
+  item_id = u
   ItemImage.create!(
              image: image,
              item_id: item_id
@@ -51,7 +51,7 @@ end
 
 10.times do |n|
   phone_number = Faker::PhoneNumber.phone_number
-  user_id = t
+  user_id = v
   UserInformation.create!(
                    last_name: 'テック',
                    first_name: '太郎',
