@@ -13,10 +13,14 @@
           .single-body__inner__registration-form__items__btn-default.single-body__inner__registration-form__items__btn-google Googleで登録する
   %footer.single-foot
     %nav
-      %ul
-        %li プライバシーポリシー
-        %li メルカリ利用規約
-        %li 特定商取引に関する表記
-    .single-foot__logo
+      %ul.clearfix
+        %li
+          = link_to "プライバシーポリシー", "https://www.mercari.com/jp/"
+        %li
+          = link_to "メルカリ利用規約", "https://www.mercari.com/jp/"
+        %li
+          = link_to "特定商取引に関する表記", "https://www.mercari.com/jp/"
+    = link_to "https://www.mercari.com/jp/", class: "single-foot__logo" do
       = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2927923569", alt: "メルカリ"
-    %p © 2019 Mercari
+    %p 
+      %small © 2019 Mercari
