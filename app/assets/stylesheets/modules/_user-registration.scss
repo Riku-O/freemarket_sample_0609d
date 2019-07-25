@@ -52,7 +52,6 @@
           margin: 0 auto;
 
           &__btn-default {
-            border-radius: 4px;
             display: block;
             width: 100%;
             line-height: 48px;
@@ -61,36 +60,85 @@
             cursor: pointer;
             text-align: center;
             transition: all ease-out .3s;
-            box-sizing: border-box;
-          }
 
-          &__btn-mail {
-            background-color: #ea352d;
-            color: #fff;
-            position: relative;
-
-            .icon {
+            &__btn-mail {
+              background-color: #ea352d;
               color: #fff;
-              position: absolute;
-              top: 50%;
-              left: 16px;
-              font-size: 16px;
-              transform: translate(0, -50%);
+              position: relative;
+              box-sizing: border-box;
+              border-radius: 4px;
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              border: 1px solid transparent;
+              cursor: pointer;
+              text-align: center;
+              transition: all ease-out .3s;
+
+              .icon {
+                color: #fff;
+                position: absolute;
+                top: 50%;
+                left: 16px;
+                font-size: 20px;
+                transform: translate(0, -50%);
+              }
+            }
+
+            &__btn-facebook {
+              margin: 16px 0 0;
+              box-sizing: border-box;
+              background: #385185;
+              color: #fff;
+              border-radius: 4px;
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              position: relative;
+              border: 1px solid transparent;
+              cursor: pointer;
+              text-align: center;
+              transition: all ease-out .3s;
+
+              .icon {
+                color: #fff;
+                position: absolute;
+                top: 50%;
+                left: 16px;
+                font-size: 31px;
+                transform: translate(0, -50%);
+              }
+            }
+
+            &__btn-google {
+              margin: 16px 0 0;
+              background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
+              border: #979797 solid 1px;
+              color: #333;
+              position: relative;
+              border-radius: 4px;
+              box-sizing: border-box;
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              cursor: pointer;
+              text-align: center;
+              transition: all ease-out .3s;
+
+              .icon {
+                position: absolute;
+                top: 50%;
+                left: 16px;
+                font-size: 22px;
+                transform: translate(0, -50%);
+              }
             }
           }
 
-          &__btn-facebook {
-            margin: 16px 0 0;
-            background: #385185;
-            color: #fff;
-          }
 
-          &__btn-google {
-            margin: 16px 0 0;
-            background: #fff url(/jp/assets/img/common/common/google.svg) no-repeat 3px top;
-            border: #979797 solid 1px;
-            color: #333;
-          }
         }
       }
     }
