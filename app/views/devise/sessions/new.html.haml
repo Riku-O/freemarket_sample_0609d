@@ -1,17 +1,31 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.single-wrapper
+  = render "devise/shared/header_one"
+  %main.single-primary
+    .single-primary__inner
+      .single-primary__inner__not_user
+        %p アカウントをお持ちでない方はこちら
+        = link_to "https://www.mercari.com/jp/signup/?after_save_callback=https%3A%2F%2Fwww.mercari.com%2Fjp%2F"
+        新規会員登録
+      .single-primary__inner__form
+        %button
+          -# = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-facebook"  do
+          -#   = fa_icon 'facebook-square', class: 'icon'
+               Facebookでログイン
+        %button
+          -# = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-google "  do
+          -#     = fa_icon 'google', class: 'icon'
+          -#     Googleでログイン
+      %form{action: "https://www.mercari.com/jp/login/", method: "post", novalidate: "novalidate"}
+        .single-primary__inner__form
+          .single-primary__inner__form__group
+          .single-primary__inner__form__group
+          .single-primary__inner__form__group
+          %button{type: "submit", class: "login-submit btn-default btn-red"}ログイン
+          %input{type: "hidden", name: "login_callback", value: "https://www.mercari.com/jp/"}
+          %input{type: "hidden", name: "__csrf_value", value: "137c6b4425c6a948ce2b7ab1b983e50cf16ec2d84ac7220c1b35fc3b04aca6410e1e7fe01362b4738ddffd109f1e1946e130de57c6cb4b3c86522d201cfbe13d2"}
+          = link_to "https://www.mercari.com/jp/password/reset/start/"
+          パスワードをお忘れの方
+
+
+
+  = render "devise/shared/footer"
