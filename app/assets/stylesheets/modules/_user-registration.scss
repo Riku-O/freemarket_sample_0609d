@@ -1,6 +1,7 @@
 .single-wrapper {
   padding: 0 0 220px;
   box-sizing: border-box;
+  position: relative;
 
   .single-head {
     height: 128px;
@@ -27,6 +28,7 @@
 
   .single-body {
     display: block;
+    height: 398px;
 
     &__inner {
       width: 700px;
