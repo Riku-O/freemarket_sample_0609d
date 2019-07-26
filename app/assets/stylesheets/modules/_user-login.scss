@@ -1,0 +1,57 @@
+.single-primary {
+  display: block;
+
+  &__inner {
+    max-width: none;
+    width: 456px;
+    margin: 0 auto;
+    background: #fff;
+
+    &__not_user {
+      padding: 40px 64px;
+      text-align: center;
+
+      // box-sizing: border-box;
+      a {
+        display: block;
+        margin: 8px 0 0;
+        border: 1px solid #0099e8;
+        background-color: #0099e8;
+        color: #fff;
+        line-height: 40px;
+        text-decoration: none;
+      }
+    }
+
+    &__form {
+      padding: 32px 64px;
+      border-top: 1px solid #eee;
+
+      &__btn-facebook {
+        &:first-child {
+          margin: 0;
+          background: #385185;
+          color: #fff;
+          position: relative;
+          display: block;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          border: 1px solid transparent;
+          transition: all ease-out .3s;
+          cursor: pointer;
+          text-align: center;
+
+          .icon {
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            font-size: 31px;
+            transform: translate(0, -50%);
+          }
+        }
+      }
+    }
+  }
+}
