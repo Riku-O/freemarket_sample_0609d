@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-
   has_many :item_images, dependent: :destroy
   # has_many :likes, dependent: :destroy
   # has_many :comments, dependent: :destroy
@@ -7,7 +6,6 @@ class Item < ApplicationRecord
   belongs_to :user, dependent: :destroy
   belongs_to :category
   # belongs_to :brand
-
   def self.fetch_items
     @items = Item.new
     Item.includes(:item_images).last(4)
