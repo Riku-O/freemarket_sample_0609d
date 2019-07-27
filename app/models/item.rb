@@ -10,6 +10,6 @@ class Item < ApplicationRecord
 
   def self.fetch_items
     @items = Item.new
-    Item.limit(4)
+    Item.includes(:item_images).last(4)
   end
 end
