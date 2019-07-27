@@ -1,4 +1,5 @@
 require 'faker'
+require 'csv'
 
 11.times do |n|
   nickname = Faker::Ancient.god
@@ -11,10 +12,20 @@ require 'faker'
   )
 end
 
-Category.create!(
-          path: 1,
-          item: '技術書'
-)
+  lady = Category.create(:name => 'レディース')
+    lady_tops = lady.children.create(:name => 'トップス')
+    lady_jacket = lady.children.create(:name => 'ジャケット/アウター')
+    lady_pants = lady.children.create(:name => 'パンツ')
+    lady_skirt = lady.children.create(:name => 'スカート')
+
+  men = Category.create(:name => 'メンズ')
+    men_tops = men.children.create(:name => 'トップス')
+    men_jacket = men.children.create(:name => 'ジャケット/アウター')
+  baby_kid = Category.create(:name => 'ベビー・キッズ')
+  living = Category.create(:name => 'インテリア・住まい・小物')
+  book_music_game = Category.create(:name => '本・音楽・ゲーム')
+  hobby = Category.create(:name => 'おもちゃ・ホビー・グッズ')
+  cosmetics = Category.create(:name => 'コスメ・香水・美容')
 
 t = 1
 10.times do |n|
@@ -39,6 +50,7 @@ t = 1
   )
 end
 
+u = 1
 10.times do |n|
   image = Faker::Avatar.image
   item_id = u
@@ -46,9 +58,10 @@ end
              image: image,
              item_id: item_id
   )
-  t += 1
+  u += 1
 end
 
+v = 1
 10.times do |n|
   phone_number = Faker::PhoneNumber.phone_number
   user_id = v
@@ -63,5 +76,5 @@ end
                    phone_number: phone_number,
                    user_id: user_id
   )
-  t += 1
+  v += 1
 end
