@@ -10,43 +10,19 @@
 			%h3.main-content__pick-up__items-box-container--top.text-center
 				%a{:href => "#"} レディース新着アイテム
 			%section.main-content__pick-up__items-box-content.clearfix
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 MARY QUANT ポーチ
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥7,900
-							%i.icon-like-border.font-2
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 タルボット トップス
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥1,000000
-							%i.icon-like-border.font-2
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 女子はこういうの好きでしょ？
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥1,300000
-							%i.icon-like-border.font-2
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 女子はこういうのも好きでしょ？
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥1,400000
-							%i.icon-like-border.font-2
-							
+				- @items.each do |item|
+					%section.items-box
+						%a{:href => "#"}
+						%figure.items-box__photo
+							%image_tag
+						.items-box__body
+							%h3.items-box__body__name.font-2
+								= item.name
+							.items-box__body__num
+								.items-box__body__num--price.font-5
+									= number_to_currency item.price, :unit => "¥", :precision => 0
+								%i.icon-like-border.font-2
+								
 		%section.main-content__pick-up__items-box-container.clearfix
 			%h3.main-content__pick-up__items-box-container--top.text-center
 				%a{:href => "#"} メンズ新着アイテム
