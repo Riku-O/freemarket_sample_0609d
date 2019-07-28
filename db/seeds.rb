@@ -48,8 +48,6 @@ t = 1
   size = t
   source_are = Faker::Address.city
   description = Faker::Quote.famous_last_words
-  user_id = t
-  t += 1
   Item.create!(
         name: name,
         size: size,
@@ -60,18 +58,18 @@ t = 1
         shipping_date: '１週間',
         price: 4000,
         description: description,
-        user_id: user_id,
+        user_id: t,
         category_id: rand(34)
   )
+  t += 1
 end
 
 u = 1
 10.times do |n|
   image = Faker::Avatar.image
-  item_id = u
   ItemImage.create!(
              image: image,
-             item_id: item_id
+             item_id: u
   )
   u += 1
 end
@@ -79,7 +77,6 @@ end
 v = 1
 10.times do |n|
   phone_number = Faker::PhoneNumber.phone_number
-  user_id = v
   UserInformation.create!(
                    last_name: 'テック',
                    first_name: '太郎',
@@ -89,7 +86,7 @@ v = 1
                    birth_month: 06,
                    birth_date: 27,
                    phone_number: phone_number,
-                   user_id: user_id
+                   user_id: v
   )
   v += 1
 end
