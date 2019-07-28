@@ -12,21 +12,21 @@
         %button.single-primary__inner__form__btn-google
           = fa_icon 'google', class: 'icon'
           Googleでログイン
-        %ul.single-primary__inner__form__error
-          %li Facebookでの登録情報はありません。他の方法でログインをお試しください。
+        -# %ul.single-primary__inner__form__error
+        -#   %li Facebookでの登録情報はありません。他の方法でログインをお試しください。
       %form{action: "https://www.mercari.com/jp/login/", method: "post", novalidate: "novalidate"}
-        .single-primary__inner__form
-          .single-primary__inner__form__group
-            %input{type: "email", name: "email", value: "", placeholder: "メールアドレス", class: "login-input-text input-default"}
-          .single-primary__inner__form__group
-            %input{type: "password", name: "password", placeholder: "パスワード", class: "login-input-text input-default"}
-          .single-primary__inner__form__group
-          %button{type: "submit", class: "login-submit btn-default btn-red"}ログイン
+        .single-primary__inner__form__groups
+          .single-primary__inner__form__groups__group
+            %input{type: "email", name: "email", value: "", placeholder: "メールアドレス", class: "single-primary__inner__form__groups__group__input"}
+          .single-primary__inner__form__groups__group
+            %input{type: "password", name: "password", placeholder: "パスワード", class: "single-primary__inner__form__groups__group__input"}
+          .single-primary__inner__form__groups__group
+          %button{type: "submit", class: "single-primary__inner__form__groups__login"}ログイン
           %input{type: "hidden", name: "login_callback", value: "https://www.mercari.com/jp/"}
             %input{type: "hidden", name: "login_callback",  value: "https://www.mercari.com/jp/"}
           %input{type: "hidden", name: "__csrf_value", value: "137c6b4425c6a948ce2b7ab1b983e50cf16ec2d84ac7220c1b35fc3b04aca6410e1e7fe01362b4738ddffd109f1e1946e130de57c6cb4b3c86522d201cfbe13d2"}
-          = link_to "https://www.mercari.com/jp/password/reset/start/"
-          パスワードをお忘れの方
+          = link_to "パスワードをお忘れの方", "https://www.mercari.com/jp/password/reset/start/"
+      
 
 
 
