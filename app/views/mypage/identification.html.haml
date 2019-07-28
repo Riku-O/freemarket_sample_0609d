@@ -1,0 +1,103 @@
+= render "partial/header"
+
+.mypage
+  .mypage__title 本人情報の登録
+  %form.mypage-form
+    %p.mypage-form__message
+      お客さまの本人情報をご登録ください。<br>
+      登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+
+    %a.mypage-form__link{ href: '#' }
+      本人確認書類のアップロードについて
+      =fa_icon "chevron-right"
+
+    .mypage-form__group
+      %label.mypage-form__label お名前
+      %p.mypage-form__value 山田 太郎
+
+    .mypage-form__group
+      %label.mypage-form__label お名前カナ
+      %p.mypage-form__value ヤマダ タロウ
+
+    .mypage-form__group
+      %label.mypage-form__label 生年月日
+      %div 1900/00/00
+
+    .mypage-form__group
+      %label.mypage-form__label 郵便番号
+      %span.mypage-form__arbitrary 任意
+      %input.mypage-form__text
+
+    .mypage-form__group
+      %label.mypage-form__label 都道府県
+      %span.mypage-form__arbitrary 任意
+      %select.mypage-form__select
+        %option 北海道
+        %option 青森県
+        %option 岩手県
+        %option 宮城県
+        %option 秋田県
+        %option 山形県
+        %option 福島県
+        %option 東京都
+        %option 神奈川県
+        %option 埼玉県
+        %option 千葉県
+        %option 茨城県
+        %option 栃木県
+        %option 群馬県
+        %option 山梨県
+        %option 新潟県
+        %option 長野県
+        %option 富山県
+        %option 石川県
+        %option 福井県
+        %option 愛知県
+        %option 岐阜県
+        %option 静岡県
+        %option 三重県
+        %option 大阪府
+        %option 兵庫県
+        %option 京都府
+        %option 滋賀県
+        %option 奈良県
+        %option 和歌山県
+        %option 鳥取県
+        %option 島根県
+        %option 岡山県
+        %option 広島県
+        %option 山口県
+        %option 徳島県
+        %option 香川県
+        %option 愛媛県
+        %option 高知県
+        %option 福岡県
+        %option 佐賀県
+        %option 長崎県
+        %option 熊本県
+        %option 大分県
+        %option 宮崎県
+        %option 鹿児島県
+        %option 沖縄県
+
+    .mypage-form__group
+      %label.mypage-form__label 市区町村
+      %span.mypage-form__arbitrary 任意
+      %input.mypage-form__text
+
+    .mypage-form__group
+      %label.mypage-form__label 番地
+      %span.mypage-form__arbitrary 任意
+      %input.mypage-form__text
+
+    .mypage-form__group
+      %label.mypage-form__label 建物名
+      %span.mypage-form__arbitrary 任意
+      %input.mypage-form__text
+
+    %button.mypage-form__submit 登録する
+
+    .mypage-form__group
+      %a.mypage-form__link{ href: '#' }
+        本人情報の登録について
+        =fa_icon "chevron-right"
