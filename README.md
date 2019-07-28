@@ -205,7 +205,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|path|string|null: false|
+|ancestry|string|null: true|
 |item|string|null: false|
 
 ### Association
