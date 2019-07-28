@@ -59,7 +59,7 @@ t = 1
         price: 4000,
         description: description,
         user_id: t,
-        category_id: rand(34)
+        category_id: rand(33) + 1
   )
   t += 1
 end
