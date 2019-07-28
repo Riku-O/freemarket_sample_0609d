@@ -1,0 +1,115 @@
+.footer {
+  padding: 10px 20px 10px 20px;
+  background: #212121;
+  color: #fff;
+  &__content {
+    width: 1020px;
+    margin: 0 auto;
+    overflow: auto;
+    &__cell:first-child {
+      padding: 0 20px 0 0;
+      width: 17%;
+    }
+    &__cell {
+      float: left;
+      display: block;
+      margin-top: 18px;
+      width: 20%;
+      padding: 0 30px 0 0;
+      vertical-align: top;
+      &__head {
+        color: #fff;
+        font-size: 16px;
+        font-weight: 100;
+        h2 {
+          line-height: 1.4;
+        }
+      }
+      &--social-link {
+        display: inline-block;
+        a {
+          opacity: 1;
+          i {
+            background: transparent;
+            margin: 16px 18px 0 0;
+            .icon-twitter {
+              font-size: 24px;
+              color: #fff;
+            }
+            .icon-facebook {
+              font-size: 24px;
+            }
+          }
+        }
+      }
+      &__inner:first-of-type{
+        padding: 0 15px 0 0;
+      }
+      &__inner {
+        float: left;
+        padding-left: 5px;
+        vertical-align: top;
+        width: 47%;
+      }
+      ul {
+        padding-left: 0;
+        list-style-type: none;
+        li:first-child {
+          margin: 18px 0 0;
+        }
+        li {
+          margin: 14px 0 0;
+          color: #fff;
+        }
+      }
+      a {
+        display: block;
+        opacity: .7;
+      }
+    }
+    .footer__policy {
+      margin-top: 18px;
+      padding: 0 25px 0 0;
+      width: 42%;
+    }
+    .footer__lang {
+      width: auto;
+      margin-top: 18px;
+      padding-right: 0;
+    }
+  }
+
+  &__bottom {
+    margin: 30px auto 20px;
+    width: 1020px;
+    &__logo {
+      display: inline-block;
+      margin-right: 10px;
+      width: auto;
+    }
+    &__copyright {
+      width: 745px;
+      display: inline-block;
+      margin: 8px 0 0;
+      text-align: center;
+      vertical-align: sub;
+      small {
+        font-size: 12px;
+      }
+    }
+  }
+
+  a {
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+
+  img {
+    vertical-align: middle;
+  }
+  
+  nav {
+    display: block;
+  }
+}

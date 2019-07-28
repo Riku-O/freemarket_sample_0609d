@@ -1,0 +1,218 @@
+.main-content {
+  background-color: white;
+  height: 100%;
+  margin-bottom: 0;
+
+  &__pick-up {
+    height: 100%;
+    background-color: #f5f5f5;
+    padding: 40px 0;
+    &--top {
+      font-size: 28px;
+      text-align: center;
+    }
+    &__items-box-container {
+      margin: 0 auto;
+      width: 940px;
+      &--top {
+        font-size: 22px;
+        margin: 26px 11px;
+      }
+    }
+    &__items-box-content {
+      width: 940px;
+      height: 448px;
+      margin: 0 auto;
+      .items-box {
+        background-color: #fff;
+        margin: 0 0 0 20px;
+        width: 213px;
+        position: relative;
+        float: left;
+        a {
+          text-decoration: none;
+        }
+        figure {
+          width: 213px;
+        }
+        .items-box__photo {
+          height: 220px;
+          position: relative;
+          overflow: hidden;
+          img {
+            position: absolute;
+            width: 100%;
+          }
+        }
+        .items-box__body {
+          padding: 16px;
+          height: 100px;
+          &__name {
+            overflow: hidden;
+            position: relative;
+            font-weight: 400;
+            height: 3em;
+            line-height: 1.5;
+            word-break: break-word;
+            white-space: normal;
+            margin: 0;
+            padding: 0;
+          }
+          &__num {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0 0;
+            &--price {
+              font-size: 17px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .text-center {
+    text-align: center;
+  }
+}
+
+.app-banner {
+  background: url(https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?72295318);
+  background-position: center;
+  background-size: cover;
+  &__pc {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 750px;
+    height: 260px;
+    margin: 0 auto;
+    color: #fff;
+    &__inner {
+      left: 0;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      h2 {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 24px;
+        margin: 0;
+        line-height: 1.4;
+      }
+      p {
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 35px;
+        margin: 10px 0 0;
+      }
+      &__icon {
+        margin: 20px 0 0;
+        figure {
+          float: left;
+          height: 68px;
+          width: 68px;
+          img {
+            height: 68px;
+            width: 68px;
+          }
+        }
+        ul {
+          float: left;
+          margin: 0 0 0 24px;
+          padding: 0;
+          line-height: 68px;
+          list-style: none;
+          li {
+            display: list-item;
+            float: left;
+            a {
+              display: block;
+              line-height: 68px;
+              img {
+                vertical-align: middle;
+              }
+            }
+          }
+          li:last-child {
+            margin: 0 0 0 16px;
+          }
+        }
+      }
+    }
+  }
+  .app-banner__pc > figure {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    height: 100%;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.sell-btn {
+  background: #ea352d;
+  border-radius: 50%;
+  bottom: 32px;
+  color: #fff;
+  font-size: 22px;
+  height: 160px;
+  right: 32px;
+  text-align: center;
+  width: 160px;
+  z-index: 1000;
+  position: fixed;
+  div {
+    margin: 32px 0 0;
+  }
+  .fas.fa-camera {
+    margin: 8px 0 0;
+    font-size: 54px;
+  }
+  i {
+    display: inline-block;
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    speak: none;
+    text-transform: none;
+  }
+
+}
+
+a {
+  color: #0099e8;
+  text-decoration: none;
+}
+
+img {
+  vertical-align: middle;
+}
+
+section {
+  display: block;
+}
+
+aside {
+  display: block;
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+.font-2 {
+  font-size: 16px;
+  color: #333;
+}
+
+.font-5 {
+  font-weight: 600;
+  color: #333;
+}

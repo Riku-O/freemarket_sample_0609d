@@ -1,8 +1,12 @@
-@import "reset";
-@import "mixin";
-@import "variable";
-@import "mypage";
+@import "variable/reset";
+@import "variable/mixin";
+@import "variable/variable";
 @import "font-awesome";
+@import "modules/user-registration";
+@import "modules/item";
+@import "modules/banner";
+@import "footer";
+@import "mypage";
 
 body {
     background-color: #f5f5f5
