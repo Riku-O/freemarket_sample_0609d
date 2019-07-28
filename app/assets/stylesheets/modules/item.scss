@@ -167,9 +167,11 @@
   div {
     margin: 32px 0 0;
   }
-  %i.fas.fa-camera {
+  .fas.fa-camera {
     margin: 8px 0 0;
     font-size: 54px;
+  }
+  i {
     display: inline-block;
     font-family: 'FontAwesome';
     font-style: normal;
@@ -180,6 +182,7 @@
     speak: none;
     text-transform: none;
   }
+
 }
 
 a {
