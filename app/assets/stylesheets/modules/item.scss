@@ -152,6 +152,36 @@
   }
 }
 
+.sell-btn {
+  background: #ea352d;
+  border-radius: 50%;
+  bottom: 32px;
+  color: #fff;
+  font-size: 22px;
+  height: 160px;
+  right: 32px;
+  text-align: center;
+  width: 160px;
+  z-index: 1000;
+  position: fixed;
+  div {
+    margin: 32px 0 0;
+  }
+  %i.fas.fa-camera {
+    margin: 8px 0 0;
+    font-size: 54px;
+    display: inline-block;
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    speak: none;
+    text-transform: none;
+  }
+}
+
 a {
   color: #0099e8;
   text-decoration: none;
