@@ -11,7 +11,18 @@ class Item < ApplicationRecord
 
   def self.fetch_items
     @items = Item.new
-    Item.includes(:item_images).last(4)
+    items = []
+    items << sort_lady
+    items << sort_men
   end
-  
+
+  private
+  def self.sort_lady
+    Item.includes(:category, :item_images).where(category_id: 11..25).last(4)
+  end
+
+  def self.sort_men
+    Item.includes(:category, :item_images).where(category_id: 26..34).last(4)
+  end
+
 end

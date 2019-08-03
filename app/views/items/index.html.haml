@@ -8,22 +8,22 @@
 		%section.main-content__pick-up__items-box-container.clearfix
 			%h3.main-content__pick-up__items-box-container--top.text-center
 				%a{:href => "#"} レディース新着アイテム
-			= render partial: 'items/item-container', locals: {items: @items}
+			= render partial: 'items/item-container', locals: {items: @items[0]}
 								
 		%section.main-content__pick-up__items-box-container.clearfix
 			%h3.main-content__pick-up__items-box-container--top.text-center
 				%a{:href => "#"} メンズ新着アイテム
-			= render partial: 'items/item-container', locals: {items: @items}
+			= render partial: 'items/item-container', locals: {items: @items[1]}
 		
 		%section.main-content__pick-up__items-box-container.clearfix
 			%h3.main-content__pick-up__items-box-container--top.text-center
 				%a{:href => "#"} ベビー・キッズ新着アイテム
-			= render partial: 'items/item-container', locals: {items: @items}
+			= render partial: 'items/item-container', locals: {items: @items[0]}
 			
 		%section.main-content__pick-up__items-box-container.clearfix
 			%h3.main-content__pick-up__items-box-container--top.text-center
 				%a{:href => "#"} コスメ・香水・美容新着アイテム
-			= render partial: 'items/item-container', locals: {items: @items}
+			= render partial: 'items/item-container', locals: {items: @items[1]}
 				
 	%section.main-content__pick-up
 		%h2.main-content__pick-up--top
@@ -31,22 +31,22 @@
 		%section.main-content__pick-up__items-box-container.clearfix
 			%h3.main-content__pick-up__items-box-container--top.text-center
 				%a{:href => "#"} シャネル新着アイテム
-			= render partial: 'items/item-container', locals: {items: @items}
+			= render partial: 'items/item-container', locals: {items: @items[0]}
 			
 		%section.main-content__pick-up__items-box-container.clearfix
 			%h3.main-content__pick-up__items-box-container--top.text-center
 				%a{:href => "#"} ルイヴィトン新着アイテム
-			= render partial: 'items/item-container', locals: {items: @items}
+			= render partial: 'items/item-container', locals: {items: @items[1]}
 			
 		%section.main-content__pick-up__items-box-container.clearfix
 			%h3.main-content__pick-up__items-box-container--top.text-center
 				%a{:href => "#"} シュプリーム新着アイテム
-			= render partial: 'items/item-container', locals: {items: @items}
+			= render partial: 'items/item-container', locals: {items: @items[0]}
 
 		%section.main-content__pick-up__items-box-container.clearfix
 			%h3.main-content__pick-up__items-box-container--top.text-center
 				%a{:href => "#"} ナイキ新着アイテム
-			= render partial: 'items/item-container', locals: {items: @items}
+			= render partial: 'items/item-container', locals: {items: @items[1]}
 
 %aside.app-banner
 	= render partial: 'items/bottom-banner'
