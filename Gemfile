@@ -60,6 +60,9 @@ group :test do
 end
 
 group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
   gem 'capistrano'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
@@ -83,3 +86,4 @@ gem 'fog-aws'
 gem 'devise'
 gem 'faker'
 gem 'ancestry'
+gem 'active_hash'
