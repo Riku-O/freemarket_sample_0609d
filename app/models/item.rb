@@ -10,13 +10,14 @@ class Item < ApplicationRecord
   # belongs_to :brand
 
   def self.fetch_items
-    @items = Item.new
+    items = Item.new
     items = []
     items << sort_lady
     items << sort_men
   end
 
   private
+  # リファクタリング必要
   def self.sort_lady
     Item.includes(:category, :item_images).where(category_id: 11..25).last(4)
   end
