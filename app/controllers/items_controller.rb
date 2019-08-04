@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    #is_hosted_by?メソッドを使って、出品者以外が閲覧した際に編集ボタンが表示されないようにする。
   end
 
   def destroy
