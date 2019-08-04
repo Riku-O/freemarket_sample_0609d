@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit]
+  before_action :set_item, only: [:edit, :update]
 
   def index
     @items = Item.fetch_items
@@ -21,10 +21,15 @@ class ItemsController < ApplicationController
   end
 
   def update
+    @item.update(item_params)
   end
 
   private
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def item_params
+    params
   end
 end

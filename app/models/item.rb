@@ -16,6 +16,14 @@ class Item < ApplicationRecord
     items << sort_men
   end
 
+  def self.is_hosted_by?
+    if self.user_id == current_user.id
+      return true
+    else
+      return false
+    end
+  end
+
   private
   # リファクタリング必要
   def self.sort_lady
