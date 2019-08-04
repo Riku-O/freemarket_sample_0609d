@@ -1,157 +1,57 @@
 -#ヘッダーの読み込み
 %main.main-content
-	= render partial: 'items/banner'
-		
+	= render partial: 'items/top-banner'
+	
 	%section.main-content__pick-up
 		%h2.main-content__pick-up--top
 			ピックアップカテゴリー
-		-#	必須：下記は共通処理を別で切り出してrenderする。またアンパサンドを使用する
 		%section.main-content__pick-up__items-box-container.clearfix
 			%h3.main-content__pick-up__items-box-container--top.text-center
-				%a{:href => "#"} レディース新着アイテム
-			%section.main-content__pick-up__items-box-content.clearfix
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 MARY QUANT ポーチ
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥7,900
-							%i.icon-like-border.font-2
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 タルボット トップス
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥1,000000
-							%i.icon-like-border.font-2
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 女子はこういうの好きでしょ？
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥1,300000
-							%i.icon-like-border.font-2
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 女子はこういうのも好きでしょ？
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥1,400000
-							%i.icon-like-border.font-2
-							
+				= link_to 'レディース新着アイテム', "#"
+			= render partial: 'items/item-container', locals: {items: @items[0]}
+								
 		%section.main-content__pick-up__items-box-container.clearfix
 			%h3.main-content__pick-up__items-box-container--top.text-center
-				%a{:href => "#"} メンズ新着アイテム
-			%section.main-content__pick-up__items-box-content.clearfix
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 はいさい
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥1,000000
-							%i.icon-like-border.font-2
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 はいさい２
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥2,000000
-							%i.icon-like-border.font-2
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 はいさい３
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥3,000000
-							%i.icon-like-border.font-2
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 はいさい４
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥4,000000
-							%i.icon-like-border.font-2
+				= link_to 'メンズ新着アイテム', "#"
+			= render partial: 'items/item-container', locals: {items: @items[1]}
+		
+		%section.main-content__pick-up__items-box-container.clearfix
+			%h3.main-content__pick-up__items-box-container--top.text-center
+				= link_to 'ベビー・キッズ新着アイテム', "#"
+			= render partial: 'items/item-container', locals: {items: @items[0]}
 			
+		%section.main-content__pick-up__items-box-container.clearfix
+			%h3.main-content__pick-up__items-box-container--top.text-center
+				= link_to 'コスメ・香水・美容新着アイテム', "#"
+			= render partial: 'items/item-container', locals: {items: @items[1]}
+				
 	%section.main-content__pick-up
 		%h2.main-content__pick-up--top
 			ピックアップブランド
 		%section.main-content__pick-up__items-box-container.clearfix
 			%h3.main-content__pick-up__items-box-container--top.text-center
-				%a{:href => "#"} シャネル新着アイテム
-			%section.main-content__pick-up__items-box-content.clearfix
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 シャネルは高いね〜
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥5,000000
-							%i.icon-like-border.font-2
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 シャネルの香水は高いね〜
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥6,000000
-							%i.icon-like-border.font-2
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 シャネルはなんでも高いね〜
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥7,000000
-							%i.icon-like-border.font-2
-				%section.items-box
-					%a{:href => "#"}
-					%figure.items-box__photo
-						%img_tag
-					.items-box__body
-						%h3.items-box__body__name.font-2 シャネル反対！！！！！
-						.items-box__body__num
-							.items-box__body__num--price.font-5 ¥8,000000
-							%i.icon-like-border.font-2
+				= link_to 'シャネル新着アイテム', "#"
+			= render partial: 'items/item-container', locals: {items: @items[0]}
+			
+		%section.main-content__pick-up__items-box-container.clearfix
+			%h3.main-content__pick-up__items-box-container--top.text-center
+				= link_to 'ルイヴィトン新着アイテム', "#"
+			= render partial: 'items/item-container', locals: {items: @items[1]}
+			
+		%section.main-content__pick-up__items-box-container.clearfix
+			%h3.main-content__pick-up__items-box-container--top.text-center
+				= link_to 'シュプリーム新着アイテム', "#"
+			= render partial: 'items/item-container', locals: {items: @items[0]}
+
+		%section.main-content__pick-up__items-box-container.clearfix
+			%h3.main-content__pick-up__items-box-container--top.text-center
+				= link_to 'ナイキ新着アイテム', "#"
+			= render partial: 'items/item-container', locals: {items: @items[1]}
 
 %aside.app-banner
-	.app-banner__pc
-		.app-banner__pc__inner
-			%h2 スマホでかんたんフリマアプリ
-			%p 今すぐ無料ダウンロード！
-			.app-banner__pc__inner__icon.clearfix
-				%figure
-					%img{:src => "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?2927923569"}
-				%ul
-					%li
-						%a{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8"}
-							%img{:src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?2927923569"}
-					%li
-						%a{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja"}
-							%img{:src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?2927923569"}
-		%figure
-			%img{:src => "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?2927923569"}
-
--#変数は後々記述する
+	= render partial: 'items/bottom-banner'
+			
 = render partial: 'partial/footer'
-%a.sell-btn{:href => "#"}
+= link_to "#", class: 'sell-btn' do
 	%div 出品
 	%i.fas.fa-camera
