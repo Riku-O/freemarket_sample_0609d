@@ -1,7 +1,10 @@
-@import "./color";
-@import "reset";
-@import "mixin";
-@import "variable";
-@import "header";
+@import "variable/reset";
+@import "variable/mixin";
+@import "variable/variable";
 @import "font-awesome";
+@import "modules/user-registration";
+@import "modules/user-login";
+@import "modules/item";
+@import "modules/banner";
+@import "footer";
 @import "mypage-nav-list";

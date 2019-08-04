@@ -1,0 +1,33 @@
+.single-wrapper
+  = render "devise/shared/header_one"
+  %main.single-primary
+    .single-primary__inner
+      .single-primary__inner__not_user
+        %p アカウントをお持ちでない方はこちら
+        = link_to "新規会員登録", "https://www.mercari.com/jp/signup/"
+      .single-primary__inner__form
+        %button.single-primary__inner__form__btn-facebook
+          = fa_icon 'facebook-square', class: 'icon'
+          Facebookでログイン
+        %button.single-primary__inner__form__btn-google
+          = fa_icon 'google', class: 'icon'
+          Googleでログイン
+        -# %ul.single-primary__inner__form__error
+        -#   %li Facebookでの登録情報はありません。他の方法でログインをお試しください。
+      %form{action: "https://www.mercari.com/jp/login/", method: "post", novalidate: "novalidate"}
+        .single-primary__inner__form__groups
+          .single-primary__inner__form__groups__group
+            %input{type: "email", name: "email", value: "", placeholder: "メールアドレス", class: "single-primary__inner__form__groups__group__input"}
+          .single-primary__inner__form__groups__group
+            %input{type: "password", name: "password", placeholder: "パスワード", class: "single-primary__inner__form__groups__group__input"}
+          .single-primary__inner__form__groups__group
+          %button{type: "submit", class: "single-primary__inner__form__groups__login"}ログイン
+          %input{type: "hidden", name: "login_callback", value: "https://www.mercari.com/jp/"}
+            %input{type: "hidden", name: "login_callback",  value: "https://www.mercari.com/jp/"}
+          %input{type: "hidden", name: "__csrf_value", value: "137c6b4425c6a948ce2b7ab1b983e50cf16ec2d84ac7220c1b35fc3b04aca6410e1e7fe01362b4738ddffd109f1e1946e130de57c6cb4b3c86522d201cfbe13d2"}
+          = link_to "パスワードをお忘れの方", "https://www.mercari.com/jp/password/reset/start/"
+      
+
+
+
+  = render "devise/shared/footer"
