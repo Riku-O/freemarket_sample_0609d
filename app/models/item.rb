@@ -24,6 +24,10 @@ class Item < ApplicationRecord
     end
   end
 
+  def self.fetch_item(item_id)
+    Item.find(item_id)
+  end
+
   private
   # リファクタリング必要
   def self.sort_lady

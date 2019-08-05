@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item
   end
 
   def update
@@ -27,9 +28,9 @@ class ItemsController < ApplicationController
 
   private
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.fetch_item(item_params[:id])
   end
-
+  # パラメーター受け取りのためのキーは画面実装が進んでから調整
   def item_params
     params
   end
