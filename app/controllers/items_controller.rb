@@ -22,7 +22,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params)
+    @item.update!(item_params)
   end
 
   private
