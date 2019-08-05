@@ -24,11 +24,11 @@ class Item < ApplicationRecord
     items << sort_men
   end
 
-  def self.is_hosted_by?
+  def is_hosted_by?
     if self.user_id == current_user.id
-      return true
+      true
     else
-      return false
+      false
     end
   end
 
