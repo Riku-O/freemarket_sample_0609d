@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      render edit
+      redirect_to action: 'edit'
       flash[:success] = "変更しました。"
     else
       render edit
