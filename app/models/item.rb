@@ -8,6 +8,14 @@ class Item < ApplicationRecord
   belongs_to :user
   belongs_to :category
   # belongs_to :brand
+  validates :name, presence: true
+  validates :condition, presence: true
+  validates :postage_burden, presence: true
+  validates :shipping_method, presence: true
+  validates :shipping_date, presence: true
+  validates :price, presence: true
+  validates :description, presence: true
+  validates :status, presence: true
 
   def self.fetch_items
     items = Item.new

@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.fetch_item(item_params[:id])
   end
-  # パラメーター受け取りのためのキーは画面実装が進んでから調整
+  # パラメーター受け取りのためのキーは画面実装が進んでから調整、ビューにitem_imageを保存するための記述が必要
   def item_params
     params
   end
