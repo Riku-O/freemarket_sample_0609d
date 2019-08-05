@@ -22,7 +22,13 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update!(item_params)
+    if @item.update(item_params)
+      render edit
+      flash[:success] = "変更しました。"
+    else
+      render edit
+      flash[:danger] = "更新に失敗しました。"
+    end
   end
 
   private
