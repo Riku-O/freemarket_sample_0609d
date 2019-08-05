@@ -24,8 +24,8 @@ class Item < ApplicationRecord
     items << sort_men
   end
 
-  def is_hosted_by?(current_user)
-    if self.user_id == current_user.id
+  def is_hosted_by?(current_user_id)
+    if self.user_id == current_user_id
       true
     else
       false
