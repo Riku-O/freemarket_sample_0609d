@@ -19,7 +19,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item
   end
 
   def update
