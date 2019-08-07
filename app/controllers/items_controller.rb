@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :size, :condition,
                                  :postage_burden, :shipping_method, :source_area,
                                  :shipping_date, :price, :description,
-                                 :category_id, :brand_name)
-                          .merge(user_id: @current_user.id)
+                                 :category_id, :brand_name, :item_image[])
+                          .merge(user_id: current_user.id)
   end
 end
