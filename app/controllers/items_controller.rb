@@ -7,9 +7,16 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new(item_params)
   end
 
   def create
+    if @item.save
+      redirect_to :show
+    else
+      render :new
+      flash[:danger] = "保存に失敗しました"
+    end
   end
 
   def show
@@ -38,6 +45,10 @@ class ItemsController < ApplicationController
   end
   # パラメーター受け取りのためのキーは画面実装が進んでから調整、ビューにitem_imageを保存するための記述が必要
   def item_params
-    params
+    params.require(:item).permit(:name, :size, :condition,
+                                 :postage_burden, :shipping_method, :source_area,
+                                 :shipping_date, :price, :description,
+                                 :category_id, :brand_name)
+                          .merge(user_id: @current_user.id)
   end
 end
