@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params[:name, :size, :condition,
                                  :postage_burden, :shipping_method, :source_area,
                                  :shipping_date, :price, :description,
-                                 :category_id])
+                                 :category_id, :brand_name])
   end
 
   def create
@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
       begin
         if @item.save!
           Item.save_item_images(item_params[:item_image], @item)
-          Item.save_brand(@item, item_params[:brand_name])
+          Brand.save_brand(@item, item_params[:brand_name])
           redirect_to :show
         end
       rescue ::ActiveRecord::RecordNotSaved => e
