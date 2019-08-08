@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :user
   belongs_to :category
-  # belongs_to :brand
+  belongs_to :brand
   validates :name, presence: true
   validates :condition, presence: true
   validates :postage_burden, presence: true

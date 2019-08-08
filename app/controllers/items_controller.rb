@@ -7,15 +7,25 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new(item_params)
+    @item = Item.new(item_params[:name, :size, :condition,
+                                 :postage_burden, :shipping_method, :source_area,
+                                 :shipping_date, :price, :description,
+                                 :category_id])
   end
 
   def create
-    if @item.save
-      redirect_to :show
-    else
-      render :new
-      flash[:danger] = "保存に失敗しました"
+    ActiveRecord::Base.transaction do
+      begin
+        if @item.save!
+          Item.save_item_images(item_params[:item_image], @item)
+          Item.save_brand(@item, item_params[:brand_name])
+          redirect_to :show
+        end
+      rescue ::ActiveRecord::RecordNotSaved => e
+        Rails.logger.debug e
+        Rails.logger.warn(e)
+        raise ActiveRecord::Rollback
+      end
     end
   end
 
@@ -48,7 +58,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :size, :condition,
                                  :postage_burden, :shipping_method, :source_area,
                                  :shipping_date, :price, :description,
-                                 :category_id, :brand_name, :item_image[])
+                                 :category_id, :brand_name, :item_image)
                           .merge(user_id: current_user.id)
   end
 end
