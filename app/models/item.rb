@@ -16,6 +16,7 @@ class Item < ApplicationRecord
   validates :price, presence: true
   validates :description, presence: true
   validates :status, presence: true
+  enum status: {no_traded: 0, traded: 1}
 
   def self.fetch_items
     items = Item.new

@@ -14,6 +14,8 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # 画像とブランドの保存が失敗したら処理が進まないようにtransactionを貼る
+    # TODO:フロントの実装が完了したあとにSQL発行回数チェックしてリファクタリングが必須。
     ActiveRecord::Base.transaction do
       begin
         if @item.save!
@@ -53,7 +55,7 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.fetch_item(item_params[:id])
   end
-  # パラメーター受け取りのためのキーは画面実装が進んでから調整、ビューにitem_imageを保存するための記述が必要
+  # TODO:パラメーター受け取りのためのキーは画面実装が進んでから調整、画像は配列に入れて返してもらう、キー名はitem_image
   def item_params
     params.require(:item).permit(:name, :size, :condition,
                                  :postage_burden, :shipping_method, :source_area,
