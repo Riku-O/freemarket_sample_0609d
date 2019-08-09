@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_101857) do
     t.bigint "item_id"
     t.bigint "seller_id"
     t.bigint "buyer_id"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["buyer_id"], name: "index_deals_on_buyer_id"
