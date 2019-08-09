@@ -28,12 +28,13 @@ ActiveRecord::Schema.define(version: 2019_08_08_101857) do
 
   create_table "deals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id"
-    t.integer "seller_id", null: false
-    t.integer "buyer", null: false
-    t.integer "status", default: 0
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_deals_on_buyer_id"
     t.index ["item_id"], name: "index_deals_on_item_id"
+    t.index ["seller_id"], name: "index_deals_on_seller_id"
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -94,6 +95,8 @@ ActiveRecord::Schema.define(version: 2019_08_08_101857) do
   end
 
   add_foreign_key "deals", "items"
+  add_foreign_key "deals", "users", column: "buyer_id"
+  add_foreign_key "deals", "users", column: "seller_id"
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
