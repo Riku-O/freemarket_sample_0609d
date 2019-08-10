@@ -9,8 +9,8 @@
 |password|string|null: false|
 
 ### Association
-- has_many :buyed_items, foreign_key:'buyer_id', class_name:'Item'
-- has_many :selling_items, { where("buyer_id is NULL") }, foreign_key:'seller_id', class_name:'Item'
+- has_many :buyer_deals, foreign_key:'buyer_id', class_name:'Deal'
+- has_many :seller_deals, foreign_key:'seller_id', class_name:'Deal'
 - has_many :sold_items, { where("buyer_id is not NULL") }, foreign_key:'seller_id', class_name:'Item'
 - has_many :reviews, dependent::destroy
 - has_many :deals, dependent::destroy
@@ -152,9 +152,11 @@
 
 |Column|Type|Options|
 |------|----|-------|
+|item_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
 |seller_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|status|integer|default: 0|
+
 
 ### Association
 - belongs_to :buyer, class_name: "User"
