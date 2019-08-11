@@ -52,6 +52,9 @@
           .sell-upload-drop-box.have-item-0 {
             width: 100%;
             margin-left: 0;
+            .sell-upload-drop-file {
+              display: none;
+            }
             .visible-pc {
               position: absolute;
               top: 36%;
