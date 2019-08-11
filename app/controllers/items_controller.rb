@@ -1,14 +1,34 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
     @items = Item.fetch_items
   end
 
   def new
+    @item = Item.new(item_params[:name, :size, :condition,
+                                 :postage_burden, :shipping_method, :source_area,
+                                 :shipping_date, :price, :description,
+                                 :category_id, :brand_name])
   end
 
   def create
+    # 画像とブランドの保存が失敗したら処理が進まないようにtransactionを貼る
+    # TODO:フロントの実装が完了したあとにSQL発行回数チェックしてリファクタリングが必須。
+    ActiveRecord::Base.transaction do
+      begin
+        if @item.save!
+          Item.save_item_images(item_params[:item_image], @item)
+          Brand.save_brand(@item, item_params[:brand_name])
+          redirect_to :show
+        end
+      rescue ::ActiveRecord::RecordNotSaved => e
+        Rails.logger.debug e
+        Rails.logger.warn(e)
+        raise ActiveRecord::Rollback
+      end
+    end
   end
 
   def show
@@ -35,8 +55,12 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.fetch_item(item_params[:id])
   end
-  # パラメーター受け取りのためのキーは画面実装が進んでから調整、ビューにitem_imageを保存するための記述が必要
+  # TODO:パラメーター受け取りのためのキーは画面実装が進んでから調整、画像は配列に入れて返してもらう、キー名はitem_image
   def item_params
-    params
+    params.require(:item).permit(:name, :size, :condition,
+                                 :postage_burden, :shipping_method, :source_area,
+                                 :shipping_date, :price, :description,
+                                 :category_id, :brand_name, :item_image)
+                          .merge(user_id: current_user.id)
   end
 end
