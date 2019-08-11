@@ -1,17 +1,33 @@
-.main-contents {
+.main {
   display: block;
-  &__display-item-container{
+  &__item-container {
     width: 700px;
     margin: 0 auto;
     background-color: #fff;
-    .l-single-head {
-      padding: 32px 16px;
-      font-size: 22px;
-      line-height: 1.5;
-      text-align: center;
-    }
-    .sell-form {
-      border-top: 1px solid #eee;
+    &__sell-container {
+      display: block;
+      &__display-inner {
+        display:block;
+        &__head {
+          padding: 32px 16px;
+          font-size: 22px;
+          line-height: 1.5;
+          text-align: center;
+        }
+        &__sell-form {
+          border-top: 1px solid #eee;
+          &__sell-upload-box {
+            width: 620px;
+            padding: 40px;
+            &__sell-upload-head {
+              font-size: 16px;
+            }
+            &__sell-upload-head + p {
+              margin: 8px 0 0;
+              line-height: 1.5;
+            }
+          }
+        }
       .form-require {
         background: #ea352d;
         margin: 0 0 0 8px;
@@ -21,16 +37,6 @@
         font-size: 12px;
         vertical-align: top;
       }
-      .sell-upload-box {
-        width: 620px;
-        padding: 40px;
-        .sell-upload-head {
-          font-size: 16px;
-        }
-        .sell-upload-head + p {
-          margin: 8px 0 0;
-          line-height: 1.5;
-        }
         .sell-dropbox-container {
           display: block;
           width: 620px;

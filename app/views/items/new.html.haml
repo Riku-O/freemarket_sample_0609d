@@ -1,14 +1,14 @@
 .single-wrapper
   = render "devise/shared/header_one"
-  %main.main-contents
-    %section.main-contents__display-item-container
-      .main-contents__display-item-container__sell-container
+  %main.main
+    %section.main__item-container
+      .main__item-container__sell-container
         %div{"data-reactroot" => ""}
-          .display-item-inner
-            %h2.l-single-head 商品の情報を入力
-            %form.sell-form
-              .sell-upload-box
-                %h3.sell-upload-head
+          .main__item-container__sell-container__display-inner
+            %h2.main__item-container__sell-container__display-inner__head 商品の情報を入力
+            %form.main__item-container__sell-container__display-inner__sell-form
+              .main__item-container__sell-container__display-inner__sell-form__sell-upload-box
+                %h3.main__item-container__sell-container__display-inner__sell-form__sell-upload-box__sell-upload-head
                   / react-text: 7
                   出品画像
                   / /react-text
