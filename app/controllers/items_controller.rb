@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update]
 
   def index
+    # TODO:フロントの実装が完了したあとにSQL発行回数チェックしてリファクタリングが必須。
     @items = Item.fetch_items
   end
 
@@ -15,7 +16,6 @@ class ItemsController < ApplicationController
 
   def create
     # 画像とブランドの保存が失敗したら処理が進まないようにtransactionを貼る
-    # TODO:フロントの実装が完了したあとにSQL発行回数チェックしてリファクタリングが必須。
     ActiveRecord::Base.transaction do
       begin
         if @item.save!
