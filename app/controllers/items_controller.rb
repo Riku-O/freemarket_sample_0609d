@@ -7,7 +7,8 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new(item_params[:name, :size, :condition,
+    # TODO:arguementerrorが出るので解消が必要
+    @item = Item.new(item_params[:item][:name, :size, :condition,
                                  :postage_burden, :shipping_method, :source_area,
                                  :shipping_date, :price, :description,
                                  :category_id, :brand_name])
@@ -15,12 +16,11 @@ class ItemsController < ApplicationController
 
   def create
     # 画像とブランドの保存が失敗したら処理が進まないようにtransactionを貼る
-    # TODO:フロントの実装が完了したあとにSQL発行回数チェックしてリファクタリングが必須。
     ActiveRecord::Base.transaction do
       begin
         if @item.save!
-          Item.save_item_images(item_params[:item_image], @item)
-          Brand.save_brand(@item, item_params[:brand_name])
+          Item.save_item_images(item_params[:item][:item_image], @item)
+          Brand.save_brand(@item, item_params[:item][:brand_name])
           redirect_to :show
         end
       rescue ::ActiveRecord::RecordNotSaved => e
