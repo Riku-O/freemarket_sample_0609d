@@ -162,9 +162,6 @@
           .sell-price .form-group .l-right {
             width: 50%;
           }
-          .sell-price-input {
-            // text-align: right;
-          }
           .l-right {
             float: right;
           }
@@ -183,13 +180,6 @@
           .sell-price>li {
             padding: 24px 0;
             border-top: 1px solid #ccc;
-          }
-          .sell-price .clearfix .l-left {
-            
-          }
-          .sell-price .clearfix .l-right {
-            
-            
           }
           .sell-price .clearfix.bold .l-left {
             font-size: 16px;
@@ -217,9 +207,6 @@
         select {
           -webkit-appearance: none;
         }
-
-
-
       }
       .clearfix::after {
         content: "";
