@@ -99,7 +99,7 @@
                     / react-empty: 64
               .sell-content.clearfix
                 %h3.sell-sub-head 配送について
-                %a.form-question{:href => "/jp/help_center/article/68/", :target => "_blank"} ?
+                = link_to "?", "/jp/help_center/article/68/", class:"form-question" 
                 .sell-form-box
                   .form-group
                     %label
@@ -189,7 +189,7 @@
                     / react-empty: 95
               .sell-content.clearfix
                 %h3.sell-sub-head 販売価格(300〜9,999,999)
-                %a.form-question{:href => '/jp/help_center/article/64/', :target => "_blank"} ?
+                = link_to '?', '/jp/help_center/article/64/', class:'form-question' 
                 .sell-form-box
                   %ul.sell-price
                     %li.form-group
@@ -220,19 +220,16 @@
               .sell-content.sell-btn-box
                 %div
                   %p
-                    %a{:href => "/jp/help_center/getting_started/prohibited_items", :target => "_blank"}禁止されている出品
+                    =link_to '禁止されている出品', '/jp/help_center/getting_started/prohibited_items'
                     / react-text: 123
                     、
                     / /react-text
-                    %a{:href => "/jp/help_center/getting_started/prohibited_conduct/", :target => "_blank"}行為
-                    / react-text: 125
-                    を必ずご確認ください。
-                    / /react-text
+                    =link_to '行為を必ずご確認ください', '/jp/help_center/getting_started/prohibited_conduct/'
                   %p
                     / react-text: 127
                     またブランド品でシリアルナンバー等がある場合はご記載ください。
                     / /react-text
-                    %a{:href => "/jp/help_center/getting_started/counterfeit_goods/", :target => "_blank"}偽ブランドの販売
+                    =link_to '偽ブランドの販売', '/jp/help_center/getting_started/counterfeit_goods/'
                     / react-text: 129
                     は犯罪であり、処罰される可能性があります。
                     / /react-text
@@ -240,7 +237,7 @@
                     / react-text: 131
                     また、出品をもちまして
                     / /react-text
-                    %a{:href => "/jp/seller_terms/"}加盟店規約
+                    =link_to '加盟店規約', '/jp/seller_terms/'
                     / react-text: 133
                     に同意したことになります。
                     / /react-text
