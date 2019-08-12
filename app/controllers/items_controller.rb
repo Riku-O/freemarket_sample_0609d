@@ -9,7 +9,10 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new(item_params)
+    @item = Item.new(item_params[:item][:name, :size, :condition,
+                                                     :postage_burden, :shipping_method, :source_area,
+                                                     :shipping_date, :price, :description,
+                                                     :category_id, :brand_name])
   end
 
   def create
