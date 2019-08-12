@@ -2,7 +2,7 @@
   -# TODO:アイテムがSOLDの状態の際にビューに反映されるように修正が必要
   - items.each do |item|
     %section.items-box
-      = link_to "#" do
+      = link_to items_path(item.id) do
         %figure.items-box__photo
           = image_tag item.item_images.first.image.to_s
         .items-box__body
