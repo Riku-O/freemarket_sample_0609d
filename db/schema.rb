@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_03_083140) do
+ActiveRecord::Schema.define(version: 2019_08_08_101857) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -24,6 +24,18 @@ ActiveRecord::Schema.define(version: 2019_08_03_083140) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
+  create_table "deals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_deals_on_buyer_id"
+    t.index ["item_id"], name: "index_deals_on_item_id"
+    t.index ["seller_id"], name: "index_deals_on_seller_id"
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -83,6 +95,9 @@ ActiveRecord::Schema.define(version: 2019_08_03_083140) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "deals", "items"
+  add_foreign_key "deals", "users", column: "buyer_id"
+  add_foreign_key "deals", "users", column: "seller_id"
   add_foreign_key "item_images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"

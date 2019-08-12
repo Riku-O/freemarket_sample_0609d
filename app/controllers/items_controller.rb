@@ -1,17 +1,15 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  # before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  # ログイン機能実装用のコードだが、出品ページ実装の際は便宜上コメントアウト
 
   def index
+    # TODO:フロントの実装が完了したあとにSQL発行回数チェックしてリファクタリングが必須。
     @items = Item.fetch_items
   end
 
   def new
-    # TODO:arguementerrorが出るので解消が必要
-    @item = Item.new(item_params[:item][:name, :size, :condition,
-                                 :postage_burden, :shipping_method, :source_area,
-                                 :shipping_date, :price, :description,
-                                 :category_id, :brand_name])
+    @item = Item.new(item_params)
   end
 
   def create
@@ -57,10 +55,11 @@ class ItemsController < ApplicationController
   end
   # TODO:パラメーター受け取りのためのキーは画面実装が進んでから調整、画像は配列に入れて返してもらう、キー名はitem_image
   def item_params
-    params.require(:item).permit(:name, :size, :condition,
+    params.permit(:name, :size, :condition,
                                  :postage_burden, :shipping_method, :source_area,
                                  :shipping_date, :price, :description,
                                  :category_id, :brand_name, :item_image)
-                          .merge(user_id: current_user.id)
+                          # .merge(user_id: current_user.id)
+                          # ログイン機能実装用のコードだが、出品ページ実装の際は便宜上コメントアウト
   end
 end
