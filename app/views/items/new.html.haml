@@ -7,7 +7,7 @@
           .main__item-container__sell-container__display-inner
             %h2.main__item-container__sell-container__display-inner__head 商品の情報を入力
             %form.main__item-container__sell-container__display-inner__sell-form
-              = form_for(@item)  do |f|
+              = form_for([@item, @item_image, @brand])  do |f|
                 .main__item-container__sell-container__display-inner__sell-form__sell-upload-box
                   %h3.main__item-container__sell-container__display-inner__sell-form__sell-upload-box__sell-upload-head
                     出品画像
@@ -18,7 +18,7 @@
                       .sell-upload-items.have-item-0
                         %ul
                   .sell-upload-drop-box.have-item-0
-                    = f.file_field :item_image, class: 'sell-upload-drop-file', type: "hidden"
+                    = f.file_field :image, class: 'sell-upload-drop-file', type: "hidden"
                     %pre.visible-pc ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
                 .sell-content
                   .form-group
@@ -36,63 +36,63 @@
                   %h3.sell-sub-head 商品の詳細
                   .sell-form-box
                     .form-group
-                      %label
+                      = f.label "カテゴリー" do
                         カテゴリー
                         %span.form-require 必須
-                      %div
-                        .select-wrap
-                          %i.fa.fa-angle-down
-                          %select.select-default
-                            %option{value: ""} ---
-                            %option{value: "1"} レディース
-                            %option{value: "2"} メンズ
-                            %option{value: "3"} ベビー・キッズ
-                            %option{value: "4"} インテリア・住まい・小物
-                            %option{value: "5"} 本・音楽・ゲーム
-                            %option{value: "6"} おもちゃ・ホビー・グッズ
-                            %option{value: "7"} コスメ・香水・美容
-                            %option{value: "8"} 家電・スマホ・カメラ
-                            %option{value: "9"} スポーツ・レジャー
-                            %option{value: "10"} ハンドメイド
-                            %option{value: "11"} チケット
-                            %option{value: "12"} 自動車・オートバイ
-                            %option{value: "13"} その他
+                        %div
+                          .select-wrap
+                            %i.fa.fa-angle-down
+                            = f.select :category_id, {}, {}, {class: "select-default"} do
+                              %option{value: ""} ---
+                              %option{value: "1"} レディース
+                              %option{value: "2"} メンズ
+                              %option{value: "3"} ベビー・キッズ
+                              %option{value: "4"} インテリア・住まい・小物
+                              %option{value: "5"} 本・音楽・ゲーム
+                              %option{value: "6"} おもちゃ・ホビー・グッズ
+                              %option{value: "7"} コスメ・香水・美容
+                              %option{value: "8"} 家電・スマホ・カメラ
+                              %option{value: "9"} スポーツ・レジャー
+                              %option{value: "10"} ハンドメイド
+                              %option{value: "11"} チケット
+                              %option{value: "12"} 自動車・オートバイ
+                              %option{value: "13"} その他
                     .form-group
-                      %label
+                      = f.label "商品の状態" do
                         商品の状態
                         %span.form-require 必須
-                      .select-wrap
-                        %i.fa.fa-angle-down
-                        %select.select-default
-                          %option{value: ""} ---
-                          %option{value: "1"} 新品、未使用
-                          %option{value: "2"} 未使用に近い
-                          %option{value: "3"} 目立った傷や汚れなし
-                          %option{value: "4"} やや傷や汚れあり
-                          %option{value: "5"} 傷や汚れあり
-                          %option{value: "6"} 全体的に状態が悪い
+                        .select-wrap
+                          %i.fa.fa-angle-down
+                          = f.select :condition, {}, {}, {class: "select-default"} do
+                            %option{value: ""} ---
+                            %option{value: "1"} 新品、未使用
+                            %option{value: "2"} 未使用に近い
+                            %option{value: "3"} 目立った傷や汚れなし
+                            %option{value: "4"} やや傷や汚れあり
+                            %option{value: "5"} 傷や汚れあり
+                            %option{value: "6"} 全体的に状態が悪い
                       -# 後でactive_hashを用いて実装する
                 .sell-content.clearfix
                   %h3.sell-sub-head 配送について
                   = link_to "?", "/jp/help_center/article/68/", class:"form-question"
                   .sell-form-box
                     .form-group
-                      %label
+                      = f.label "配送料の負担" do
                         配送料の負担
                         %span.form-require 必須
                       .select-wrap
                         %i.fa.fa-angle-down
-                        %select.select-default
+                        = f.select :postage_burden,{}, {}, {class: "select-default"} do
                           %option{value: ""} ---
                           %option{value: "1"} 送料込み(出品者負担)
                           %option{value: "2"} 着払い(購入者負担)
                     .form-group
-                      %label
+                      = f.label "発送元の地域" do
                         発送元の地域
                         %span.form-require 必須
                       .select-wrap
                         %i.fa.fa-angle-down
-                        %select.select-default
+                        = f.select :source_area, {}, {}, {class: "select-default"} do
                           %option{value: ""} ---
                           %option{value: "1"} 北海道
                           %option{value: "2"} 青森県
@@ -144,12 +144,12 @@
                           %option{value: "99"} 未定
                       -# 後でactive_hashを用いて実装する
                     .form-group
-                      %label
+                      = f.label '発送までの日数' do
                         発送までの日数
                         %span.form-require 必須
                       .select-wrap
                         %i.fa.fa-angle-down
-                        %select.select-default
+                        = f.select :shipping_date, {}, {}, {class: "select-default"} do
                           %option{value: ""} ---
                           %option{value: "1"} 1~2日で発送
                           %option{value: "2"} 2~3日で発送
@@ -167,7 +167,7 @@
                           .l-right.sell-price-input
                             ¥
                             %div
-                              %input.input-default{value: "", placeholder: "例)  300"}
+                              = f.text_field :price, class: "input-default", value: "", placeholder: "例)  300"
                       %li.clearfix
                         .l-left
                           販売手数料(10%)
@@ -193,6 +193,7 @@
                       に同意したことになります。
                   %button.btn-default.btn-red{type: "submit"}
                     出品する
-                  %a.btn-default.btn-gray もどる
+                    = f.submit type: "hidden"
+                  %a.btn-default.btn-gray{ href: "http://localhost:3000/" } もどる
               .overlay
   = render "devise/shared/footer"
