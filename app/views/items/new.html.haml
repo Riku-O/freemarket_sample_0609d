@@ -194,7 +194,7 @@
                       また、出品をもちまして
                       =link_to '加盟店規約', '/jp/seller_terms/'
                       に同意したことになります。
-                  = f.submit '出品する', {class: "btn-default, btn-red"}
-                  %a.btn-default.btn-gray{ href: "http://localhost:3000/" } もどる
+                  = f.submit '出品する', class: 'btn-default btn-red'
+                  = link_to 'もどる', root, class: "btn-default btn-gray"
               .overlay
   = render "devise/shared/footer"
