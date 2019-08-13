@@ -1,10 +1,24 @@
 .header {
-  height: 90px;
+  height: 100px;
   width: 100%;
-  background-color: $white;
-
-  &-top {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  &__top {
     height: 100%;
-    width: 1000px;
+    width: 1020px;
+    padding-top: 8px;
+    &__logo {
+      width: 134px;
+      height: 36px;
+      float: left;
+    }
+    &__search {
+      width: 870px;
+      height: 100%;
+      float: right;
+      position: relative;
+      padding-left: 50px;
+    }
   }
 }

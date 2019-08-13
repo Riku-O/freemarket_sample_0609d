@@ -1,0 +1,43 @@
+.mypage-nav {
+  width: 248px;
+  display: block;
+
+  &__list {
+    width: 100%;
+    padding: 16px;
+    background-color: white;
+    border-bottom: solid;
+    border-bottom-color: whitesmoke;
+    border-bottom-width: thin;
+    &:hover {
+      background-color: whitesmoke;
+    }
+  }
+
+  &__head {
+    margin-top: 40px;
+    font-size: 16px;
+  }
+
+  a {
+    position: relative;
+    display: block;
+
+    p {
+      display: inline;
+      font-size: 14px;
+      color: black;
+      line-height: 1;
+    }
+
+    i {
+      color: #ccc;
+      float: right;
+    }
+
+    &:hover {
+      padding-right: 10px;
+      transition: padding-right 0.2s;
+    }
+  }
+}

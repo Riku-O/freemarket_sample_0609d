@@ -1,32 +1,32 @@
 .header
-  .header-top
-    = link_to 'https://www.mercari.com/jp' do
-      = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2334484240', alt: 'mercari', height: '36', width: '134', class: 'header-top__image'
-
-    %form{action: "https://www.mercari.com/jp/search/"}
-      %input{type: "search", placeholder: " 何かお探しですか？"}
-      %input{type: "submit"}
-      %i.fas.fa-search
-
-  .header-nav-box
-    .header-nav-box__left
-      .header-nav-box__left__category
+  .header__top
+    .header__top__logo
+      = link_to 'https://www.mercari.com/jp' do
+        = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2334484240', alt: 'mercari', height: '36', width: '134', class: 'header-top__image'
+    .header__top__search
+      %form{action: "https://www.mercari.com/jp/search/"}
+        %input{type: "search", placeholder: " 何かお探しですか？"}
+        %input{type: "submit"}
+        %i.fas.fa-search
+  .header__nav-box
+    .header__nav-box__left
+      .header__nav-box__left__category
         %i.fas.fa-list-ul
         = link_to 'カテゴリーから探す', 'https://www.mercari.com/jp/search/?keyword=', class: 'header-nav-box__left__category__link'
-      .header-nav-box__left__brand
+      .header__nav-box__left__brand
         %i.fas.fa-tag
         = link_to 'ブランドから探す', 'https://www.mercari.com/jp/brand/', class: 'header-nav-box__left__brand__link'
-    .header-nav-box__right
-      .header-nav-box__right__likes
+    .header__nav-box__right
+      .header__nav-box__right__likes
         %i.fas.fa-heart
         = link_to 'いいね!一覧', 'https://www.mercari.com/jp/mypage/like/history/', class: 'header-nav-box__right__likes__link'
-      .header-nav-box__right__notice
+      .header__nav-box__right__notice
         %i.fal.fa-bell
         = link_to 'お知らせ', 'https://www.mercari.com/jp/mypage/notification/', class: 'header-nav-box__right__notice__link'
-      .header-nav-box__right__todo
+      .header__nav-box__right__todo
         %i.fal.fa-check
         = link_to 'やることリスト', 'https://www.mercari.com/jp/mypage/todo/', class: 'header-nav-box__right__todo__link'
-      .header-nav-box__right__mypage
+      .header__nav-box__right__mypage
         %i.fas.fa-user-alt
         =link_to 'マイページ', 'https://www.mercari.com/jp/mypage/', class: 'header-nav-box__right__mypage__link'
 
