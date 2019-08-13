@@ -77,7 +77,7 @@
                       -# 後でactive_hashを用いて実装する
                 .sell-content.clearfix
                   %h3.sell-sub-head 配送について
-                  = link_to "?", "/jp/help_center/article/68/", class:"form-question"
+                  = link_to "?", "/jp/help_center/article/68/", class: "form-question"
                   .sell-form-box
                     .form-group
                       = f.label "配送料の負担" do
@@ -195,6 +195,6 @@
                       =link_to '加盟店規約', '/jp/seller_terms/'
                       に同意したことになります。
                   = f.submit '出品する', class: 'btn-default btn-red'
-                  = link_to 'もどる', root, class: "btn-default btn-gray"
+                  = link_to 'もどる', root_url, class: "btn-default btn-gray"
               .overlay
   = render "devise/shared/footer"
