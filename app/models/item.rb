@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-  has_many :item_images, dependent: :destroy
+  has_many :item_images, dependent: :destroy, inverse_of: :item
   # has_many :likes, dependent: :destroy
   # has_many :comments, dependent: :destroy
   has_many :deals, dependent: :destroy
@@ -8,7 +8,8 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :user
   belongs_to :category
-  belongs_to :brand
+  # TODO: ブランドの実装はまた後日
+  # belongs_to :brand, inverse_of: :brand
   validates :name, presence: true
   validates :condition, presence: true
   validates :postage_burden, presence: true
@@ -17,6 +18,11 @@ class Item < ApplicationRecord
   validates :price, presence: true
   validates :description, presence: true
   validates :status, presence: true
+  accepts_nested_attributes_for :item_images
+  # TODO:ブランドの実装は後日のためなしで
+  # accepts_nested_attributes_for :brand
+
+
   enum status: {no_traded: 0, traded: 1}
 
   def self.fetch_items

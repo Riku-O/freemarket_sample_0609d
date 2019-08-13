@@ -3,10 +3,10 @@
   %main.main
     %section.main__item-container
       .main__item-container__sell-container
-        %div{"data-reactroot" => ""}
+        %div
           .main__item-container__sell-container__display-inner
             %h2.main__item-container__sell-container__display-inner__head 商品の情報を入力
-            %form.main__item-container__sell-container__display-inner__sell-form
+            .main__item-container__sell-container__display-inner__sell-form
               = form_for @item, url: {action: 'create'} do |f|
                 .main__item-container__sell-container__display-inner__sell-form__sell-upload-box
                   %h3.main__item-container__sell-container__display-inner__sell-form__sell-upload-box__sell-upload-head

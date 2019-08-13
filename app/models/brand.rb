@@ -1,5 +1,6 @@
 class Brand < ApplicationRecord
-  has_many :items
+  # TODO:ブランドの保存は後日実装
+  # has_many :items, inverse_of: :items
   validates :name, presence: true
 
   # ブランドがテーブルにあれば、そのレコードを引っ張ってくる、なければ作成

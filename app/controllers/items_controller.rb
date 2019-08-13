@@ -16,11 +16,11 @@ class ItemsController < ApplicationController
     # 画像とブランドの保存が失敗したら処理が進まないようにtransactionを貼る
     ActiveRecord::Base.transaction do
       begin
-        if @item.create!(item_params[:name, :size, :condition,
-                                     :postage_burden, :shipping_method, :price,
-                                     :description, :category_id])
+        binding.pry
+        if Item.create!(item_params)
           Item.save_item_images(item_params[:item][:image], @item)
-          Brand.save_brand(@item, item_params[:item][:brand_name])
+          # TODO: brandの実装は後日
+          # Brand.save_brand(@item, item_params[:item][:brand])
           redirect_to :show
         end
       rescue ::ActiveRecord::RecordNotSaved => e
@@ -60,8 +60,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :size, :condition,
                                  :postage_burden, :shipping_method, :source_area,
                                  :shipping_date, :price, :description,
-                                 :category_id, :brand_name, item_image_attributes: {image: []})
-                          # .merge(user_id: current_user.id)
-                          # ログイン機能実装用のコードだが、出品ページ実装の際は便宜上コメントアウト
+                                 :category_id, item_images_attributes: {image: []})
+                          .merge(user_id: 1)
   end
 end
