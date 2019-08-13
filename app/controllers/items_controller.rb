@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.item_images.build
   end
 
   def create
@@ -18,7 +19,7 @@ class ItemsController < ApplicationController
       begin
         binding.pry
         if Item.create!(item_params)
-          Item.save_item_images(item_params[:item][:image], @item)
+          Item.save_item_images(item_params[:item][:item_images], @item)
           # TODO: brandの実装は後日
           # Brand.save_brand(@item, item_params[:item][:brand])
           redirect_to :show
@@ -60,7 +61,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :size, :condition,
                                  :postage_burden, :shipping_method, :source_area,
                                  :shipping_date, :price, :description,
-                                 :category_id, item_images_attributes: {image: []})
+                                 :category_id, item_images_attributes: [:item_images])
                           .merge(user_id: 1)
   end
 end

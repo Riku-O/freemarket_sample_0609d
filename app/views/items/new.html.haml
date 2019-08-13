@@ -17,9 +17,9 @@
                     .sell-upload-items-container
                       .sell-upload-items.have-item-0
                       %ul
-                    = f.label :image do
+                    = f.label :item_images do
                       .sell-upload-drop-box.have-item-0
-                        = f.file_field(:image, multiple: true, class: 'sell-upload-drop-file', style: "display: none;")
+                        = f.file_field(:item_images, multiple: true, class: 'sell-upload-drop-file', style: "display: none;")
                         %pre.visible-pc
                           ドラッグアンドドロップ
                           %br またはクリックしてファイルをアップロード

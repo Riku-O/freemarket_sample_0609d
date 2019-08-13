@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_many :item_images, dependent: :destroy, inverse_of: :item
+  accepts_nested_attributes_for :item_images
   # has_many :likes, dependent: :destroy
   # has_many :comments, dependent: :destroy
   has_many :deals, dependent: :destroy
@@ -13,12 +14,11 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :condition, presence: true
   validates :postage_burden, presence: true
-  validates :shipping_method, presence: true
+  # validates :shipping_method, presence: true
   validates :shipping_date, presence: true
   validates :price, presence: true
   validates :description, presence: true
   validates :status, presence: true
-  accepts_nested_attributes_for :item_images
   # TODO:ブランドの実装は後日のためなしで
   # accepts_nested_attributes_for :brand
 
