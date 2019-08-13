@@ -1,5 +1,5 @@
 class ItemImage < ApplicationRecord
-  belongs_to :item, inverse_of: :item_images
+  belongs_to :item, optional: true
   mount_uploaders :image, ImageUploader
   validates :image, presence: true
   validate :check_number_of_images

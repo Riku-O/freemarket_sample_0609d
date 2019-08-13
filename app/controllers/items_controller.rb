@@ -17,9 +17,8 @@ class ItemsController < ApplicationController
     # 画像とブランドの保存が失敗したら処理が進まないようにtransactionを貼る
     ActiveRecord::Base.transaction do
       begin
-        binding.pry
         if Item.create!(item_params)
-          Item.save_item_images(item_params[:item][:item_images], @item)
+          Item.save_item_images(item_params[:image], @item)
           # TODO: brandの実装は後日
           # Brand.save_brand(@item, item_params[:item][:brand])
           redirect_to :show
@@ -61,7 +60,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :size, :condition,
                                  :postage_burden, :shipping_method, :source_area,
                                  :shipping_date, :price, :description,
-                                 :category_id, item_images_attributes: [:item_images])
+                                 :category_id, item_images_attributes: [:image])
                           .merge(user_id: 1)
   end
 end
