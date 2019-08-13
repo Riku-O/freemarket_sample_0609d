@@ -9,18 +9,17 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new(item_params[:item][:name, :size, :condition,
-                                                     :postage_burden, :shipping_method, :source_area,
-                                                     :shipping_date, :price, :description,
-                                                     :category_id, :brand_name])
+    @item = Item.new(item_params)
   end
 
   def create
     # 画像とブランドの保存が失敗したら処理が進まないようにtransactionを貼る
     ActiveRecord::Base.transaction do
       begin
-        if @item.save!
-          Item.save_item_images(item_params[:item][:item_image], @item)
+        if @item.create!(item_params[:name, :size, :condition,
+                                     :postage_burden, :shipping_method, :price,
+                                     :description, :category_id])
+          Item.save_item_images(item_params[:item][:image], @item)
           Brand.save_brand(@item, item_params[:item][:brand_name])
           redirect_to :show
         end
@@ -58,10 +57,10 @@ class ItemsController < ApplicationController
   end
   # TODO:パラメーター受け取りのためのキーは画面実装が進んでから調整、画像は配列に入れて返してもらう、キー名はitem_image
   def item_params
-    params.permit(:name, :size, :condition,
+    params.require(:item).permit(:name, :size, :condition,
                                  :postage_burden, :shipping_method, :source_area,
                                  :shipping_date, :price, :description,
-                                 :category_id, :brand_name, :item_image)
+                                 :category_id, :brand_name, item_image_attributes: {image: []})
                           # .merge(user_id: current_user.id)
                           # ログイン機能実装用のコードだが、出品ページ実装の際は便宜上コメントアウト
   end

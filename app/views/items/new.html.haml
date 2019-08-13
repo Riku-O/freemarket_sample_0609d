@@ -7,7 +7,7 @@
           .main__item-container__sell-container__display-inner
             %h2.main__item-container__sell-container__display-inner__head 商品の情報を入力
             %form.main__item-container__sell-container__display-inner__sell-form
-              = form_for([@item, @item_image, @brand])  do |f|
+              = form_for @item, url: {action: 'create'} do |f|
                 .main__item-container__sell-container__display-inner__sell-form__sell-upload-box
                   %h3.main__item-container__sell-container__display-inner__sell-form__sell-upload-box__sell-upload-head
                     出品画像
@@ -16,10 +16,13 @@
                   .sell-dropbox-container.clearfix.state-image-number-10
                     .sell-upload-items-container
                       .sell-upload-items.have-item-0
-                        %ul
-                  .sell-upload-drop-box.have-item-0
-                    = f.file_field :image, class: 'sell-upload-drop-file', type: "hidden"
-                    %pre.visible-pc ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
+                      %ul
+                    = f.label :image do
+                      .sell-upload-drop-box.have-item-0
+                        = f.file_field(:image, multiple: true, class: 'sell-upload-drop-file', style: "display: none;")
+                        %pre.visible-pc
+                          ドラッグアンドドロップ
+                          %br またはクリックしてファイルをアップロード
                 .sell-content
                   .form-group
                     %label
@@ -191,9 +194,7 @@
                       また、出品をもちまして
                       =link_to '加盟店規約', '/jp/seller_terms/'
                       に同意したことになります。
-                  %button.btn-default.btn-red{type: "submit"}
-                    出品する
-                    = f.submit type: "hidden"
+                  = f.submit '出品する', {class: "btn-default, btn-red"}
                   %a.btn-default.btn-gray{ href: "http://localhost:3000/" } もどる
               .overlay
   = render "devise/shared/footer"
