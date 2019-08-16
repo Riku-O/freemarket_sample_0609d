@@ -7,7 +7,7 @@
           .main__item-container__sell-container__display-inner
             %h2.main__item-container__sell-container__display-inner__head 商品の情報を入力
             .main__item-container__sell-container__display-inner__sell-form
-              = form_for @item, url: {action: 'create'} do |f|
+              = form_for @item_registration_form do |f|
                 .main__item-container__sell-container__display-inner__sell-form__sell-upload-box
                   %h3.main__item-container__sell-container__display-inner__sell-form__sell-upload-box__sell-upload-head
                     出品画像
@@ -16,14 +16,13 @@
                   .sell-dropbox-container.clearfix.state-image-number-10
                     .sell-upload-items-container
                       .sell-upload-items.have-item-0
-                      = f.fields_for :item_images do |c|
+                      = f.fields_for :item_images, @item_registration_form do |c|
                         = c.label :image, type: "display: none;" do
                           .sell-upload-drop-box.have-item-0
                             %pre.visible-pc
                               ドラッグアンドドロップ
                               %br またはクリックしてファイルをアップロード
                             = c.file_field :image, class: "sell-upload-drop-file", style: "display: none"
-                            
                 .sell-content
                   .form-group
                     %label
