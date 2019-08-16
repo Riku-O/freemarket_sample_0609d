@@ -46,11 +46,11 @@ class Item < ApplicationRecord
   private
   # リファクタリング必要
   def self.sort_lady
-    Item.includes(:category, :item_images).where(category_id: 11..25).last(4)
+    Item.includes(:category, :item_images).where(category_id: 11..25).references(:categories).last(4)
   end
 
   def self.sort_men
-    Item.includes(:category, :item_images).where(category_id: 26..34).last(4)
+    Item.includes(:category, :item_images).where(category_id: 26..34).references(:categories).last(4)
   end
 
 end
