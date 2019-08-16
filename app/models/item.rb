@@ -2,18 +2,40 @@ class Item < ApplicationRecord
   has_many :item_images, dependent: :destroy
   # has_many :likes, dependent: :destroy
   # has_many :comments, dependent: :destroy
+  has_many :deals, dependent: :destroy
   # has_one :review, dependent: :destroy
   belongs_to :user, dependent: :destroy
   belongs_to :category
   belongs_to :user
   belongs_to :category
-  # belongs_to :brand
+  belongs_to :brand
+  validates :name, presence: true
+  validates :condition, presence: true
+  validates :postage_burden, presence: true
+  validates :shipping_method, presence: true
+  validates :shipping_date, presence: true
+  validates :price, presence: true
+  validates :description, presence: true
+  validates :status, presence: true
+  enum status: {no_traded: 0, traded: 1}
 
   def self.fetch_items
     items = Item.new
     items = []
     items << sort_lady
     items << sort_men
+  end
+
+  def is_hosted_by?(current_user_id)
+    if self.user_id == current_user_id
+      true
+    else
+      false
+    end
+  end
+
+  def self.fetch_item(item_id)
+    Item.find(item_id)
   end
 
   private
