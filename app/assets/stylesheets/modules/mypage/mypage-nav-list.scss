@@ -1,8 +1,10 @@
 .mypage-nav {
   width: 248px;
   display: block;
+  margin-right: 72px;
 
   &__list {
+    font-family: 'FontAwesome';
     width: 100%;
     padding: 16px;
     background-color: white;
@@ -10,7 +12,7 @@
     border-bottom-color: whitesmoke;
     border-bottom-width: thin;
     &:hover {
-      background-color: whitesmoke;
+      background-color: rgb( 240, 240, 240);
     }
   }
 
@@ -22,7 +24,6 @@
   a {
     position: relative;
     display: block;
-
     p {
       display: inline;
       font-size: 14px;
@@ -31,13 +32,18 @@
     }
 
     i {
+      font-size: 14px;
+      content: "\f054"; 
       color: #ccc;
       float: right;
-    }
-
-    &:hover {
-      padding-right: 10px;
-      transition: padding-right 0.2s;
+      color: rgb( 204, 204, 204);
+      padding-right: 5px;
+      &:hover {
+        transform: translate( 25%, 0);
+        transition-duration: 0.3s;
+        transition-property: all;
+        color: black;
+      }
     }
   }
 }
