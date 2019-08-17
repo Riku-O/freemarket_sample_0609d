@@ -8,15 +8,20 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :user
   belongs_to :category
-  belongs_to :brand
+  # TODO: ブランドの実装はまた後日
+  # belongs_to :brand, inverse_of: :brand
   validates :name, presence: true
   validates :condition, presence: true
   validates :postage_burden, presence: true
-  validates :shipping_method, presence: true
+  # validates :shipping_method, presence: true
   validates :shipping_date, presence: true
   validates :price, presence: true
   validates :description, presence: true
   validates :status, presence: true
+  # TODO:ブランドの実装は後日のためなしで
+  # accepts_nested_attributes_for :brand
+
+
   enum status: {no_traded: 0, traded: 1}
 
   def self.fetch_items
@@ -41,11 +46,11 @@ class Item < ApplicationRecord
   private
   # リファクタリング必要
   def self.sort_lady
-    Item.includes(:category, :item_images).where(category_id: 11..25).last(4)
+    Item.includes(:category, :item_images).where(category_id: 11..25).references(:categories).last(4)
   end
 
   def self.sort_men
-    Item.includes(:category, :item_images).where(category_id: 26..34).last(4)
+    Item.includes(:category, :item_images).where(category_id: 26..34).references(:categories).last(4)
   end
 
 end

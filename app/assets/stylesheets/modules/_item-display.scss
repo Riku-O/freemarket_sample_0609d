@@ -49,11 +49,31 @@
               display: block;
             }
           }
+          .sell-upload-items.have-item-0 {
+            display: inline;
+          }
           .sell-upload-drop-box.have-item-0 {
-            width: 100%;
+            background: #f5f5f5;
+            border: 1px dashed #ccc;
+            font-size: 0;
             margin-left: 0;
+            min-height: 162px;
+            padding: 10px;
+            position: relative;
+            text-align: center;
+            .image-label {
+              width: 620px;
+              height: 180px;
+            }
             .sell-upload-drop-file {
-              display: none;
+              height: 600px;
+              width: 180px;
+              input {
+                border: 0;
+                outline: 0;
+                font-family: inherit;
+                appearance: none;
+              }
             }
             .visible-pc {
               position: absolute;
@@ -62,16 +82,14 @@
               right: 16px;
               text-align: center;
               font-size: 14px;
-              line-height: 1.5;
+              line-height: 0.9;
               display: inline;
             }
+            pre {
+              font-family: monospace;
+              white-space: pre;
+            }
           }
-        }
-        .sell-upload-items.have-item-0 {
-          position: relative;
-          min-height: 162px;
-          background: #f5f5f5;
-          border: 1px dashed #ccc;
         }
       }
       .sell-content {
@@ -219,11 +237,8 @@
       .sell-content.sell-btn-box p {
         line-height: 1.5;
       }
-      .sell-btn-box
       .btn-red {
         margin: 40px 0 0;
-      }
-      .btn-red {
         background: #ea352d;
         border: 1px solid #ea352d;
         color: #fff;
