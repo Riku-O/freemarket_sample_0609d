@@ -1,6 +1,5 @@
 .single-container
-  .single-container__header
-    = render "devise/shared/header_one"
+  = render "devise/shared/header_one"
   .single-container__main
     %section.single-container__main__body.buy_item-container
       %h2.single-container__main__body__header 購入内容の確認
@@ -10,47 +9,44 @@
             = image_tag @deal.item.item_images.first.image.url
           %p.buy-content__inner__name.bold
             = @deal.item.name
-          = form_for new_item_deal_path do |f|
+          = form_for new_item_deal_path, html: { class: "form_for_buy"} do |f|
             .form_for_buy
-              %p.form_for_buy--price
+              %p.form_for_buy--price.bold
                 = number_to_currency @deal.item.price, unit: "¥", precision: 0
-                %span
+                %span.postage_burden.bold
                   = @deal.item.postage_burden
               %ul.form_for_buy--available-point
                 %li.form_for_buy--available-point--parent
                   .form_for_buy--available-point--parent--children
                     ポイントはありません
-              %ul.form_for_buy--available-price
-                %li.form_for_buy--available-price__container
-                  .form_for_buy--available-price__container--cell
+              %ul.form_for_buy--price_table
+                %li.form_for_buy--price_table__container
+                  .form_for_buy--price_table__container--cell.bold
                     支払い金額
-                  .form_for_buy--available-price__container--cell
+                  .form_for_buy--price_table__container--cell
                     %span.item-postage-burden.bold
                       = number_to_currency @deal.item.price, unit: "¥", precision: 0
               = f.submit '購入する', class: "btn-default btn-red bold"
-        %section.buy-content.buy-user-info
-          .buy-content__inner
-            %h3 配送先
-            %adress.buy-content__inner__user-info-text
-              〒郵便番号
+      %section.buy-content.buy-user-info
+        .buy-content__inner
+          %h3 配送先
+          %adress.buy-content__inner__user-info-text
+            〒郵便番号
+            %br
+              住所
               %br
-                住所
-                %br
-                  ユーザ名
-            %p.buy-content__inner__user-info-text
-            = link_to '#', class: "buy-content__inner__user-info-text--change" do
-              %span 変更する
-              %i.fas.fa-chevron-right
-        %section.buy-content.buy-user-info
-          .buy-content__inner
-            %h3 支払い方法
-            %p.buy-content__inner__user-info-text
-              支払い情報が入力されていません。
-            %figure
-              -#pay.jpの導入が完了したらロゴを入れる
-              -#= image_tag 'https://image.itmedia.co.jp/nl/articles/1607/18/ok_160717mastercard01.jpg'
-            = link_to '#', class: "buy-content__inner__user-info-text--change" do
-              %span 変更する
-              %i.fas.fa-chevron-right
-  .single-container__footer
-    = render "devise/shared/footer"
+                ユーザ名
+          %p.buy-content__inner__user-info-text
+          = link_to '#', class: "buy-content__inner__user-info-text--change" do
+            %span 変更する
+            %i.fas.fa-angle-right
+      %section.buy-content.buy-user-info
+        .buy-content__inner
+          %h3 支払い方法
+          %p.buy-content__inner__user-info-text
+            支払い情報が入力されていません。
+          %figure
+          = link_to '#', class: "buy-content__inner__user-info-text--change" do
+            %span 変更する
+            %i.fas.fa-angle-right
+  = render "devise/shared/footer"
