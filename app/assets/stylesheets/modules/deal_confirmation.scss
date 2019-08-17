@@ -1,0 +1,58 @@
+.single-container {
+  padding: 0 0 220px;
+  &__main {
+    display: block;
+    &__body {
+      width: 700px;
+      margin: 0 auto;
+      background-color: #fff;
+      &__header {
+        padding: 16px;
+        font-size: 22px;
+        line-height: 1.5;
+        text-align: center;
+      }
+      .buy-content:first-of-type {
+        margin: 0;
+      }
+      .buy-content {
+        margin: 40px 0 0;
+        padding: 24px 12.5% 0;
+        border-top: 1px solid #f5f5f5;
+        &__inner {
+          display: flex;
+          flex-wrap: wrap;
+          max-width: 320px;
+          margin: 0 auto;
+          img {
+            width: 64px;
+          }
+          &__name {
+            width: calc(100% - 80px);
+            margin: 0 0 0 16px;
+            text-align: left;
+            font-size: 16px;
+            line-height: 1.5;
+          }
+          .form_for_buy {
+            width: 100%;
+          }
+        }
+      }
+      .item-info {
+        text-align: center;
+      }
+    }
+  }
+}
+h3 {
+  font-size: 22px;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.bold {
+  font-weight: 600;
+}
