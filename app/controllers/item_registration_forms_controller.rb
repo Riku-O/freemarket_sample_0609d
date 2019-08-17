@@ -9,16 +9,16 @@ class ItemRegistrationFormsController < ApplicationController
     if @item_registration_form.save
       redirect_to @item
     else
-      render :'items/index'
+      render :new
     end
   end
 
   private
   # TODO:アイテムのブランドは後日実装
   def item_registration_params
-    params.require(:item_registration_form).permit(:name, :condition,
-                                          :postage_burden, :shipping_method, :source_area,
-                                          :shipping_date, :price, :description,
+    params.require(:item_registration_form).permit(:name, :condition_id,
+                                          :postage_burden, :shipping_method_id, :source_area_id,
+                                          :shipping_date_id, :price, :description,
                                           :category_id,
                                           item_images_attributes: [:image])
                                           .merge(user_id: 1)

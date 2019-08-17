@@ -1,18 +1,18 @@
 class ItemRegistrationForm
   include ActiveModel::Model
   validates :name, presence: true
-  validates :condition, presence: true
+  validates :condition_id, presence: true
   validates :postage_burden, presence: true
-  validates :shipping_method, presence: true
-  validates :source_area, presence: true
-  validates :shipping_date, presence: true
+  # validates :shipping_method, presence: true
+  validates :source_area_id, presence: true
+  validates :shipping_date_id, presence: true
   validates :price, presence: true
   validates :description, presence: true
   validates :category_id, presence: true
   validates :item_images,presence: true
   attr_accessor :name, :description, :category_id,
-                :condition, :postage_burden, :shipping_method,
-                :source_area, :shipping_date, :price, :user_id
+                :condition_id, :postage_burden, :shipping_method_id,
+                :source_area_id, :shipping_date_id, :price, :user_id
 
   concerning :ItemBuilder do
     attr_reader :user_id
@@ -57,12 +57,12 @@ class ItemRegistrationForm
     {
       name: name,
       description: description,
-      condition: condition,
+      condition_id: condition_id,
       price: price,
       postage_burden: postage_burden,
-      shipping_date: shipping_date,
-      shipping_method: shipping_method,
-      source_area: source_area,
+      shipping_date_id: shipping_date_id,
+      # shipping_method: shipping_method,
+      source_area_id: source_area_id,
       category_id: category_id,
       user_id: 1
     }

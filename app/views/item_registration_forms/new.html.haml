@@ -66,7 +66,7 @@
                         %span.form-require 必須
                         .select-wrap
                           %i.fa.fa-angle-down
-                          = f.select :condition, {}, {}, {class: "select-default"} do
+                          = f.select :condition_id, {}, {}, {class: "select-default"} do
                             %option{value: ""} ---
                             %option{value: "1"} 新品、未使用
                             %option{value: "2"} 未使用に近い
@@ -95,7 +95,7 @@
                         %span.form-require 必須
                       .select-wrap
                         %i.fa.fa-angle-down
-                        = f.select :source_area, {}, {}, {class: "select-default"} do
+                        = f.select :source_area_id, {}, {}, {class: "select-default"} do
                           %option{value: ""} ---
                           %option{value: "1"} 北海道
                           %option{value: "2"} 青森県
@@ -152,7 +152,7 @@
                         %span.form-require 必須
                       .select-wrap
                         %i.fa.fa-angle-down
-                        = f.select :shipping_date, {}, {}, {class: "select-default"} do
+                        = f.select :shipping_date_id, {}, {}, {class: "select-default"} do
                           %option{value: ""} ---
                           %option{value: "1"} 1~2日で発送
                           %option{value: "2"} 2~3日で発送
