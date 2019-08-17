@@ -1,0 +1,145 @@
+.single-container {
+  padding: 0 0 220px;
+  &__main {
+    display: block;
+    &__body {
+      width: 700px;
+      margin: 0 auto;
+      background-color: #fff;
+      &__header {
+        padding: 16px;
+        font-size: 22px;
+        line-height: 1.5;
+        text-align: center;
+      }
+      .buy-content:first-of-type {
+        margin: 0;
+      }
+      .buy-content:last-of-type {
+        padding: 24px 12.5% 40px;
+      }
+      .buy-content {
+        margin: 40px 0 0;
+        padding: 24px 12.5% 0;
+        border-top: 1px solid #f5f5f5;
+
+        &__inner {
+          max-width: 320px;
+          margin: 0 auto;
+          img {
+            width: 64px;
+          }
+          &__name {
+            width: calc(100% - 80px);
+            margin: 0 0 0 16px;
+            text-align: left;
+            font-size: 16px;
+            line-height: 1.5;
+          }
+          .form_for_buy {
+            width: 100%;
+            p {
+              margin: 8px 0 0;
+              line-height: 1.5;
+            }
+            &--price {
+              font-size: 22px;
+            }
+            .postage_burden{
+              display: inline-block;
+              font-size: 14px;
+              font-weight: 400;
+              margin: 0 0 0 8px;
+            }
+            &--available-point {
+              background-color: #ccc;
+              &--parent {
+                &--children {
+                  cursor: default;
+                  padding: 16px;
+                  border: 1px solid #ccc;
+                  position: relative;
+                }
+              }
+            }
+            &--price_table {
+              display: table;
+              border-collapse: collapse;
+              width: 100%;
+              &__container {
+                border: 0;
+                display: table-row;
+                font-size: 18px;
+                &--cell:first-child {
+                  text-align: left;
+                }
+                &--cell {
+                  display: table-cell;
+                  padding: 16px 0;
+                  text-align: right;
+                  span {
+                    font-size: 28px;
+                  }
+                }
+              }
+            }
+          }
+          &__user-info-text {
+            margin: 8px 0 0;
+            font-size: 14px;
+            line-height: 1.4;
+            &--change {
+              display: block;
+              text-align: right;
+              span {
+                vertical-align: middle;
+              }
+            }
+          }
+        }
+      }
+      .buy-user-info {
+        transition: all ease-out .3s;
+
+      }
+      .buy-user-info h3:first-child {
+        margin: 0;
+      }
+      .buy-user-info h3 {
+        font-size: 14px;
+      }
+      .buy-user-info address {
+        display: block;
+      }
+      .item-info {
+        text-align: center;
+      }
+      .item-info > .buy-content__inner {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+h3 {
+  font-size: 22px;
+}
+
+img {
+  vertical-align: middle;
+}
+
+address {
+  font-style: normal;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.fas.fa-angle-right {
+  font-family: FontAwesome;
+  font-size: 10px;
+  margin: 0 0 0 8px;
+  vertical-align: middle;
+}
