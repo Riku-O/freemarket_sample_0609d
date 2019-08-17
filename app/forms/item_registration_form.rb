@@ -38,8 +38,7 @@ class ItemRegistrationForm
     false if invalid?
     item.assign_attributes(item_params)
     build_association
-
-    binding.pry
+    
     if item.save
       true
     else
