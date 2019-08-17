@@ -1,4 +1,7 @@
 class SourceArea < ActiveHash::Base
+  include ActiveHash::Associations
+  has_many :items
+
   field :name
   add id: 1, name: "北海道"
   add id: 2, name: "青森県"
@@ -48,5 +51,4 @@ class SourceArea < ActiveHash::Base
   add id: 46, name: "鹿児島県"
   add id: 47, name: "沖縄県"
   add id: 48, name: "未定"
-
 end
