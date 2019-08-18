@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :buyer_deals, class_name: 'Deal', foreign_key: 'buyer_id'
   has_many :seller_deals, class_name: 'Deal', foreign_key: 'seller_id'
   has_one :user_information
+  has_one :address, dependent: :destroy
   validates :nickname, presence: true, length: { maximum: 20 }
   validates :email, presence: true, uniqueness: true
   validates :encrypted_password, length: { in: 7..128 }, confirmation: true

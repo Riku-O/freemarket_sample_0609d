@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_08_101857) do
+ActiveRecord::Schema.define(version: 2019_08_18_043541) do
+
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "postcode", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "block", null: false
+    t.string "building"
+    t.integer "phone_number"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -48,12 +61,12 @@ ActiveRecord::Schema.define(version: 2019_08_08_101857) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "size"
-    t.string "condition", null: false
-    t.integer "postage_burden", null: false
-    t.string "shipping_method", null: false
-    t.string "source_area", null: false
-    t.string "shipping_date", null: false
+    t.string "size"
+    t.string "condition_id", null: false
+    t.integer "post_burden_id", null: false
+    t.integer "shipping_method"
+    t.integer "source_area_id", null: false
+    t.integer "shipping_date_id", null: false
     t.integer "price", null: false
     t.text "description", null: false
     t.integer "status", default: 0, null: false
@@ -95,6 +108,7 @@ ActiveRecord::Schema.define(version: 2019_08_08_101857) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "deals", "items"
   add_foreign_key "deals", "users", column: "buyer_id"
   add_foreign_key "deals", "users", column: "seller_id"

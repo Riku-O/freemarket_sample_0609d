@@ -1,6 +1,4 @@
 require 'faker'
-require 'csv'
-
 
 
 # レディースカテゴリ作成
