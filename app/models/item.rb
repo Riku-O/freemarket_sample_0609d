@@ -25,10 +25,10 @@ class Item < ApplicationRecord
   enum status: {no_traded: 0, traded: 1}
 
   def self.fetch_items
-    items = Item.new
-    items = []
-    items << sort_lady
-    items << sort_men
+    items = Item.includes(:item_images).all
+    # items = []
+    # items << sort_lady
+    # items << sort_men
   end
 
   def is_hosted_by?(current_user_id)
