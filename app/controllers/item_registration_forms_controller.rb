@@ -17,7 +17,7 @@ class ItemRegistrationFormsController < ApplicationController
   # TODO:アイテムのブランドは後日実装
   def item_registration_params
     params.require(:item_registration_form).permit(:name, :condition_id,
-                                          :postage_burden, :shipping_method_id, :source_area_id,
+                                          :post_burden_id, :shipping_method_id, :source_area_id,
                                           :shipping_date_id, :price, :description,
                                           :category_id,
                                           item_images_attributes: [:image])
