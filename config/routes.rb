@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'items#index'
   resource :items
   get 'mypage' => 'mypage#index'
+  resource :registrations
 end
