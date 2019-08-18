@@ -16,10 +16,10 @@ class Item < ApplicationRecord
   belongs_to :shipping_date
 
   validates :name, presence: true
-  validates :condition, presence: true
+  validates :condition_id, presence: true
   validates :postage_burden, presence: true
-  # validates :shipping_method, presence: true
-  validates :shipping_date, presence: true
+  # validates :shipping_method_id, presence: true
+  validates :shipping_date_id, presence: true
   validates :price, presence: true
   validates :description, presence: true
   validates :status, presence: true
@@ -31,10 +31,10 @@ class Item < ApplicationRecord
   enum postage_burden: { "送料込み(出品者負担)": 1, "着払い(購入者負担)": 2}
 
   def self.fetch_items
-    items = Item.new
-    items = []
-    items << sort_lady
-    items << sort_men
+    items = Item.includes(:item_images).references(:item_images).last(4)
+    # items = []
+    # items << sort_lady
+    # items << sort_men
   end
 
   def is_hosted_by?(current_user_id)
@@ -50,13 +50,13 @@ class Item < ApplicationRecord
   end
 
   private
-  # リファクタリング必要
-  def self.sort_lady
-    Item.includes(:category, :item_images).where(category_id: 11..25).references(:categories).last(4)
-  end
-
-  def self.sort_men
-    Item.includes(:category, :item_images).where(category_id: 26..34).references(:categories).last(4)
-  end
+  # TODO:ブランド機能実装したら一覧も編集
+  # def self.sort_lady
+  #   Item.includes(:category, :item_images).where(category_id: 11..25).references(:categories).last(4)
+  # end
+  #
+  # def self.sort_men
+  #   Item.includes(:category, :item_images).where(category_id: 26..34).references(:categories).last(4)
+  # end
 
 end
