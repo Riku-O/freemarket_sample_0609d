@@ -25,7 +25,7 @@ class Item < ApplicationRecord
   enum status: {no_traded: 0, traded: 1}
 
   def self.fetch_items
-    items = Item.includes(:item_images).all
+    items = Item.includes(:item_images).references(:item_images).all
     # items = []
     # items << sort_lady
     # items << sort_men
