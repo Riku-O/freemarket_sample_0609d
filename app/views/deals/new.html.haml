@@ -14,7 +14,7 @@
               %p.form_for_buy--price.bold
                 = number_to_currency @deal.item.price, unit: "¥", precision: 0
                 %span.postage_burden.bold
-                  = @deal.item.postage_burden
+                  = @deal.item.post_burden.name
               %ul.form_for_buy--available-point
                 %li.form_for_buy--available-point--parent
                   .form_for_buy--available-point--parent--children
