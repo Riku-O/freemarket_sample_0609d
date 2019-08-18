@@ -25,7 +25,7 @@ class Item < ApplicationRecord
   enum status: {no_traded: 0, traded: 1}
 
   def self.fetch_items
-    items = Item.includes(:item_images).references(:item_images).all
+    items = Item.includes(:item_images).references(:item_images).last(4)
     # items = []
     # items << sort_lady
     # items << sort_men
@@ -44,13 +44,13 @@ class Item < ApplicationRecord
   end
 
   private
-  # リファクタリング必要
-  def self.sort_lady
-    Item.includes(:category, :item_images).where(category_id: 11..25).references(:categories).last(4)
-  end
-
-  def self.sort_men
-    Item.includes(:category, :item_images).where(category_id: 26..34).references(:categories).last(4)
-  end
+  # TODO:ブランド機能実装したら一覧も編集
+  # def self.sort_lady
+  #   Item.includes(:category, :item_images).where(category_id: 11..25).references(:categories).last(4)
+  # end
+  #
+  # def self.sort_men
+  #   Item.includes(:category, :item_images).where(category_id: 26..34).references(:categories).last(4)
+  # end
 
 end
