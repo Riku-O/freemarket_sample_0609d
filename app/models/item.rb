@@ -10,6 +10,11 @@ class Item < ApplicationRecord
   belongs_to :category
   # TODO: ブランドの実装はまた後日
   # belongs_to :brand, inverse_of: :brand
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :source_area
+  belongs_to :condition
+  belongs_to :shipping_date
+
   validates :name, presence: true
   validates :condition, presence: true
   validates :postage_burden, presence: true
@@ -23,6 +28,7 @@ class Item < ApplicationRecord
 
 
   enum status: {no_traded: 0, traded: 1}
+  enum postage_burden: { "送料込み(出品者負担)": 1, "着払い(購入者負担)": 2}
 
   def self.fetch_items
     items = Item.new
