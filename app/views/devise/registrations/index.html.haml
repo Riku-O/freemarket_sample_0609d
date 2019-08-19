@@ -1,0 +1,20 @@
+.single-wrapper
+  = render "devise/shared/header_one"
+
+  %main.single-body
+    %section.single-body__inner
+      %h2.single-body__inner__registration-head 新規会員登録
+      .single-body__inner__registration-form
+        .single-body__inner__registration-form__items
+          .single-body__inner__registration-form__items__btn-default
+            = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-mail"  do
+              = fa_icon 'envelope', class: 'icon'
+              メールアドレスで登録する
+            = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-facebook"  do
+              = fa_icon 'facebook-square', class: 'icon'
+              Facebookで登録する
+            = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-google "  do
+              = fa_icon 'google', class: 'icon'
+              Googleで登録する
+
+  = render "devise/shared/footer"
