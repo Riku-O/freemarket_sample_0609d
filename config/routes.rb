@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get "users/sign_up/google" => "devise/registrations#new_google" # googleによる会員情報入力画面
     get "users/sign_up/sms_confirmation" => "devise/registrations#sms_confirmation" # 電話番号認証ページ
     get "users/sign_up/address" => "devise/registrations#address" # 発送元・お届け先住所入力ページ
+    get "users/sign_up/credit_card" => "devise/registrations#credit_card" # 支払い方法入力ページ
   end
   devise_for :users
   root 'items#index'
