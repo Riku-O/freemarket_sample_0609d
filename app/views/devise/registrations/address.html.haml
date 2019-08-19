@@ -77,7 +77,21 @@
                 %option{value: "47"} 沖縄県
                 %option{value: "48"} 未定
           .single-body__inner__registration-form__content__form
+            %label{for: "city"} 市区町村
+            %span.single-body__inner__registration-form__content__form__require 必須
+            %input{type: "text", value: "", name: "city", placeholder: "例) 横浜市緑区", class: "single-body__inner__registration-form__content__form__default"}
           .single-body__inner__registration-form__content__form
+            %label{for: "address1_label"} 番地
+            %span.single-body__inner__registration-form__content__form__require 必須
+            %input{type: "text", value: "", name: "address1", placeholder: "例) 青山1−1−1", class: "single-body__inner__registration-form__content__form__default"}
           .single-body__inner__registration-form__content__form
+            %label{for: "address2_label"} 建物名
+            %span.single-body__inner__registration-form__content__form__arbitrary 任意
+            %input{type: "text", value: "", name: "address2", placeholder: "例) 柳ビル103", class: "single-body__inner__registration-form__content__form__default"}
           .single-body__inner__registration-form__content__form
+            %label{for: "address2_label"} 電話
+            %span.single-body__inner__registration-form__content__form__arbitrary 任意
+            %input{type: "number", value: "", name: "telephone", placeholder: "例) 09012345678", class: "single-body__inner__registration-form__content__form__default"}
+          %input{type: "hidden", value: "https://www.mercari.com/jp/", name: "after_save_callback"}
+          %button{type: "submit", class: "single-body__inner__registration-form__content__btn-red"}次へ進む
   = render "devise/shared/footer"
