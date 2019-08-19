@@ -162,6 +162,26 @@
           font-weight: 600;
           color: #ea352d;
 
+          .progress-status-last {
+            background: #ea352d;
+            width: 12px;
+            height: 12px;
+            margin: 8px auto 0;
+            border-radius: 50%;
+
+            &:before {
+              right: 50%;
+              background: #ea352d;
+              position: absolute;
+              bottom: 5px;
+              z-index: -1;
+              display: block;
+              content: '';
+              width: 100%;
+              height: 2px;
+            }
+          }
+
           .progress-status-second {
             background: #ea352d;
             width: 12px;
@@ -265,6 +285,15 @@
       &__registration-form {
         padding: 40px 40px 64px;
 
+        &__banner {
+          display: block;
+
+          &__pc {
+            width: 100%;
+            display: inline;
+          }
+        }
+
         &__content {
           max-width: 343px;
           margin: 0 auto;
@@ -272,6 +301,18 @@
           p {
             margin: 8px 0 0;
             line-height: 1.5;
+          }
+
+          .done-view {
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: center;
+
+            &:first-child {
+              margin: 0;
+              padding: 0;
+            }
           }
 
           &__btn-red {
@@ -289,8 +330,13 @@
             text-align: center;
           }
 
+          .last {
+            font-size: 16px;
+          }
+
           &__form {
             margin-top: 32px;
+
 
             &____has-error-text {
               color: #ea352d;
