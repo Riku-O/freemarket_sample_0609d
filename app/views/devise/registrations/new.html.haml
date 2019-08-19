@@ -1,21 +1,103 @@
 .single-wrapper
-  = render "devise/shared/header_one"
-
-  %main.single-body
+  %header.mail-head
+    %h1
+      = link_to "https://www.mercari.com/jp/" do
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863303983", alt: "メルカリ"
+    %nav.mail-head__progress-point.mail-head__signup-point
+      %ol.clearfix
+        %li.current
+          会員情報
+          .progress-status-first
+        %li
+          電話番号認証
+          .progress-status
+        %li
+          お届け先住所入力
+          .progress-status
+        %li
+          支払い方法
+          .progress-status
+        %li.last
+          完了
+          .progress-status-last
+  %main.single-body.mail-view
     %section.single-body__inner
-      %h2.single-body__inner__registration-head 新規会員登録
-      .single-body__inner__registration-form
-        .single-body__inner__registration-form__items
-          .single-body__inner__registration-form__items__btn-default
-            = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-mail"  do
-              = fa_icon 'envelope', class: 'icon'
-              メールアドレスで登録する
-            = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-facebook"  do
-              = fa_icon 'facebook-square', class: 'icon'
-              Facebookで登録する
-            = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-google "  do
-              = fa_icon 'google', class: 'icon'
-              Googleで登録する
-
+      %h2.single-body__inner__registration-head 会員情報入力
+      %form{action: "https://www.mercari.com/jp/signup/sms_confirmation/?after_save_callback=https://www.mercari.com/jp/", method: "POST", class: "single-body__inner__registration-form", novalidate: "novalidate"}
+        %input{type: "hidden", name: "__csrf_value", value: "137c6b4425c6a948ce2b7ab1b983e50cf16ec2d84ac7220c1b35fc3b04aca6410e1e7fe01362b4738ddffd109f1e1946e130de57c6cb4b3c86522d201cfbe13d2"}
+        .single-body__inner__registration-form__content
+          .single-body__inner__registration-form__content__form
+            %label{for: "nickname"} ニックネーム
+            %span.single-body__inner__registration-form__content__form__require 必須
+            %input{type: "text", value: "", name: "nickname", placeholder: "例) メルカリ太郎", class: "single-body__inner__registration-form__content__form__default"}
+          .single-body__inner__registration-form__content__form
+            %label{for: "email"} メールアドレス
+            %span.single-body__inner__registration-form__content__form__require 必須
+            %input{type: "email", value: "", name: "nickname", placeholder: "PC・携帯どちらでも可", class: "single-body__inner__registration-form__content__form__default"}
+          %input{type: "hidden", value: "", name: "login_type"}
+          .single-body__inner__registration-form__content__form
+            %label{for: "password"} パスワード
+            %span.single-body__inner__registration-form__content__form__require 必須
+            %input{type: "password", name: "password", placeholder: "7文字以上", class: "single-body__inner__registration-form__content__form__default"}
+          .single-body__inner__registration-form__content__form
+            %label{for: "password"} パスワード (確認)
+            %span.single-body__inner__registration-form__content__form__require 必須
+            %input{type: "password", name: "password2", placeholder: "7文字以上", class: "single-body__inner__registration-form__content__form__default"}
+          .single-body__inner__registration-form__content__form
+            %h3.single-body__inner__registration-form__content__form__left-text 本人確認
+            %p.single-body__inner__registration-form__content__form__single-text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .single-body__inner__registration-form__content__form
+            %div
+              %label お名前(全角)
+              %span.single-body__inner__registration-form__content__form__require 必須
+            %input{type: "text", value: "", name: "family_name_kanji", placeholder: "例) 山田", class: "single-body__inner__registration-form__content__form__default-half"}
+            %input{type: "text", value: "", name: "first_name_kanji", placeholder: "例) 彩",  class: "single-body__inner__registration-form__content__form__default-half"}
+          .single-body__inner__registration-form__content__form
+            %div
+              %label{for: "family_name_kanji"} お名前カナ(全角)
+              %span.single-body__inner__registration-form__content__form__require 必須
+            %input{type: "text", value: "", name: "family_name_kana", placeholder: "例) ヤマダ", class: "single-body__inner__registration-form__content__form__default-half"}
+            %input{type: "text", value: "", name: "first_name_kana", placeholder: "例) アヤ", class: "single-body__inner__registration-form__content__form__default-half"}
+          .single-body__inner__registration-form__content__form
+            %label{for: "birthday"} 生年月日
+            %span.single-body__inner__registration-form__content__form__require 必須
+            %br
+            .single-body__inner__registration-form__content__form__birthday-box
+              .single-body__inner__registration-form__content__form__birthday-box__single
+                = fa_icon 'angle-down', class: 'icon-down'
+                %select{name: "year", class: "single-body__inner__registration-form__content__form__birthday-box__single__select"}
+                  %option{value: ""} --
+                  - 2019.downto(1900) do |i|
+                    %option{value: "#{i}"} #{i}
+              %span 年
+              .single-body__inner__registration-form__content__form__birthday-box__single.single-body__inner__registration-form__content__form__birthday-box__month
+                = fa_icon 'angle-down', class: 'icon-down'
+                %select{name: "month", class: "single-body__inner__registration-form__content__form__birthday-box__single__select"}
+                  %option{value: ""} --
+                  - 1.upto(12) do |i|
+                    %option{value: "#{i}"} #{i}
+              %span 月
+              .single-body__inner__registration-form__content__form__birthday-box__single.single-body__inner__registration-form__content__form__birthday-box__day
+                = fa_icon 'angle-down', class: 'icon-down'
+                %select{name: "day", class: "single-body__inner__registration-form__content__form__birthday-box__single__select"}
+                  %option{value: ""} --
+                  - 1.upto(31) do |i|
+                    %option{value: "#{i}"} #{i}
+              %span 日
+              %input{type: "hidden", name: "birthday", value:""}
+              .clearfix
+            %p.form-text ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        .single-body__inner__registration-form__content
+          .single-body__inner__registration-form__content__form
+          .single-body__inner__registration-form__content__form
+            %p.single-body__inner__registration-form__content__form__single-text.single-body__inner__registration-form__content__form__center-text
+              「次へ進む」のボタンを押すことにより、
+              = link_to "利用規約", "/jp/tos_list/", target: "_blank"
+              に同意したものとみなします
+          %button{type: "submit", class: "single-body__inner__registration-form__content__btn-red"}次へ進む
+          .single-body__inner__registration-form__content__form.single-body__inner__registration-form__content__form__right-text
+            %p
+              = link_to "/jp/help_center/article/423/", target: "_blank" do
+                本人情報の登録について
+                = fa_icon 'angle-right', class: 'icon-right'
   = render "devise/shared/footer"
-a
