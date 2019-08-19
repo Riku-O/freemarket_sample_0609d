@@ -292,6 +292,31 @@
           &__form {
             margin-top: 32px;
 
+            &____has-error-text {
+              color: #ea352d;
+              line-height: 1.5;
+              font-size: 14px;
+            }
+
+            &__card-list {
+              margin: 8px 0 0;
+              font-size: 0;
+
+              li {
+                display: inline-block;
+                margin: 0 0 0 8px;
+                vertical-align: middle;
+
+                &:first-child {
+                  margin: 0;
+                }
+
+                img {
+                  height: 20px;
+                }
+              }
+            }
+
 
             &__left-text {
               font-size: 16px;
@@ -329,18 +354,6 @@
               position: relative;
               background: #fff;
 
-              .icon-down {
-                position: absolute;
-                right: 16px;
-                top: 50%;
-                z-index: 2;
-                color: #888;
-                font-weight: bold;
-                font-size: 25px;
-                -webkit-transform: translate(0, -50%);
-                transform: translate(0, -50%);
-              }
-
               &__select-default {
                 width: 100%;
                 position: relative;
@@ -365,6 +378,73 @@
               color: #fff;
               font-size: 12px;
               vertical-align: top;
+            }
+
+            &__signup-seqcode {
+              position: relative;
+              margin: 8px 0 0;
+
+              &__text {
+                text-align: right;
+                color: #0099e8;
+
+                &__question {
+                  display: inline-block;
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 50%;
+                  background: #0099e8;
+                  color: #fff;
+                  line-height: 14px;
+                  font-size: 12px;
+                  text-align: center;
+                }
+              }
+            }
+
+            &__select-wrap-half {
+              width: calc(50% - 2px);
+              display: inline-block;
+              margin: 8px 0 0;
+              position: relative;
+              background: #fff;
+
+              .icon-down {
+                font-weight: bold;
+                font-size: 25px;
+                margin: 0 6px 0 -15px;
+                position: relative;
+                top: 16px;
+                pointer-events: none;
+                right: 16px;
+                z-index: 2;
+                color: #888;
+                transform: translate(0, -50%);
+              }
+
+              select {
+                width: calc(100% - 38px);
+              }
+
+              &__default {
+                position: relative;
+                z-index: 2;
+                height: 48px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                -webkit-appearance: none;
+              }
+            }
+
+            &__has-error-text {
+              color: #ea352d;
+              line-height: 1.5;
+              font-size: 14px;
             }
 
             &__arbitrary {
