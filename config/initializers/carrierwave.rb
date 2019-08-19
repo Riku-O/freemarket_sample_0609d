@@ -9,7 +9,6 @@ CarrierWave.configure do |config|
     provider: 'AWS',
     aws_access_key_id: Rails.application.credentials.aws_access_key_id,
     aws_secret_access_key: Rails.application.credentials.aws_secret_access_key,
-    secret_key_base: Rails.application.credentials.secret_key_base,
     region: 'ap-northeast-1'
   }
 
