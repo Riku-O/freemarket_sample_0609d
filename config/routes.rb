@@ -6,5 +6,4 @@ Rails.application.routes.draw do
   end
   resources :item_registration_forms, only: [:new, :create]
   get 'users' => 'users#show'
-  resources :users, only: [:index, :show, :create, :edit, :update]
 end
