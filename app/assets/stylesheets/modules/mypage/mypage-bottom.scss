@@ -1,0 +1,43 @@
+.bottom-tab {
+  position: relative;
+  width: 700px;
+  height: 382px;
+  margin-top: 40px;
+  font-weight: bold;
+  font-size: 16px;
+  .bottom-tab__title {
+    background-color: white;
+    height:72px;
+    line-height: 72px;
+    padding: 0 16px;
+  }
+  .bottom-tab__trading-traded {
+    margin-top: 2px;
+    height: 75px;
+    background-color: white;
+    display: flex;
+    line-height: 75px;
+    text-align: center;
+    .bottom-tab__trading-traded__trading {
+      width: 50%;
+    }
+    .bottom-tab__trading-traded__traded {
+      width: 50%;
+    }
+  }
+  .bottom-tab__content {
+    margin-top: 1px;
+    width: 700px;
+    height: 236px;
+    background-color: white;
+    background-image: url("https://www-mercari-jp.akamaized.net/assets/img/common/jp/mercari_icon.png?615905397");
+    background-size: 250px;
+    background-repeat: no-repeat;
+    background-position: 50% 25% ;
+    color: rgb( 204, 204, 204);
+    text-align: center;
+    line-height: 340px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+}

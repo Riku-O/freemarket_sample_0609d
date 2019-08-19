@@ -32,11 +32,12 @@
           i {
             background: transparent;
             margin: 16px 18px 0 0;
-            .icon-twitter {
+            font-family: FontAwesome;
+            .fab.fa-twitter {
               font-size: 24px;
               color: #fff;
             }
-            .icon-facebook {
+            .fab.fa-facebook-square {
               font-size: 24px;
             }
           }

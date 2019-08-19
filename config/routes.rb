@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     get "users/sign_up/google" => "devise/registrations#new_google" # googleによる会員情報入力画面
   end
   devise_for :users
-  get 'items' => 'items#index'
-  get 'mypage' => 'mypage#index'
+  root 'items#index'
+  resources :items, only: [:index, :show, :edit, :update] do
+    resources :deals, only: [:new, :create]
+  end
+  resources :item_registration_forms, only: [:new, :create]
+  get 'users' => 'users#show'
 end

@@ -1,3 +1,4 @@
+
 # レディースカテゴリ作成
 lady = Category.create(:name => 'レディース')
 

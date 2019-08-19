@@ -5,76 +5,76 @@
 				メルカリについて
 			%ul
 				%li
-					%a{:href => "https://about.mercari.com/"} 会社概要（運営会社）
+					= link_to "会社概要（運営会社）", "https://about.mercari.com/"
 				%li
-					%a{:href => "https://www.mercari.com/jp/jobs/"} 採用情報
+					= link_to "採用情報", "https://www.mercari.com/jp/jobs/"
 				%li
-					%a{:href => "https://about.mercari.com/press/news/"} プレスリリース
+					= link_to "プレスリリース", "https://about.mercari.com/press/news/"
 				%li
-					%a{:href => "https://jp-news.mercari.com/"} 公式ブログ
+					= link_to "公式ブログ", "https://jp-news.mercari.com/"
 				%li
-					%a{:href => "https://www.mercari.com/jp/logo-guidelines/"} メルカリロゴ利用ガイドライン
+					= link_to "メルカリロゴ利用ガイドライン", "https://www.mercari.com/jp/logo-guidelines/"
 				%li.footer__content__cell--social-link
-					%a{:href => "https://twitter.com/mercari_jp"}
-						%i.icon-twitter
+					= link_to "https://twitter.com/mercari_jp" do
+						%i.fab.fa-twitter
 				%li.footer__content__cell--social-link
-					%a{:href => "https://www.facebook.com/mercarijp"}
-						%i.icon-facebook
+					= link_to "https://www.facebook.com/mercarijp" do
+						%i.fab.fa-facebook-square
 		.footer__content__cell
 			%h2.footer__content__cell__head
 				ヘルプ＆ガイド
 			%ul
 				%li
-					%a{:href => "https://www.mercari.com/jp/help_center/"} メルカリガイド
+					= link_to "メルカリガイド", "https://www.mercari.com/jp/help_center/"
 				%li
-					%a{:href =>"https://www.mercari.com/jp/rakuraku-mercari/"} らくらくメルカリ便
+					= link_to "らくらくメルカリ便", "https://www.mercari.com/jp/rakuraku-mercari/"
 				%li
-					%a{:href => "https://www.mercari.com/jp/yuyu-mercari/"}	ゆうゆうメルカリ便
+					= link_to "ゆうゆうメルカリ便", "https://www.mercari.com/jp/yuyu-mercari/"
 				%li
-					%a{:href => "https://www.mercari.com/jp/rakuraku-ogata/"} 大型メルカリ便
+					= link_to "大型メルカリ便", "https://www.mercari.com/jp/rakuraku-ogata/"
 				%li
-					%a{:href => "https://www.mercari.com/jp/guide/car/"} 車体取引ガイド
+					= link_to "車体取引ガイド", "https://www.mercari.com/jp/guide/car/"
 				%li
-					%a{:href => "https://www.mercari.com/jp/safe/description/"} メルカリあんしん・あんぜん宣言！
+					= link_to "メルカリあんしん・あんぜん宣言！", "https://www.mercari.com/jp/safe/description/"
 				%li
-					%a{:href => "https://www.mercari.com/jp/authenticity/"}	偽ブランド品撲滅への取り組み
+					= link_to "偽ブランド品撲滅への取り組み", "https://www.mercari.com/jp/authenticity/"
 				%li
-					%a{:href => "https://www.mercari.com/jp/box/"}	メルカリボックス
+					= link_to "メルカリボックス", "https://www.mercari.com/jp/box/"
 		.footer__content__cell.footer__policy
 			%h2.footer__content__cell__head
 				プライバシーと利用規約
 			.footer__content__cell__inner
 				%ul
 					%li
-						%a{:href => "https://www.mercari.com/jp/privacy/"} プライバシーポリシー
+						= link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy/"
 					%li
-						%a{:href => "https://www.mercari.com/jp/tos/"} メルカリ利用規約
+						= link_to "メルカリ利用規約", "https://www.mercari.com/jp/tos/"
 					%li
-						%a{:href => "https://www.mercari.com/jp/tos_smartphone_support/"} あんしんスマホサポート制度に関する利用特約
+						= link_to "あんしんスマホサポート制度に関する利用特約", "https://www.mercari.com/jp/tos_smartphone_support/"
 					%li
-						%a{:href => "https://www.mercari.com/jp/compliance/"} コンプライアンスポリシー
+						= link_to "コンプライアンスポリシー", "https://www.mercari.com/jp/compliance/"
 			.footer__content__cell__inner
 				%ul
 					%li
-						%a{:href => "https://www.mercari.com/jp/data_security/"} 個人データの安全管理に係る基本方針
+						= link_to "個人データの安全管理に係る基本方針", "https://www.mercari.com/jp/data_security/"
 					%li
-						%a{:href => "https://www.mercari.com/jp/tokutei/"} 特定商取引に関する表記
+						= link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/"
 					%li
-						%a{:href => "https://www.mercari.com/jp/shikin_kessai/"} 資金決済法に基づく表示
+						= link_to "資金決済法に基づく表示", "https://www.mercari.com/jp/shikin_kessai/"
 					%li
-						%a{:href => "https://about.mercari.com/csr/safety/"} 法令順守と犯罪抑止のために
+						= link_to "法令順守と犯罪抑止のために", "https://about.mercari.com/csr/safety/"
 		.footer__content__cell.footer__lang
 			%h2.footer__content__cell__head
 				国
 			%ul
 				%li
-					%a{:href => "https://www.mercari.com/jp/"} 日本
+					= link_to "日本", "https://www.mercari.com/jp/"
 				%li
-					%a{:href => "https://www.mercari.com/"} United States
+					= link_to "United States", "https://www.mercari.com/"
 					
 	.footer__bottom
-		%a.footer__bottom__logo{:href => "https://www.mercari.com/jp/"}
-			%img{:src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?891577966"}
+		= link_to "https://www.mercari.com/jp/", class: "footer__bottom__logo" do
+			= image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?891577966"
 		%span.footer__bottom__copyright
 			%small © 2019 Mercari
 		

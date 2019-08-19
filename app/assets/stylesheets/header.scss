@@ -1,0 +1,128 @@
+.header {
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  background-color: #ffffff;
+  display:  inline-block;
+  border-bottom: solid;
+  border-bottom-color: whitesmoke;
+  border-bottom-width: thin;
+  font-family: 'FontAwesome';
+
+  &__top {
+    margin: 8px auto 0;
+    height: 40px;
+    width: 1020px;
+
+    &__logo {
+      margin-top: 2px;
+      width: 134px;
+      height: 36px;
+      float: left;
+    }
+
+    .search-form {
+      width: 841px;
+      height: 40px;
+      margin-left: 45px;
+      float: right;
+      display: inline-flex;
+      .search-field {
+        height: 40px;
+        width: 841px;
+        background-color: whitesmoke;
+        border: solid 1px;
+        border-color: rgb( 205, 205, 205);
+        border-radius: 5px;
+        padding-left: 10px;
+        padding-right: 42px;
+        font-size: 16px;
+      }
+      .search-button {
+        font-weight: 900;
+        position:absolute;
+        height: 38px;
+        width: 38px;
+        border: none;
+        margin-top: 1px;
+        margin-left:801px;
+        i {
+          font-family: "FontAwesome";
+        }
+      }
+    }
+  }
+
+  &__nav-box {
+    margin: 8px auto 0;
+    width: 1020px;
+    height: 44px;
+    line-height: 44px;
+    &__left  {
+      height: 44px;
+      float: left;
+      a {
+        color: black;
+      }
+      span {
+        margin-right: 11px;
+      }
+      &__category {
+        &::before {
+          content: "\f0ca";
+          color: #ea352d;
+          font-size: 16px;
+        }
+      }
+      &__brand {
+        &::before {
+          content: "\f02c";
+          color: #ea352d;
+          font-size: 16px;
+        }
+      }
+    }
+
+    &__right {
+      float: right;
+      height: 44px;
+      span {
+        margin: 0 14px;
+        height: 100%;
+        a {
+          color: black;
+          margin-left: 10px;
+        }
+      }
+      &__likes {
+        &::before {
+          content: "\f004";
+          color: rgb( 204, 204, 204);
+          font-size: 16px;
+        }
+
+      }
+      &__notice {
+        &::before {
+          content: "\f0f3";
+          color: rgb( 204, 204, 204);
+          font-size: 16px;
+        }
+
+      }
+      &__todo {
+        &::before {
+          content: "\f00c";
+          color: rgb( 204, 204, 204);
+          font-size: 16px;
+        }
+
+      }
+      &__mypage {
+        .user-icon {
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
