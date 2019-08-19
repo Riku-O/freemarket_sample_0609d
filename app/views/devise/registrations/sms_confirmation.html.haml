@@ -1,0 +1,21 @@
+.single-wrapper
+  = render "devise/shared/registration_header2"
+  
+  %main.single-body.mail-view
+    %section.single-body__inner
+      %h2.single-body__inner__registration-head 電話番号の確認
+      %form{action: "https://www.mercari.com/jp/signup/sms_confirmation/sms/?after_save_callback=https://www.mercari.com/jp/", method: "POST", class: "single-body__inner__registration-form", novalidate: "novalidate"}
+        %input{type: "hidden", name: "__csrf_value", value: "137c6b4425c6a948ce2b7ab1b983e50cf16ec2d84ac7220c1b35fc3b04aca6410e1e7fe01362b4738ddffd109f1e1946e130de57c6cb4b3c86522d201cfbe13d2"}
+        .single-body__inner__registration-form__content
+          .single-body__inner__registration-form__content__form
+            %label{for: "phone_number"} 携帯電話の番号
+            %input{type: "tel", value: "", name: "phone_number", placeholder: "携帯電話の番号を入力", class: "single-body__inner__registration-form__content__form__default"}
+          %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          %button{type: "submit", class: "single-body__inner__registration-form__content__btn-red"} SMSを送信する
+          %p ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          .single-body__inner__registration-form__content__form.single-body__inner__registration-form__content__form__right-text
+            %p
+              = link_to "/jp/help_center/article/244/", target: "_blank" do
+                電話番号の確認が必要な理由
+                = fa_icon 'angle-right', class: 'icon-right'
+  = render "devise/shared/footer"
