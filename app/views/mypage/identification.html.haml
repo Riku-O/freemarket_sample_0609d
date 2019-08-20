@@ -7,7 +7,7 @@
       お客さまの本人情報をご登録ください。<br>
       登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
 
-    %a.mypage-form__link{ href: '#' }
+    = link_to '#', class: "mypage-form__link" do
       本人確認書類のアップロードについて
       =fa_icon "chevron-right"
 
@@ -53,7 +53,6 @@
 
     %button.mypage-form__submit 登録する
 
-    .mypage-form__group
-      %a.mypage-form__link{ href: '#' }
-        本人情報の登録について
-        =fa_icon "chevron-right"
+    = link_to '#', class: "mypage-form__link" do
+      本人情報の登録について
+      =fa_icon "chevron-right"
