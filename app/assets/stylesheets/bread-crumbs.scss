@@ -1,0 +1,11 @@
+.bread-crumbs {
+  height: 48px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 3px rgba(0,0,0,0.16);
+  &__content{
+    width: 1020px;
+    margin: 0 auto;
+    line-height: 48px;
+  }
+}

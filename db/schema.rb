@@ -10,13 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_21_111810) do
+ActiveRecord::Schema.define(version: 2019_08_18_043541) do
 
-  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "path", null: false
-    t.string "item", null: false
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "postcode", null: false
+    t.integer "prefecture_id", null: false
+    t.string "city", null: false
+    t.string "block", null: false
+    t.string "building"
+    t.integer "phone_number"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "ancestry"
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
+  create_table "deals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_deals_on_buyer_id"
+    t.index ["item_id"], name: "index_deals_on_item_id"
+    t.index ["seller_id"], name: "index_deals_on_seller_id"
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -29,12 +61,12 @@ ActiveRecord::Schema.define(version: 2019_07_21_111810) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.integer "size"
-    t.string "condition", null: false
-    t.integer "postage_burden", null: false
-    t.string "shipping_method", null: false
-    t.string "source_area", null: false
-    t.string "shipping_date", null: false
+    t.string "size"
+    t.string "condition_id", null: false
+    t.integer "post_burden_id", null: false
+    t.integer "shipping_method"
+    t.integer "source_area_id", null: false
+    t.integer "shipping_date_id", null: false
     t.integer "price", null: false
     t.text "description", null: false
     t.integer "status", default: 0, null: false
@@ -42,6 +74,8 @@ ActiveRecord::Schema.define(version: 2019_07_21_111810) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
+    t.bigint "brand_id"
+    t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
@@ -74,7 +108,12 @@ ActiveRecord::Schema.define(version: 2019_07_21_111810) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
+  add_foreign_key "deals", "items"
+  add_foreign_key "deals", "users", column: "buyer_id"
+  add_foreign_key "deals", "users", column: "seller_id"
   add_foreign_key "item_images", "items"
+  add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
   add_foreign_key "user_informations", "users"

@@ -8,7 +8,7 @@ worker_processes 1
 working_directory "#{app_path}/current"
 
 #ポート番号を指定
-listen "#{app_path}/tmp/sockets/unicorn.sock"
+listen "#{app_path}/shared/tmp/sockets/unicorn.sock"
 
 #Unicornの起動に必要なファイルの設置場所を指定
 pid "#{app_path}/shared/tmp/pids/unicorn.pid"
