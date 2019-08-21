@@ -1,15 +1,3 @@
-require 'faker'
-
-11.times do |n|
-  nickname = Faker::Ancient.god
-  email = Faker::Internet.email
-  password = "password"
-  User.create!(
-    nickname: nickname,
-    email: email,
-    password: password
-  )
-end
 
 # レディースカテゴリ作成
 lady = Category.create(:name => 'レディース')
@@ -41,19 +29,3 @@ men_tops.children.create([{:name => 'Tシャツ/カットソー(半袖/袖なし
 men_jacket.children.create([{:name => 'テーラードジャケット'}, {:name => 'ノーカラージャケット'}, {:name => 'その他'}])
 men_pants.children.create([{:name => 'デニム/ジーンズ'}, {:name => 'ワークパンツ/カーゴパンツ'}, {:name => 'スラックス'}])
 
-v = 1
-10.times do |n|
-  phone_number = Faker::PhoneNumber.phone_number
-  UserInformation.create!(
-    last_name: 'テック',
-    first_name: '太郎',
-    last_name_kana: 'テック',
-    first_name_kana: 'タロウ',
-    birth_year: 1994,
-    birth_month: 06,
-    birth_date: 27,
-    phone_number: phone_number,
-    user_id: v
-  )
-  v += 1
-end

@@ -85,7 +85,7 @@
                         %span.form-require 必須
                       .select-wrap
                         %i.fa.fa-angle-down
-                        = f.select :postage_burden,{}, {}, {class: "select-default"} do
+                        = f.select :post_burden_id,{}, {}, {class: "select-default"} do
                           %option{value: ""} ---
                           %option{value: "1"} 送料込み(出品者負担)
                           %option{value: "2"} 着払い(購入者負担)

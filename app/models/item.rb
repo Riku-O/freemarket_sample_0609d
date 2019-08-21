@@ -14,10 +14,11 @@ class Item < ApplicationRecord
   belongs_to :source_area
   belongs_to :condition
   belongs_to :shipping_date
+  belongs_to :post_burden
 
   validates :name, presence: true
   validates :condition_id, presence: true
-  validates :postage_burden, presence: true
+  validates :post_burden_id, presence: true
   # validates :shipping_method_id, presence: true
   validates :shipping_date_id, presence: true
   validates :price, presence: true
@@ -28,10 +29,9 @@ class Item < ApplicationRecord
 
 
   enum status: {no_traded: 0, traded: 1}
-  enum postage_burden: { "送料込み(出品者負担)": 1, "着払い(購入者負担)": 2}
 
   def self.fetch_items
-    items = Item.includes(:item_images).references(:item_images).last(4)
+    Item.includes(:item_images).references(:item_images).last(4)
     # items = []
     # items << sort_lady
     # items << sort_men
