@@ -1,0 +1,70 @@
+.single-wrapper
+  = render "devise/shared/registration_header4"
+
+  %main.single-body.mail-view
+    %section.single-body__inner
+      %h2.single-body__inner__registration-head 支払い方法
+      %form{data: {adyen: {id: "card-form"}}, action: "https://www.mercari.com/jp/signup/done/", method: "POST", id: "add-card-form", class: "single-body__inner__registration-form", novalidate: "novalidate"}
+        %input{type: "hidden", name: "__csrf_value", value: ""}
+        .single-body__inner__registration-form__content
+          .single-body__inner__registration-form__content__form
+            %label{for: "payment_card_no"} カード番号
+            %span.single-body__inner__registration-form__content__form__require 必須
+            %input{data: {input: {type: "card"}}, type: "text", value: "", id: "payment_card_no", name: "family_name", placeholder: "半角数字のみ", class: "single-body__inner__registration-form__content__form__default", maxlength: "19"}
+            %ul{id: "card-no-error-wrapper", class: "single-body__inner__registration-form__content__form__has-error-text"}
+            %ul.single-body__inner__registration-form__content__form__card-list
+              %li
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?615905397", alt: "メルカリ", width: "49"
+              %li
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?615905397", alt: "メルカリ"
+              %li
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?615905397", alt: "メルカリ"
+              %li
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?615905397", alt: "メルカリ"
+              %li
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?615905397", alt: "メルカリ"
+              %li
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?615905397", alt: "メルカリ"
+              %li
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?615905397", alt: "メルカリ"
+          .single-body__inner__registration-form__content__form.single-body__inner__registration-form__content__signup-form-expire
+            %label{for: "payment_card_expire"} 有効期限
+            %span.single-body__inner__registration-form__content__form__require 必須
+            %br
+            .single-body__inner__registration-form__content__form__select-wrap-half
+              %select{id: "payment_card_expire_mm", class: "single-body__inner__registration-form__content__form__select-wrap-half__default"}
+                %option{value: "01"} 01
+                %option{value: "02"} 02
+                %option{value: "03"} 03
+                %option{value: "04"} 04
+                %option{value: "05"} 05
+                %option{value: "06"} 06
+                %option{value: "07"} 07
+                %option{value: "08"} 08
+                %option{value: "09"} 09
+                %option{value: "10"} 10
+                %option{value: "11"} 11
+                %option{value: "12"} 12
+              = fa_icon 'angle-down', class: 'icon-down'
+              %span 月
+            .single-body__inner__registration-form__content__form__select-wrap-half
+              %select{id: "payment_card_expire_yy", class: "single-body__inner__registration-form__content__form__select-wrap-half__default"}
+                - 19.upto(30) do |i|
+                  %option{value: "#{i}"} #{i}
+              = fa_icon 'angle-down', class: 'icon-down'
+              %span 年
+          .single-body__inner__registration-form__content__form
+            %label{for: "payment_card_security_code"} セキュリティコード
+            %span.single-body__inner__registration-form__content__form__require 必須
+            %input{type: "number", id: "payment_card_security_code", name: "__csrf_value", value: "", placeholder: "カード背面4桁もしくは3桁の番号", class: "single-body__inner__registration-form__content__form__default"}
+            %ul{id: "security-code-error-wrapper", class: "single-body__inner__registration-form__content__form__has-error-text"}
+            .single-body__inner__registration-form__content__form__signup-seqcode
+              .single-body__inner__registration-form__content__form__signup-seqcode__text{data: {js: "show-tips-toggle"}}
+                %span.single-body__inner__registration-form__content__form__signup-seqcode__text__question ?
+                カード裏面の番号とは？
+          %input{type: "hidden", id: "user_id", name: "user_id", value: "861454361"}
+          %input{type: "hidden", id: "encrypted_card_data", name: "encrypted_card_data"}
+          %input{type: "hidden", id: "primary-error", class: "single-body__inner__registration-form__content__form__has-error-text"}
+          %input{type: "hidden", value: "https://www.mercari.com/jp/", name: "after_save_callback"}
+          %button{type: "submit", class: "single-body__inner__registration-form__content__btn-red"}次へ進む
+  = render "devise/shared/footer"
