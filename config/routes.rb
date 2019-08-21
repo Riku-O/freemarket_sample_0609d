@@ -19,6 +19,9 @@ Rails.application.routes.draw do
   resources :item_registration_forms, only: [:new, :create]
   get 'users' => 'users#show'
 
-  get 'mypage' => 'mypage#index'
-  get 'mypage/identification' => 'mypage#identification'
+  resources :mypage, only: [:index] do
+    collection do
+      get :identification
+    end
+  end
 end
