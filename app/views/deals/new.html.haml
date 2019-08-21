@@ -9,7 +9,7 @@
             = image_tag @deal.item.item_images.first.image.url
           %p.buy-content__inner__name.bold
             = @deal.item.name
-          = form_for new_item_deal_path, html: { class: "form_for_buy"} do |f|
+          = form_for [@item, @deal], html: { class: "form_for_buy"} do |f|
             .form_for_buy
               %p.form_for_buy--price.bold
                 = number_to_currency @deal.item.price, unit: "¥", precision: 0
