@@ -1,0 +1,17 @@
+.single-wrapper
+  = render "devise/shared/registration_header5"
+
+  %main.single-body.mail-view
+    %section.single-body__inner
+      %h2.single-body__inner__registration-head 会員登録完了
+      .single-body__inner__registration-form
+        .single-body__inner__registration-form__content
+          %p.done-view
+            ありがとうございます。
+            %br
+            会員登録が完了しました。
+          = link_to "商品に戻る", "https://www.mercari.com/jp/", target: "_blank", class: "single-body__inner__registration-form__content__btn-red last"
+      = link_to "http://app.adjust.io/xio2ii?campaign=iOS&adgroup=signup.done", target: "_blank", class: "single-body__inner__registration-form__banner" do
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/signup/jp/banner-pc.jpg?61590539", alt: "メルカリ", class: "single-body__inner__registration-form__banner__pc"
+
+  = render "devise/shared/footer"
