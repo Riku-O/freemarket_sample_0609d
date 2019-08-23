@@ -46,7 +46,7 @@
           %p.buy-content__inner__user-info-text
             支払い情報が入力されていません。
           %figure
-          = link_to '#', class: "buy-content__inner__user-info-text--change" do
+          = link_to new_card_path(item_id: @item.id), class: "buy-content__inner__user-info-text--change" do
             %span 変更する
             %i.fas.fa-angle-right
   = render "devise/shared/footer"

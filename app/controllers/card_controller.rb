@@ -5,8 +5,7 @@ class CardController < ApplicationController
   def new
     # card = Card.where(user_id: current_user.id)
     card = Card.where(user_id: 1)
-
-    redirect_to action: "show" if card.exists?
+    @item_id = params["item_id"]
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
@@ -25,7 +24,7 @@ class CardController < ApplicationController
       @card = Card.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card)
 
       if @card.save
-        redirect_to action: "show"
+        redirect_to new_item_deal_path(item_id: params["item_id"])
       else
         redirect_to action: "pay"
       end

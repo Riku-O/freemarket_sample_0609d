@@ -66,6 +66,7 @@
           %input{type: "hidden", id: "primary-error", class: "single-body__inner__registration-form__content__form__has-error-text"}
           %input{type: "hidden", value: "https://www.mercari.com/jp/", name: "after_save_callback"}
           #card_token
+          = hidden_field_tag :item_id, @item_id
           = submit_tag "次へ進む", id: "token_submit", class: "single-body__inner__registration-form__content__btn-red"
           
   = render "devise/shared/footer"
