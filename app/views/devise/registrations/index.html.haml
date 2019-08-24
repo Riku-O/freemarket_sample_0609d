@@ -10,11 +10,29 @@
             = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-mail"  do
               = fa_icon 'envelope', class: 'icon'
               メールアドレスで登録する
-            = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-facebook"  do
+            = link_to user_facebook_omniauth_authorize_path, class: "single-body__inner__registration-form__items__btn-default__btn-facebook"  do
               = fa_icon 'facebook-square', class: 'icon'
               Facebookで登録する
-            = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-google "  do
+            = link_to user_google_oauth2_omniauth_authorize_path, class: "single-body__inner__registration-form__items__btn-default__btn-google "  do
               = fa_icon 'google', class: 'icon'
               Googleで登録する
 
   = render "devise/shared/footer"
+
+        .content-box メールアドレスで登録
+      .content.input-box.back-gray
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .field
+            = f.text_field :nickname,autofocus: true, placeholder: "ニックネーム", class: 'sign-up_field'
+            = f.email_field :email, autocomplete: "email", placeholder: "メールアドレス", class: 'sign-up_field'
+            = f.password_field :password, autocomplete: "new-password", placeholder: "パスワード", class: 'sign-up_field'
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "再度パスワードを入力", class: 'sign-up_field'
+            = f.submit "新規登録", class: 'sign-up_btn back-red font-white'
+      = link_to user_facebook_omniauth_authorize_path, class: "facebook font-white" do
+        %i.fab.fa-facebook
+        .content-box Facebookで登録
+      = link_to user_google_oauth2_omniauth_authorize_path, class: "google back-red font-white" do
+        %i.fab.fa-google-plus-g
+        .content-box Google+で登録
+
