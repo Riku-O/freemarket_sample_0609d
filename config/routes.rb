@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     get "users/sign_up/credit_card" => "devise/registrations#credit_card" # 支払い方法入力ページ
     get "users/sign_up/done" => "devise/registrations#done" # 会員登録完了ページ
   end
-  devise_for :users
+  devise_for :users :controllers => {
+    :omniauth_callbacks =>  "users/omniauth_callbacks"
+  }
   root 'items#index'
   resources :items, only: [:index, :show, :edit, :update] do
     resources :deals, only: [:new, :create]
