@@ -10,10 +10,10 @@
             = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-mail"  do
               = fa_icon 'envelope', class: 'icon'
               メールアドレスで登録する
-            = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-facebook"  do
+            = link_to user_facebook_omniauth_authorize_path, class: "single-body__inner__registration-form__items__btn-default__btn-facebook"  do
               = fa_icon 'facebook-square', class: 'icon'
               Facebookで登録する
-            = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-google "  do
+            = link_to user_google_oauth2_omniauth_authorize_path, class: "single-body__inner__registration-form__items__btn-default__btn-google "  do
               = fa_icon 'google', class: 'icon'
               Googleで登録する
 
