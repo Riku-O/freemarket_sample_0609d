@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {
-    :omniauth_callbacks =>  "users/omniauth_callbacks"
-  }
   devise_scope :user do
-    get "/sign_in" => "devise/sessions#new" # ログイン画面
     get "users/sign_up" => "devise/registrations#index" # , as: "new_user_registration" # sign_up/registrationへのカスタムパス
+    get "/sign_in" => "devise/sessions#new" # ログイン画面
     get "users/sign_up/registration" => "devise/registrations#new" # メールアドレスの会員情報入力画面
     get "users/sign_up/facebook" => "devise/registrations#new_facebook" # facebookの会員情報入力画面
     get "users/sign_up/google" => "devise/registrations#new_google" # googleによる会員情報入力画面
@@ -13,6 +10,9 @@ Rails.application.routes.draw do
     get "users/sign_up/credit_card" => "devise/registrations#credit_card" # 支払い方法入力ページ
     get "users/sign_up/done" => "devise/registrations#done" # 会員登録完了ページ
   end
+  devise_for :users, :controllers => {
+    :omniauth_callbacks =>  "users/omniauth_callbacks"
+  }
   root 'items#index'
   resources :items, only: [:index, :show, :edit, :update] do
     resources :deals, only: [:new, :create]
