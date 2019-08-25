@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get "users/sign_up/address" => "devise/registrations#address" # 発送元・お届け先住所入力ページ
     get "users/sign_up/credit_card" => "devise/registrations#credit_card" # 支払い方法入力ページ
     get "users/sign_up/done" => "devise/registrations#done" # 会員登録完了ページ
+    get "users/identification" =>  "users#identification" # 本人情報の登録
   end
   devise_for :users
 
@@ -18,10 +19,4 @@ Rails.application.routes.draw do
   end
   resources :item_registration_forms, only: [:new, :create]
   get 'users' => 'users#show'
-
-  resources :mypage, only: [:index] do
-    collection do
-      get :identification
-    end
-  end
 end
