@@ -44,7 +44,12 @@
         .buy-content__inner
           %h3 支払い方法
           %p.buy-content__inner__user-info-text
-            支払い情報が入力されていません。
+            - if @card
+              = "************#{@card.last4}"
+              %br
+              = "#{@card.exp_month}/#{@card.exp_year}"
+            - else
+              支払い情報が入力されていません。
           %figure
           = link_to new_card_path(item_id: @item.id), class: "buy-content__inner__user-info-text--change" do
             %span 変更する
