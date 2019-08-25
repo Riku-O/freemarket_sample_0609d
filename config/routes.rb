@@ -19,4 +19,13 @@ Rails.application.routes.draw do
   end
   resources :item_registration_forms, only: [:new, :create]
   get 'users' => 'users#show'
+
+
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
 end
