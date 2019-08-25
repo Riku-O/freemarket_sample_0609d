@@ -1,5 +1,8 @@
 .single-wrapper
-  = render "devise/shared/header_one"
+  - if @item_id
+    = render "devise/shared/header_one"
+  - else
+    = render "devise/shared/registration_header4"
   
   %main.single-body.mail-view
     %section.single-body__inner

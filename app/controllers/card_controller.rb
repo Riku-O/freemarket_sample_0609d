@@ -24,7 +24,11 @@ class CardController < ApplicationController
       @card = Card.new(user_id: 1, customer_id: customer.id, card_id: customer.default_card)
 
       if @card.save
-        redirect_to new_item_deal_path(item_id: params["item_id"])
+        if params["item_id"].present?
+          redirect_to new_item_deal_path(item_id: params["item_id"])
+        else
+          redirect_to users_sign_up_done_path
+        end
       else
         redirect_to action: "pay"
       end
