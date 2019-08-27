@@ -5,8 +5,8 @@
 @import "modules/user-registration";
 @import "modules/user-registration-mail";
 @import "modules/user-login";
-@import "modules/item";
-@import "modules/item-display";
+@import "modules/item/item-index";
+@import "modules/item/item-registration";
 @import "modules/banner";
 @import "modules/deal_confirmation";
 @import "footer";
@@ -18,5 +18,5 @@
 @import "modules/mypage/mypage-bottom.scss";
 @import "modules/mypage/show";
 @import "modules/mypage/mypage-log_out";
-@import "mypage";
+@import "modules/mypage";
 @import "modules/card";
