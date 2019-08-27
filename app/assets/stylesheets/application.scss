@@ -2,9 +2,9 @@
 @import "variable/mixin";
 @import "variable/variable";
 @import "font-awesome";
-@import "modules/user-registration";
-@import "modules/user-registration-mail";
-@import "modules/user-login";
+@import "modules/user/user-registration";
+@import "modules/user/user-registration-mail";
+@import "modules/user/user-login";
 @import "modules/item/item-index";
 @import "modules/item/item-registration";
 @import "modules/banner";
