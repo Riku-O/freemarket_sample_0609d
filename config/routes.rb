@@ -12,13 +12,15 @@ Rails.application.routes.draw do
     get "users/identification" =>  "users#identification" # 本人情報の登録
   end
   devise_for :users
+  get "users/log_out" => "users#destroy"
+  get 'users' => 'users#show'
 
   root 'items#index'
   resources :items, only: [:index, :show, :edit, :update] do
     resources :deals, only: [:new, :create]
   end
   resources :item_registration_forms, only: [:new, :create]
-  get 'users' => 'users#show'
+
   resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'
