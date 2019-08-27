@@ -1,0 +1,101 @@
+.mypage {
+  background-color: #ffffff;
+  width: 700px;
+  margin: 0 auto;
+
+  &__title {
+    text-align: center;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 8px 24px;
+  }
+}
+
+.mypage-form {
+  padding: 64px;
+  border-top: 1px solid #f5f5f5;
+
+  &__message {
+    margin: 8px 0 0;
+    line-height: 1.5;
+    font-size: 14px;}
+
+  &__link {
+    color: #0099e8;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: right;
+    display: block;
+    margin: 8px 0 0 auto;
+  }
+
+  &__group {
+    margin: 40px 0 0;
+  }
+
+  &__label {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__value {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__arbitrary {
+    margin: 0 0 0 0;
+    padding: 4px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    background-color: #ccc;
+    font-weight: bold;
+    vertical-align:text-bottom;
+  }
+
+  &__text {
+    width: 100%;
+    margin: 8px 0 0;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    min-height: 1.5em;
+    box-sizing: border-box;
+  }
+
+  &__select {
+    width: 100%;
+    margin: 8px 0 0;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+    min-height: 1.5em;
+    box-sizing: border-box;}
+
+  &__submit {
+    margin: 40px 0 0 0;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff; 
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+  }
+}
+
