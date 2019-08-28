@@ -2,8 +2,10 @@
 $(function () {
     
     function changeClass() {
-        $('.sell-upload-items').removeClass('have-item-0');
-        $('.sell-upload-items').addClass('have-item-1');
+        $('.sell-upload-items-container').removeClass('have-item-0');
+        $('.sell-upload-items-container').addClass('have-item-1');
+        $('.sell-upload-drop-box').removeClass('have-item-0');
+        $('.sell-upload-drop-box').addClass('have-item-1');
     }
     
    function buildImages1(item_imageUrl) {
@@ -27,7 +29,7 @@ $(function () {
            if (input.files && input.files[0]) {
                var reader = new FileReader();
                reader.onload = function (e) {
-                   $('#item_registration_form_item_images_attributes_image').attr('src', e.result);
+                   $('#item_registration_form_item_images_attributes_image').attr('src', e.target.result);
                };
                reader.readAsDataURL(input.files[0]);
            }

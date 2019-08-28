@@ -14,8 +14,8 @@
                     %span.form-require 必須
                   %p最大10枚までアップロードできます
                   .sell-dropbox-container.clearfix.state-image-number-10
-                    .sell-upload-items-container
-                      .sell-upload-items.have-item-0
+                    .sell-upload-items-container.have-item-0
+                      .sell-upload-items
                         %ul#upload-images
                     = f.fields_for :item_images, @item_registration_form do |c|
                       = c.label :image, type: "display: none;" do
