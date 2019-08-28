@@ -1,4 +1,5 @@
 class ItemRegistrationFormsController < ApplicationController
+  
 
   def new
     @item_registration_form = ItemRegistrationForm.new
