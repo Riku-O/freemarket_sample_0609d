@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update]
+  before_action :set_item, only: [:edit, :update, :destroy]
   # before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   # ログイン機能実装用のコードだが、出品ページ実装の際は便宜上コメントアウト
 
@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item.destroy
   end
 
   def edit
