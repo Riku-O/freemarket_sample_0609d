@@ -32,5 +32,58 @@
       margin: 8px 0 0;
       line-height: 1.5;
     }
+    .input-default {
+      width: 90%;
+      margin: 8px 0 0;
+      height: 28px;
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #fff;
+      line-height: 1.5;
+      font-size: 16px;
+    }
+    .select-list {
+      margin: 8px 0 0;
+      position: relative;
+      background: #fff;
+      .fas.fa-chevron-down {
+        position: absolute;
+        right: 35px;
+        top: 50%;
+        z-index: 2;
+        color: #888;
+        font-size: 8px;
+        transform: translate(0, -50%);
+        font-family: FontAwesome;
+      }
+      select {
+        width: 96%;
+        -webkit-appearance: none;
+      }
+      .select-default {
+        position: relative;
+        z-index: 2;
+        height: 48px;
+        padding: 0 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: 0;
+        font-size: 16px;
+        line-height: 1.5;
+        cursor: pointer;
+
+      }
+    }
   }
+}
+
+.form-arbitrary {
+  background: #ccc;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
 }

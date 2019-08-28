@@ -44,7 +44,7 @@
               任意
             .select-list
               %i.fas.fa-chevron-down
-              = f.collection_select :prefecture, SourceArea.all, :id, :name, class: "select-default"
+              = f.collection_select( :prefecture, SourceArea.all, :id, :name, {prompt: ""}, {class: "select-default"})
           .user-identification-form-ele
             = f.label "市町村"
             %span.form-arbitrary
@@ -66,7 +66,7 @@
               = link_to '#' do
                 本人情報の登録について
                 %i.fas.fa-angle-right
-  .mypage_bottom_banner
-    = render 'items/bottom-banner'
+  %aside.app-banner
+    = render partial: 'items/bottom-banner'
   .mypage_footer
     = render 'partial/footer'
