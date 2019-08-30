@@ -1,0 +1,26 @@
+current directory: /Users/riku27/projects/freemarket_sample_0609d/vendor/bundle/ruby/2.3.0/gems/unicorn-5.4.1/ext/unicorn_http
+/Users/riku27/.rbenv/versions/2.3.1/bin/ruby -r ./siteconf20190830-95357-689f1c.rb extconf.rb
+checking for SIZEOF_OFF_T in ruby.h... yes
+checking for SIZEOF_SIZE_T in ruby.h... yes
+checking for SIZEOF_LONG in ruby.h... yes
+checking for rb_str_set_len() in ruby.h... yes
+checking for rb_hash_clear() in ruby.h... yes
+checking for gmtime_r() in time.h... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /Users/riku27/projects/freemarket_sample_0609d/vendor/bundle/ruby/2.3.0/extensions/x86_64-darwin-18/2.3.0-static/unicorn-5.4.1/mkmf.log
+
+current directory: /Users/riku27/projects/freemarket_sample_0609d/vendor/bundle/ruby/2.3.0/gems/unicorn-5.4.1/ext/unicorn_http
+make "DESTDIR=" clean
+
+current directory: /Users/riku27/projects/freemarket_sample_0609d/vendor/bundle/ruby/2.3.0/gems/unicorn-5.4.1/ext/unicorn_http
+make "DESTDIR="
+compiling httpdate.c
+compiling unicorn_http.c
+linking shared-object unicorn_http.bundle
+
+current directory: /Users/riku27/projects/freemarket_sample_0609d/vendor/bundle/ruby/2.3.0/gems/unicorn-5.4.1/ext/unicorn_http
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 unicorn_http.bundle ./.gem.20190830-95357-1clkez2
