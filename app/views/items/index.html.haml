@@ -51,6 +51,4 @@
 	= render partial: 'items/bottom-banner'
 			
 = render partial: 'partial/footer'
-= link_to new_item_registration_form_path, class: 'sell-btn' do
-	%div 出品
-	%i.fas.fa-camera
+= render partial: 'partial/item-buy-btn'

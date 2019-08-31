@@ -1,13 +1,15 @@
 .mypage-content
   .mypage-content__user
-    =link_to 'https://www.mercari.com/jp/mypage/' do
+    =link_to '#' do
       = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', height: '60', width: '60', class: 'user-icon'
-      %h3.user__nickname ユーザー名
+      %h3.user__nickname
+        = @user.nickname
       .user__review
         .user__review__evaluation
           評価
           %span 0
         .user__review__products
           出品数
-          %span 0
+          %span
+            = @user.items.count
       .user__product
