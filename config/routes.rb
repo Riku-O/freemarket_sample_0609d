@@ -16,5 +16,5 @@ Rails.application.routes.draw do
     resources :deals, only: [:new, :create]
   end
   resources :item_registration_forms, only: [:new, :create]
-  get 'users' => 'users#show'
+  get 'users' => 'users#edit'
 end
