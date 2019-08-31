@@ -2,9 +2,9 @@ class Item < ApplicationRecord
   has_many :item_images, dependent: :destroy
   # has_many :likes, dependent: :destroy
   # has_many :comments, dependent: :destroy
-  has_many :deals, dependent: :destroy
+  has_one :deal, dependent: :destroy
   # has_one :review, dependent: :destroy
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   belongs_to :category
   belongs_to :user
   belongs_to :category
@@ -25,10 +25,9 @@ class Item < ApplicationRecord
   validates :description, presence: true
   validates :status, presence: true
   # TODO:ブランドの実装は後日のためなしで
-  # accepts_nested_attributes_for :brand
 
 
-  enum status: {no_traded: 0, traded: 1}
+  enum status: {being_sold: 0, sold: 1, stopped_selling: 2}
 
   def self.fetch_items
     Item.includes(:item_images).references(:item_images).last(4)
