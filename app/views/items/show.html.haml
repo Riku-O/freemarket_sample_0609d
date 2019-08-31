@@ -74,7 +74,15 @@
       = submit_tag "コメントする", class: 'comment__form__submit'
     
   .prev-next-page
-    前の商品、次の商品リンク
+    .prev-page
+      = link_to '#' do
+        %i.fas.fa-chevron-left
+        %span 前の商品
+    .next-page
+      = link_to '#' do
+        %span 次の商品
+        %i.fas.fa-chevron-right
+
 
   .sns
     = link_to '#', class: 'sns__link' do
