@@ -1,4 +1,5 @@
 class ItemRegistrationFormsController < ApplicationController
+  before_action :move_to_items_index, except: :index
 
   def new
     @item_registration_form = ItemRegistrationForm.new
@@ -22,5 +23,10 @@ class ItemRegistrationFormsController < ApplicationController
                                           :category_id,
                                           item_images_attributes: [:image])
                                           .merge(user_id: 1)
+  end
+
+  private
+  def move_to_items_index
+    redirect_to controller: 'items', action: 'index'
   end
 end
