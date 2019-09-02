@@ -29,6 +29,7 @@
     }
       .sell-upload-box {
         width: 620px;
+        height: 312px;
         padding: 40px;
         &__head {
           font-size: 16px;
@@ -43,13 +44,58 @@
           margin: 16px auto 0;
           .sell-upload-items-container {
             display: inline;
+            .sell-upload-items.have-item-1 {
+              -webkit-box-flex: 1;
+              flex: 1;
+            }
             .sell-upload-items {
               float: left;
               display: block;
               ul {
                 width: 100%;
               }
+              .sell-upload-item:first-child {
+                margin-left: 0;
+              }
+              .sell-upload-item {
+                width: 116px;
+                margin: 0 0 10px 10px;
+                position: relative;
+                display: inline-block;
+                vertical-align: top;
+              }
+              .sell-upload-figure.landscape {
+                line-height: 116px;
+              }
+              .sell-upload-figure {
+                width: auto;
+                padding: 0;
+                height: 116px;
+                overflow: hidden;
+                background: #f5f5f5;
+              }
+              .sell-upload-figure img {
+                top: 50%;
+                left: 0;
+                width: 100%;
+                cursor: default;
+                position: static;
+                transform: none;
+              }
+              .sell-upload-button {
+                font-size: 14px;
+                a {
+                  float: left;
+                  display: inline-block;
+                  width: 50%;
+                  background: #f5f5f5;
+                  line-height: 44px;
+                  text-align: center;
+                  color: #0099e8;
+                }
+              }
             }
+
           }
           .sell-upload-dropbox {
             position: relative;
@@ -71,6 +117,13 @@
           .have-item-0 {
             width: 100%;
             margin-left: 0;
+          }
+          .have-item-1.sell-upload-dropbox {
+            width: 491px;
+            float: left;
+          }
+          .have-item-1 {
+            
           }
           .sell-upload-drop-file:not(:root) {
             width: 100%;
