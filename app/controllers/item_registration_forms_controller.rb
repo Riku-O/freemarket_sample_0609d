@@ -13,6 +13,12 @@ class ItemRegistrationFormsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   private
   # TODO:アイテムのブランドは後日実装
   def item_registration_params
