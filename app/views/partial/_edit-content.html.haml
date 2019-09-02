@@ -1,0 +1,12 @@
+.edit-content
+  .edit-content__header
+    %h2 プロフィール
+  %form{action: "#", method: "POST"}
+    %input{type: "hidden", name: "sample", value: "sample"}
+    .profile-icon
+      = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', height: '60', width: '60', class: 'user-icon'
+      %input{type: "text", placeholder: "(例)ニックネーム", size: "100x100", name: "nickname", class:"user-nickname"}
+    .profile-content
+      %textarea{name: "introduction", class: "textarea-example", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+      %button{type: "button", style: "cursor:pointer", class: "profile-content-submit", onclick: "location.href='#'"}
+        変更
