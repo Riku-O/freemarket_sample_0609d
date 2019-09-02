@@ -45,7 +45,7 @@ class Item < ApplicationRecord
   end
 
   def self.fetch_item(item_id)
-    Item.find(item_id)
+    Item.includes(:item_images, :category).find(item_id)
   end
 
   private
