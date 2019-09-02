@@ -41,4 +41,5 @@ class User < ApplicationRecord
   has_many :seller_deals, class_name: 'Deal', foreign_key: 'seller_id'
   has_one :address, dependent: :destroy
   has_many :sns_credentials, dependent: :destroy
+  has_one :user_information, dependent: :destroy
 end

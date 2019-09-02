@@ -90,3 +90,5 @@ gem 'active_hash'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+gem 'payjp'
+gem "jquery-rails"
