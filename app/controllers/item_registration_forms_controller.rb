@@ -1,5 +1,6 @@
 class ItemRegistrationFormsController < ApplicationController
-  before_action :move_to_items_index, except: :index
+  # before_action :move_to_items_index, except: :index
+  # 未ログインユーザーが出品ページにアクセスできないようにするが、実装の便宜上コメントアウト
 
   def new
     @item_registration_form = ItemRegistrationForm.new
