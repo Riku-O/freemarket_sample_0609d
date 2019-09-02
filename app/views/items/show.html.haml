@@ -58,7 +58,7 @@
       %span.shipping-fee
         = @item.post_burden.name
     .container__purchace-button
-      購入画面に進む
+      = link_to '購入確認画面へ進む',new_item_deal_path(params[:id])
     .container__description
       商品説明文
     .container__buttons
