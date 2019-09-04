@@ -19,7 +19,9 @@ Rails.application.routes.draw do
   resources :item_registration_forms, only: [:new, :create]
   resources :items, only: [:index, :show, :edit, :update] do
     resources :deals, only: [:new, :create]
-  get 'deals/:id', to: 'deals#show'
+  end
+  resources :deals, only: [:show] do
+    resources :deal_messages, only: [:new, :create]
   end
   resources :card, only: [:new, :show] do
     collection do
