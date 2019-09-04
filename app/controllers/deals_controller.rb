@@ -1,6 +1,10 @@
 class DealsController < ApplicationController
   before_action :set_item, only: [:new, :create]
 
+  def show
+    @deal = Deal.fetch_deal(params[:id])
+  end
+
   def new
     @deal = new_with
     Payjp.api_key = Rails.application.credentials.payjp_secret_key
