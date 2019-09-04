@@ -61,6 +61,9 @@
     font-weight: 600;
     color: white;
     background-color: red;
+    a {
+      color: #fff;
+    }
   }
   .container__description {
     height: 100px;
@@ -134,8 +137,4 @@
   background-color: white;
   margin: 24px auto;
   clear: both;
-}
-
-a {
-  color: #fff;
 }
