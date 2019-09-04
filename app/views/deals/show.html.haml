@@ -1,16 +1,75 @@
-.mypage__header
-	= render 'partial/header'
-	= render 'partial/bread-crumbs'
-
-%main.deal-container
-	.deal-container__content
-		%section.deal-chapter
-			%h2.deal-chapter--head
-				取引画面
-			.deal-chapter--transact-attention
-	.deal-container__side-bar
-
-%aside.app-banner
-	= render partial: 'items/bottom-banner'
-.mypage__footer
-	= render 'partial/footer'
+.main-container
+	.mypage__header
+		= render 'partial/header'
+		= render 'partial/bread-crumbs'
+	
+	%main.deal-container
+		.deal-container__content
+			%section.deal-chapter
+				%h2.deal-chapter--head
+					取引画面
+				.deal-chapter--transact-attention
+					%h3
+						%i
+						%span
+							メルカリからのアテンション
+					%p
+						メルカリからのメッセージ
+				%ul.deal-chapter--transact-guide.text-right
+					%li
+						= link_to '販売代金の受け取りについて', '#'
+						%i.fas.fa-angle-right
+				.deal-chapter--deal-message-container
+	
+		.deal-container__side-bar
+			%seciton.side-bar-container
+				%h3.side-bar-container__transact-info-head
+					取引情報
+			%section.side-bar-container__transact-info-inner
+				%ul.transact-info-list
+					%li.transact-info-list--row
+						%span.transact-info-list--cell
+							商品
+						%ul.transact-info-list--cell
+							%li
+								= link_to @deal.item
+								= image_tag @deal.item.item_images.first.image.url
+								.transact-info-list--cell__item-info
+									= @deal.item.name
+									%br
+										= number_to_currency @deal.item.price, unit: "¥", precision: 0
+								
+					%li.transact-info-list--row
+						%span.transact-info-list--cell
+							送料
+						%ul.transact-info-list--cell
+							%li
+								= @deal.item.post_burden.name
+					%li.transact-info-list--row
+						%span.transact-info-list--cell
+							販売手数料
+						%ul.transact-info-list--cell
+							%li
+								= number_to_currency @deal.item.price * 0.1, unit: "¥", precision: 0
+					%li.transact-info-list--row
+						%span.transact-info-list--cell
+							販売利益
+						%ul.transact-info-list--cell
+							%li
+								= number_to_currency @deal.item.price * 0.9, unit: "¥", precision: 0
+					%li.transact-info-list--row
+						%span.transact-info-list--cell
+							購入日時
+						%ul.transact-info-list--cell
+							%li
+								= @deal.created_at.strftime("%Y年%m月%d日 %H:%M")
+					%li.transact-info-list--row
+						%span.transact-info-list--cell
+							商品ID
+						%ul.transact-info-list--cell
+							%li
+								= @deal.item.id
+	%aside.app-banner
+		= render partial: 'items/bottom-banner'
+	.mypage__footer
+		= render 'partial/footer'
