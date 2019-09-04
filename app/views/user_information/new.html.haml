@@ -1,7 +1,8 @@
+= breadcrumbs separator: " &rsaquo; "
 .mypage
   .mypage__header
     = render 'partial/header'
-    = render 'partial/bread-crumbs'
+    - breadcrumb :mypage
   .mypage__body
     = render 'partial/mypage-nav-list'
     .mypage__identification-container
