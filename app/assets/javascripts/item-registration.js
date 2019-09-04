@@ -13,6 +13,8 @@ $(function () {
        return html
    }
 
+   var images = [];
+
    function readURl(input) {
        if (input.files && input.files[0]) {
            var reader = new FileReader();
@@ -31,7 +33,6 @@ $(function () {
        var newStrNum = String(newNum);
 
        $(".sell-upload-items").removeClass(`have-item-${num[0]}`);
-       console.log(`.have-item-${num[0]}`);
        $(".sell-upload-items").addClass(`have-item-${newStrNum}`);
        $(".sell-upload-dropbox").removeClass(`have-item-${num[0]}`);
        $(".sell-upload-dropbox").addClass(`have-item-${newStrNum}`);
