@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_18_043541) do
+ActiveRecord::Schema.define(version: 2019_09_04_074026) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "postcode", null: false
@@ -45,6 +45,16 @@ ActiveRecord::Schema.define(version: 2019_08_18_043541) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
+  create_table "deal_messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "message", null: false
+    t.bigint "deal_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deal_id"], name: "index_deal_messages_on_deal_id"
+    t.index ["user_id"], name: "index_deal_messages_on_user_id"
   end
 
   create_table "deals", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -117,6 +127,8 @@ ActiveRecord::Schema.define(version: 2019_08_18_043541) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "deal_messages", "deals"
+  add_foreign_key "deal_messages", "users"
   add_foreign_key "deals", "items"
   add_foreign_key "deals", "users", column: "buyer_id"
   add_foreign_key "deals", "users", column: "seller_id"
