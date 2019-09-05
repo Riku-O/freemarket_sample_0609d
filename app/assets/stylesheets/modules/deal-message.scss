@@ -1,0 +1,58 @@
+.deal-message-content {
+  padding: 24px;
+  background: #fff;
+  .deal-message-form {
+    p {
+      padding: 8px;
+      font-size: 14px;
+      background: #fff6de;
+    }
+    .textarea-default {
+      margin: 8px 0 0;
+    }
+    textarea {
+      border-radius: 0;
+      outline: 0;
+      -webkit-appearance: none;
+      touch-action: manipulation;
+      overflow: auto;
+      resize: vertical;
+      -webkit-writing-mode: horizontal-tb !important;
+      text-rendering: auto;
+      letter-spacing: normal;
+      word-spacing: normal;
+    }
+  }
+}
+.textarea-default {
+  display: block;
+  width: 100%;
+  max-width: 96.6%;
+  min-height: 104px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.message-submit {
+  width: 100%;
+  margin: 8px 0 0;
+  font-size: 0;
+  text-align: center;
+  span {
+    vertical-align: middle;
+    font-size: 14px;
+  }
+}
+.deal-message-btn {
+  display: block;
+  line-height: 48px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+}
+.deal-message-btn-gray {
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+}

@@ -10,18 +10,22 @@
           取引画面
         .deal-chapter--transact-attention
           %h3
-            %i
+            %i.far.fa-clock
             %span
-              メルカリからのアテンション
+              発送をお待ちください
           %p
-            メルカリからのメッセージ
+            出品者からの発送通知をお待ちください
         %ul.deal-chapter--transact-guide.text-right
           %li
             = link_to '#' do
               %span 購買代金の受け取りについて
               %i.fas.fa-angle-right
-    .deal-chapter--deal-message-container
-      = render partial: 'deals/deal-message', locals: { deal: @deal }
+      .deal-chapter--deal-message-container
+        = render template: "deal_messages/new", locals: { deal: @deal }
+      .deal-chapter--deal-message-help
+        ※お困りの際は
+        = link_to 'よくある質問', '#'
+        をご覧ください
     .deal-container__side-bar
       = render partial: 'deals/side-bar', locals: { deal: @deal }
   %aside.app-banner
