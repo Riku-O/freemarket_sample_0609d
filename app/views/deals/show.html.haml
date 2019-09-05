@@ -1,7 +1,6 @@
 .main-container
   .mypage__header
     = render 'partial/header'
-    = render 'partial/bread-crumbs'
 	
   %main.deal-container
     .deal-container__content
@@ -21,6 +20,8 @@
               %span 購買代金の受け取りについて
               %i.fas.fa-angle-right
       .deal-chapter--deal-message-container
+        = if @deal.deal_messages.present?
+          = render template: "deal_messages/index", locals: { deal: @deal }
         = render template: "deal_messages/new", locals: { deal: @deal }
       .deal-chapter--deal-message-help
         ※お困りの際は

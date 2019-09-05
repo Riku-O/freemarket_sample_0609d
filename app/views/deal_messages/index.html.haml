@@ -1,0 +1,17 @@
+.deal-message-content
+  %ul.message-items
+    %li.message-item
+      = link_to '#', class: "message-user" do
+        %figure
+          %div
+            = image_tag "#"
+          %figcaption
+            = @deal.user.nickname
+        .message-body
+          .message-body--text
+          .message-icons
+            %time.message-icon-left
+              %i.far.fa-clock
+              %span
+                = fetch_passing_time
+          %i.icon
