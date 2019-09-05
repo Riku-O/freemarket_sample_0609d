@@ -1,29 +1,28 @@
 .detail
   .detail-header
     = render 'partial/header'
-    = render 'partial/bread-crumbs'
   .detail-container
-    %h1.container__header= @item.name
+    %h1.container__header
+      = @item.name
     .container
       .container__left__contents
         .container__left__contents__image-large
-        -#画像をimage_tagで反映  = image_tag @item.image.url, 
+          -#= image_tag @item.item_images.first.image.url
         .container__left__contents__image-small
       %table.container__right__contents
         %tbody.container__right__contents__table
           %tr
             %th 出品者
             %td
-              
+              = @item.user.nickname
               .review
                 %span.good 10
                 %span.normal 10
                 %span.bad 10
           %tr
-            -#TODO enumを使用してid=>文字列で取り出すようリファクタリング(i18n要確認)
             %th カテゴリー
             %td
-              パンくず
+              = @item.category.name
           %tr
             %th ブランド
             %td= @item.brand_id
@@ -32,33 +31,33 @@
             %td= @item.size
           %tr
             %th 商品の状態
-            %td= @item.condition_id
+            %td
+              = @item.condition.name
           %tr
             %th 配送料の負担
-            %td= @item.post_burden_id
-          -# 配送方法が実装されていないため一時避難  
-          -#%tr
-          -#  %th 配送の方法
-          -#  %td 手渡し
+            %td
+              = @item.post_burden.name
+          %tr
+            %th 配送の方法
+            %td 手渡し
           %tr
             %th 配送元地域
-            %td= @item.source_area_id
+            %td
+              = @item.source_area.name
           %tr
             %th 発送日の目安
-            %td= @item.shipping_date_id
+            %td
+              = @item.shipping_date.name
     .container__price
-      %span.price ¥3,000
+      %span.price
+        = number_to_currency @item.price, unit: "¥", precision: 0
       %span.item-tax (税込)
-      %span.shipping-fee 送料込みor着払い
-    -if @item.user_id == current_user.id
-      .container__description= @item.description
-      商品の編集
-      出品停止
-      商品削除
-    -else
-    %button{type: "button", style: "cursor:pointer", class: "container__purchace-button", onclick: "location.href='#'"}
-      購入画面に進む
-    .container__description= @item.description
+      %span.shipping-fee
+        = @item.post_burden.name
+    .container__purchace-button
+      = link_to '購入確認画面へ進む',new_item_deal_path(params[:id])
+    .container__description
+      商品説明文
     .container__buttons
       .container__buttons__left
         = button_tag type: 'button', class: 'button-like' do
@@ -105,5 +104,4 @@
       アイテムカードへ、商品トップページからrender
 
   .detail-footer
-    = render 'partial/bread-crumbs'
     = render 'partial/footer'

@@ -1,0 +1,175 @@
+.detail-container {
+  width: 700px;
+  margin: 40px auto 0;
+  padding: 24px 40px 40px;
+  background-color: white;
+  font-family: 'FontAwesome';
+  .container__header {
+    width: 620px;
+    font-size: 24px;
+    text-align: center;
+  }
+  .container {
+    margin-top: 16px;
+    width: 620px;
+    height: 420px;
+    &__left__contents {
+      width: 300px;
+      height: 420px;
+      float: left;
+    }
+    &__right__contents {
+      width: 300px;
+      height: 420px;
+      border: 1px solid rgb( 245, 245, 245);
+      float: right;
+      &__table {
+        tr {
+          th {
+          background-color: rgb( 250, 250, 250);
+          border: 1px solid rgb( 245, 245, 245);
+          padding: 8px;
+          }
+          td {
+            border: 1px solid rgb( 245, 245, 245);
+            padding: 8px;
+            .review {
+              margin-top: 8px;
+              .good::before {
+                content: "\f118";
+                color: red;
+                font-size: 16px;
+              }
+              .normal::before {
+                content: "\f11a";
+                color: orange;
+                font-size: 16px;
+                margin-left: 8px;
+              }
+              .bad::before {
+                content: "\f119";
+                color: purple;
+                font-size: 16px;
+                margin-left: 8px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .container__price {
+    margin-top: 24px;
+    width: 620px;
+    height: 50px;
+    text-align: center;
+    .price {
+      font-size: 50px;
+      font-weight: 600;
+    }
+    .shipping-fee {
+      font-size: 16px;
+    }
+  }
+  .container__purchace-button {
+    margin-top: 16px;
+    width: 620px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    background-color: red;
+    a {
+      color: #fff;
+    }
+  }
+  .container__description {
+    height: 100px;
+    padding-top: 32px;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .container__buttons {
+    margin-top: 16px;
+    height: 32px;
+    width: 620px;
+    line-height: 32px;
+    &__left {
+      float: left;
+      .button-like {
+        width: 120px;
+        height: 32px;
+        padding: 8px, 16px;
+        border: 1px solid rgb( 245, 245, 245);
+        background-color: rgb( 245, 245, 245);
+        border-radius: 40px;
+        font-family: "FontAwesome";
+        .like-icon::before {
+          content: "\f004";
+          color: rgb( 204, 204, 204);
+          font-size: 16px;
+          margin-right: 8px;
+        }
+      }
+      .report {
+        width: 180px;
+        height: 32px;
+        margin-left: 16px;
+        padding: 8px, 16px;
+        border: 1px solid rgb( 245, 245, 245);
+        background-color: rgb( 245, 245, 245);
+        border-radius: 40px;
+        color: black;
+        font-family: "FontAwesome";
+        ::before {
+          content: "\f024";
+          font-size: 16px;
+          margin-right: 8px;
+        }
+      }
+    }
+    &__right {
+      float: right;
+    }
+  }
+}
+.comment {
+  width: 700px;
+  height: 260px;
+  margin: 8px auto;
+  padding: 40px;
+  background-color: white;
+  .comment__caution {
+    background-color: rgb(255, 246, 222);
+    padding: 8px;
+  }
+  .comment__form {
+    width: 700px;
+    margin-top: 8px;
+    &__submit {
+      width: 700px;
+      height: 50px;
+      margin-top: 8px;
+      border: none;
+      color: white;
+      background-color: rgb(170, 170, 170);
+    }
+  }
+}
+.prev-next-page {
+  width: 780px;
+  display: block;
+  margin: 24px auto 0;
+  .prev-page {
+  }
+  .next-page {
+  }
+}
+.sns {
+  width: 700px;
+  background-color: white;
+  margin: 24px auto;
+  clear: both;
+}
