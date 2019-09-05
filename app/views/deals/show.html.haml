@@ -21,6 +21,7 @@
               %span 購買代金の受け取りについて
               %i.fas.fa-angle-right
     .deal-chapter--deal-message-container
+      = render partial: 'deals/deal-message', locals: { deal: @deal }
     .deal-container__side-bar
       = render partial: 'deals/side-bar', locals: { deal: @deal }
   %aside.app-banner

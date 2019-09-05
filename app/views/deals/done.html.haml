@@ -15,10 +15,17 @@
       %section.deal-content.deal-item
         .deal-content__inner
           %h3.deal-item-image
+            = image_tag @deal.item.item_images.first.image.url
           %p.deal-item-name
-          
+            = @deal.item.name
       %section.deal-content.deal-user-info.deal-item
+        .deal-content__inner
+          %p.deal-user-name
+            = @deal.buyer.nickname
       %section.deal-content.deal-user-info
+        .deal-content__inner
+          %p.deal-user-address
+            = @deal.buyer.address
       %section.deal-content.deal-done-flow
   %footer.deal-done-footer
     = render "devise/shared/footer"
