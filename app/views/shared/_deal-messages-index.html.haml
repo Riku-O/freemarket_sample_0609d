@@ -4,14 +4,14 @@
       = link_to '#', class: "message-user" do
         %figure
           %div
-            = image_tag "#"
+            = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png'
           %figcaption
-            = @deal.user.nickname
+            = @deal.buyer.nickname
         .message-body
           .message-body--text
           .message-icons
             %time.message-icon-left
               %i.far.fa-clock
               %span
-                = fetch_passing_time
+                2時間前
           %i.icon
