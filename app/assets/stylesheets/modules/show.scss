@@ -3,11 +3,11 @@
   margin: 40px auto 0;
   padding: 24px 40px 40px;
   background-color: white;
+  font-family: 'FontAwesome';
   .container__header {
     width: 620px;
     font-size: 24px;
     text-align: center;
-    font-family: 'FontAwesome';
   }
   .container {
     margin-top: 16px;
@@ -33,6 +33,26 @@
           td {
             border: 1px solid rgb( 245, 245, 245);
             padding: 8px;
+            .review {
+              margin-top: 8px;
+              .good::before {
+                content: "\f118";
+                color: red;
+                font-size: 16px;
+              }
+              .normal::before {
+                content: "\f11a";
+                color: orange;
+                font-size: 16px;
+                margin-left: 8px;
+              }
+              .bad::before {
+                content: "\f119";
+                color: purple;
+                font-size: 16px;
+                margin-left: 8px;
+              }
+            }
           }
         }
       }
@@ -82,14 +102,29 @@
         border: 1px solid rgb( 245, 245, 245);
         background-color: rgb( 245, 245, 245);
         border-radius: 40px;
+        font-family: "FontAwesome";
+        .like-icon::before {
+          content: "\f004";
+          color: rgb( 204, 204, 204);
+          font-size: 16px;
+          margin-right: 8px;
+        }
       }
       .report {
         width: 180px;
+        height: 32px;
         margin-left: 16px;
         padding: 8px, 16px;
         border: 1px solid rgb( 245, 245, 245);
         background-color: rgb( 245, 245, 245);
+        border-radius: 40px;
         color: black;
+        font-family: "FontAwesome";
+        ::before {
+          content: "\f024";
+          font-size: 16px;
+          margin-right: 8px;
+        }
       }
     }
     &__right {

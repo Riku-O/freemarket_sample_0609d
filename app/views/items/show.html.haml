@@ -1,66 +1,70 @@
 .detail
   .detail-header
     = render 'partial/header'
+    = render 'partial/bread-crumbs'
   .detail-container
-    %h1.container__header 商品名
+    %h1.container__header= @item.name
     .container
       .container__left__contents
         .container__left__contents__image-large
+        -#画像をimage_tagで反映  = image_tag @item.image.url, 
         .container__left__contents__image-small
       %table.container__right__contents
         %tbody.container__right__contents__table
           %tr
             %th 出品者
             %td
-              ニックネーム
+              
               .review
-                %i.fas.fa-laugh-beam
-                %span 100
-                %i.fas.fa-meh
-                %span 100
-                %i.fas.fa-frown
-                %span 000
+                %span.good 10
+                %span.normal 10
+                %span.bad 10
           %tr
+            -#TODO enumを使用してid=>文字列で取り出すようリファクタリング(i18n要確認)
             %th カテゴリー
             %td
               パンくず
           %tr
             %th ブランド
-            %td ブランド名
+            %td= @item.brand_id
           %tr
             %th 商品のサイズ
-            %td サイズ
+            %td= @item.size
           %tr
             %th 商品の状態
-            %td 新品
+            %td= @item.condition_id
           %tr
             %th 配送料の負担
-            %td 送料込み
-          %tr
-            %th 配送の方法
-            %td 手渡し
+            %td= @item.post_burden_id
+          -# 配送方法が実装されていないため一時避難  
+          -#%tr
+          -#  %th 配送の方法
+          -#  %td 手渡し
           %tr
             %th 配送元地域
-            %td JAPAN!!!
+            %td= @item.source_area_id
           %tr
             %th 発送日の目安
-            %td 来年
+            %td= @item.shipping_date_id
     .container__price
       %span.price ¥3,000
       %span.item-tax (税込)
       %span.shipping-fee 送料込みor着払い
-    .container__purchace-button
+    -if @item.user_id == current_user.id
+      .container__description= @item.description
+      商品の編集
+      出品停止
+      商品削除
+    -else
+    %button{type: "button", style: "cursor:pointer", class: "container__purchace-button", onclick: "location.href='#'"}
       購入画面に進む
-    .container__description
-      商品説明文
+    .container__description= @item.description
     .container__buttons
       .container__buttons__left
         = button_tag type: 'button', class: 'button-like' do
-          %i.far.fa-heart.like
-          %span いいね!
+          %span.like-icon いいね!
           %span 0
-        = link_to '#', class: 'report' do
-          %i.far.fa-flag
+        = button_tag type: 'button', class: 'report' do
           %span 不適切な商品の報告
       .container__buttons__right
         = link_to '#', class: 'detail__others--right' do
