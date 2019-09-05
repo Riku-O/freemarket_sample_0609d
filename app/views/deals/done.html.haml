@@ -1,0 +1,24 @@
+.deal-done-main-container
+  %header.deal-done-header
+    = render "devise/shared/header_one"
+  %main.deal-done-main
+    %section.deal-done-single-container.buy-item-container
+      .deal-done-attention
+        %h3
+          %i.far.fa-clock
+          %span
+            発送をお待ちください
+        %p
+          出品者からの発送通知をお待ちください
+      %h2.deal-done-head
+        購入が完了しました
+      %section.deal-content.deal-item
+        .deal-content__inner
+          %h3.deal-item-image
+          %p.deal-item-name
+          
+      %section.deal-content.deal-user-info.deal-item
+      %section.deal-content.deal-user-info
+      %section.deal-content.deal-done-flow
+  %footer.deal-done-footer
+    = render "devise/shared/footer"

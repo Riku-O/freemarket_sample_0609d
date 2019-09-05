@@ -1,6 +1,10 @@
 class DealsController < ApplicationController
   before_action :set_item, only: [:new, :create]
 
+  def done
+    @deal = Deal.fetch_deal(params[:id])
+  end
+
   def show
     @deal = Deal.fetch_deal(params[:id])
   end

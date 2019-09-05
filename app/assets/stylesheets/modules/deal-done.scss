@@ -1,0 +1,38 @@
+.deal-done-single-container {
+  width: 700px;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.deal-done-attention {
+  position: relative;
+  padding: 24px 8px;
+  background: #fff6de;
+  text-align: center;
+  font-size: 0;
+  h3 {
+    font-size: 16px;
+    color: #ea352d;
+    i {
+      margin: 0 8px 0 0;
+      font-size: 32px;
+      color: #ea352d;
+      vertical-align: center;
+      font-family: FontAwesome;
+    }
+    span {
+      vertical-align: middle;
+    }
+    p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+ }
+.dead-done-head {
+  padding: 32px 16px;
+  font-size: 22px;
+  line-height: 1.5;
+  text-align: center;
+}
