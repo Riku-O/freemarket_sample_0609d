@@ -1,17 +1,19 @@
 .deal-message-content
-  %ul.message-items
-    %li.message-item
-      = link_to '#', class: "message-user" do
-        %figure
-          %div
-            = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png'
-          %figcaption
-            = @deal.buyer.nickname
-        .message-body
-          .message-body--text
-          .message-icons
-            %time.message-icon-left
+  %ul.deal-message-items
+    - @deal.deal_messages.each do |message|
+      %li.deal-message-self
+        = link_to '#', class: "deal-message-user" do
+          %figure
+            %div
+              = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png'
+            %figcaption
+              = @deal.buyer.nickname
+        .deal-message-body
+          .deal-message-body--text
+            = message.message
+          .deal-message--icons
+            %time.deal-message--icon--left
               %i.far.fa-clock
               %span
-                2時間前
+                = message.created_at.strftime("%Y年%m月%d日 %H:%M")
           %i.icon
