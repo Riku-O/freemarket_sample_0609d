@@ -7,6 +7,6 @@ class Deal < ApplicationRecord
   enum status: {unfinished: 0, finished: 1}
 
   def self.fetch_deal(deal_id)
-    Deal.find_by(deal_id)
+    Deal.find(deal_id)
   end
 end

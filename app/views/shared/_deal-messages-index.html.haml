@@ -1,13 +1,13 @@
 .deal-message-content
   %ul.deal-message-items
-    - @deal.deal_messages.each do |message|
+    - deal.deal_messages.each do |message|
       %li.deal-message-self
         = link_to '#', class: "deal-message-user" do
           %figure
             %div
               = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png'
             %figcaption
-              = @deal.buyer.nickname
+              = deal.buyer.nickname
         .deal-message-body
           .deal-message-body--text
             = message.message
