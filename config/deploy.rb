@@ -23,6 +23,7 @@ set :default_env, {
   rbenv_root: "/usr/local/rbenv",
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
   RAILS_MASTER_KEY: ENV["RAILS_MASTER_KEY"],
+  SECRET_KEY_BASE: ENV["SECRET_KEY_BASE"],
   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
 }
