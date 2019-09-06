@@ -34,7 +34,7 @@ class DealsController < ApplicationController
       @item.update!(status: :being_sold)
     end
     # 購入完了画面に移動
-    redirect_to new_item_deal_path
+    redirect_to deal_path(id: @deal.id)
   end
 
   private
