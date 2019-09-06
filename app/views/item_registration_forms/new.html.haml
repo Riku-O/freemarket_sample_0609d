@@ -21,7 +21,7 @@
                     .sell-upload-dropbox.have-item-0
                       = f.fields_for :item_images, @item_registration_form do |c|
                         = c.label :image do
-                          = c.file_field :image, class: "sell-upload-drop-file-input", style: "display: none;", multiple: "true"
+                          = c.file_field :image, class: "sell-upload-drop-file-input", style: "display: none;"
                           .sell-upload-drop-file
                           %pre.visible-pc
                             ドラッグアンドドロップ
