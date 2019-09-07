@@ -5,8 +5,8 @@
   %main.single-body.mail-view
     %section.single-body__inner
       %h2.single-body__inner__registration-head 会員情報入力
-      %form{action: "https://www.mercari.com/jp/signup/sms_confirmation/?after_save_callback=https://www.mercari.com/jp/", method: "POST", class: "single-body__inner__registration-form", novalidate: "novalidate"}
-        %input{type: "hidden", name: "__csrf_value", value: "137c6b4425c6a948ce2b7ab1b983e50cf16ec2d84ac7220c1b35fc3b04aca6410e1e7fe01362b4738ddffd109f1e1946e130de57c6cb4b3c86522d201cfbe13d2"}
+      %form{action: "#", method: "POST", class: "single-body__inner__registration-form", novalidate: "novalidate"}
+        %input{type: "hidden", name: "__csrf_value"}
         .single-body__inner__registration-form__content
           .single-body__inner__registration-form__content__form
             %label{for: "nickname"} ニックネーム
@@ -15,7 +15,7 @@
           .single-body__inner__registration-form__content__form
             %label{for: "email"} メールアドレス
             %span.single-body__inner__registration-form__content__form__require 必須
-            %input{type: "email", value: "", name: "nickname", placeholder: "PC・携帯どちらでも可", class: "single-body__inner__registration-form__content__form__default"}
+            %input{type: "email", value: "", name: "email", placeholder: "PC・携帯どちらでも可", class: "single-body__inner__registration-form__content__form__default"}
           %input{type: "hidden", value: "", name: "login_type"}
           .single-body__inner__registration-form__content__form
             %label{for: "password"} パスワード
@@ -24,7 +24,7 @@
           .single-body__inner__registration-form__content__form
             %label{for: "password"} パスワード (確認)
             %span.single-body__inner__registration-form__content__form__require 必須
-            %input{type: "password", name: "password2", placeholder: "7文字以上", class: "single-body__inner__registration-form__content__form__default"}
+            %input{type: "password", name: "password-confirmation", placeholder: "7文字以上", class: "single-body__inner__registration-form__content__form__default"}
           .single-body__inner__registration-form__content__form
             %h3.single-body__inner__registration-form__content__form__left-text 本人確認
             %p.single-body__inner__registration-form__content__form__single-text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
