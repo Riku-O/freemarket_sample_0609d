@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update]
+  before_action :set_item, only: [:edit, :update, :destroy]
   # before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   # ログイン機能実装用のコードだが、出品ページ実装の際は便宜上コメントアウト
 
@@ -10,9 +10,11 @@ class ItemsController < ApplicationController
 
   def show
     #TODO:is_hosted_by?メソッドを使って、出品者以外が閲覧した際に編集ボタンが表示されないようにする。
+    @item = Item.fetch_item(params[:id])
   end
 
   def destroy
+    @item.destroy
   end
 
   def edit

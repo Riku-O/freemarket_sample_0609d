@@ -32,3 +32,6 @@
 .idea/*
 .env
 .swp
+
+# Ignore bundler gems.
+vendor/bundle

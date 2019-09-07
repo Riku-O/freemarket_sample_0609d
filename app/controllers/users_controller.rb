@@ -1,17 +1,20 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: :show
 
- def show
- end
+  def show
+  end
 
- def edit
- end
+  def edit
+  end
 
- def update
- end
+  def update
+  end
 
- private
- def user_params
-  params.require(:user).permit(:nickname, :email, :encrypted_password)
- end
+  def destroy
+  end
 
+  private
+  def set_user
+    @user = User.find(params[:id])
+  end
 end

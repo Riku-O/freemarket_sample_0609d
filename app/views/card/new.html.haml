@@ -1,0 +1,62 @@
+.single-wrapper
+  - if @item_id
+    = render "devise/shared/header_one"
+  - else
+    = render "devise/shared/registration_header4"
+  
+  %main.single-body.mail-view
+    %section.single-body__inner
+      %h2.single-body__inner__registration-head 支払い方法
+      = form_tag(pay_card_index_path, method: :post, id: 'charge-form',  name: "inputForm", class: "card-form") do
+        .single-body__inner__registration-form__content
+          .single-body__inner__registration-form__content__form
+            %label{for: "payment_card_no"} カード番号
+            %span.single-body__inner__registration-form__content__form__require 必須
+            = text_field_tag "number", "", class: "single-body__inner__registration-form__content__form__default", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+            %ul{id: "card-no-error-wrapper", class: "single-body__inner__registration-form__content__form__has-error-text"}
+            %ul.single-body__inner__registration-form__content__form__card-list
+              %li
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?615905397", alt: "メルカリ", width: "49"
+              %li
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?615905397", alt: "メルカリ"
+              %li
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?615905397", alt: "メルカリ"
+              %li
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?615905397", alt: "メルカリ"
+              %li
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?615905397", alt: "メルカリ"
+              %li
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?615905397", alt: "メルカリ"
+              %li
+                = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?615905397", alt: "メルカリ"
+          .single-body__inner__registration-form__content__form.single-body__inner__registration-form__content__signup-form-expire
+            %label{for: "payment_card_expire"} 有効期限
+            %span.single-body__inner__registration-form__content__form__require 必須
+            %br
+            .single-body__inner__registration-form__content__form__select-wrap-half
+              = select_tag nil, options_for_select(['01','02','03','04','05','06','07','08','09','11','12']), id: "exp_month", class:               "single-body__inner__registration-form__content__form__select-wrap-half__default"
+              = fa_icon 'angle-down', class: 'icon-down'
+              %span 月
+            .single-body__inner__registration-form__content__form__select-wrap-half
+              = select_tag nil, options_for_select([['19','2019'],['20','2020'],['21','2021'],['22','2022'],['23','2023'],['24','2024'],['25','2025'],['26','2026'],['27','2027'],['28','2028'],['29','2029'],['30','2030']]), id: "exp_year", class: "single-body__inner__registration-form__content__form__select-wrap-half__default"
+              = fa_icon 'angle-down', class: 'icon-down'
+
+              %span 年
+          .single-body__inner__registration-form__content__form
+            %label{for: "c"} セキュリティコード
+            %span.single-body__inner__registration-form__content__form__require 必須
+            = text_field_tag "cvc", "", class: "single-body__inner__registration-form__content__form__default", placeholder: "カード背面4桁もしくは3桁の番号", maxlength: "4", id: "cvc"
+            %ul{id: "security-code-error-wrapper", class: "single-body__inner__registration-form__content__form__has-error-text"}
+            .single-body__inner__registration-form__content__form__signup-seqcode
+              .single-body__inner__registration-form__content__form__signup-seqcode__text{data: {js: "show-tips-toggle"}}
+                %span.single-body__inner__registration-form__content__form__signup-seqcode__text__question ?
+                カード裏面の番号とは？
+          %input{type: "hidden", id: "user_id", name: "user_id", value: "861454361"}
+          %input{type: "hidden", id: "encrypted_card_data", name: "encrypted_card_data"}
+          %input{type: "hidden", id: "primary-error", class: "single-body__inner__registration-form__content__form__has-error-text"}
+          %input{type: "hidden", value: "https://www.mercari.com/jp/", name: "after_save_callback"}
+          #card_token
+          = hidden_field_tag :item_id, @item_id
+          = submit_tag "次へ進む", id: "token_submit", class: "single-body__inner__registration-form__content__btn-red"
+          
+  = render "devise/shared/footer"

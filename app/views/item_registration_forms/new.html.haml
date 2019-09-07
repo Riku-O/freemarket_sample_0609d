@@ -8,21 +8,26 @@
             %h2.main__item-container__sell-container__display-inner__head 商品の情報を入力
             .main__item-container__sell-container__display-inner__sell-form
               = form_for @item_registration_form do |f|
-                .main__item-container__sell-container__display-inner__sell-form__sell-upload-box
-                  %h3.main__item-container__sell-container__display-inner__sell-form__sell-upload-box__sell-upload-head
+                .sell-upload-box
+                  %h3.sell-upload-box__head
                     出品画像
-                    %span.form-require 必須
-                  %p最大10枚までアップロードできます
-                  .sell-dropbox-container.clearfix.state-image-number-10
+                    %span.form-require
+                      必須
+                  %p 最大10枚までアップロードできます。
+                  .sell-dropbox-container
                     .sell-upload-items-container
                       .sell-upload-items.have-item-0
+                        %ul
+                    .sell-upload-dropbox.have-item-0
                       = f.fields_for :item_images, @item_registration_form do |c|
-                        = c.label :image, type: "display: none;" do
-                          .sell-upload-drop-box.have-item-0
-                            %pre.visible-pc
-                              ドラッグアンドドロップ
-                              %br またはクリックしてファイルをアップロード
-                            = c.file_field :image, class: "sell-upload-drop-file", style: "display: none"
+                        = c.label :image do
+                          = c.file_field :image, class: "sell-upload-drop-file-input", style: "display: none;"
+                          .sell-upload-drop-file
+                          %pre.visible-pc
+                            ドラッグアンドドロップ
+                            %br
+                              またはクリックしてファイルをアップロード
+                          %i.fas.fa-camera
                 .sell-content
                   .form-group
                     %label

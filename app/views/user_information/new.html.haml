@@ -1,0 +1,73 @@
+= breadcrumbs separator: " &rsaquo; "
+.mypage
+  .mypage__header
+    = render 'partial/header'
+    - breadcrumb :mypage
+  .mypage__body
+    = render 'partial/mypage-nav-list'
+    .mypage__identification-container
+      %section.mypage__identification-container__content
+        %h2.content-head
+          本人情報の登録
+        = form_for new_user_user_information_path, html: {class: "form-container"} do |f|
+          %div
+            %p
+              お客様の本人情報をご登録ください
+              %br
+                登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+            %p.text-right
+              = link_to '#' do
+                本人確認書類のアップロードについて
+                %i.fas.fa-angle-right
+          .user-identification-form-ele
+            %label
+              お名前
+            %p
+              本名
+          .user-identification-form-ele
+            %label
+              お名前カナ
+            %p
+              フリガナ
+          .user-identification-form-ele
+            %label
+              生年月日
+            %p
+              1994/06/27
+          .user-identification-form-ele
+            = f.label "郵便番号"
+            %span.form-arbitrary
+              任意
+            = f.text_field :post_code, placeholder: "例）1234567", class: "input-default"
+          .user-identification-form-ele
+            = f.label "都道府県"
+            %span.form-arbitrary
+              任意
+            .select-list
+              %i.fas.fa-chevron-down
+              = f.collection_select( :prefecture, SourceArea.all, :id, :name, {prompt: ""}, {class: "select-default"})
+          .user-identification-form-ele
+            = f.label "市町村"
+            %span.form-arbitrary
+              任意
+            = f.text_field :city, placeholder: "例）横浜市緑区", class: "input-default"
+          .user-identification-form-ele
+            = f.label "番地"
+            %span.form-arbitrary
+              任意
+            = f.text_field :block, placeholder: "例）青山1-1-1", class: "input-default"
+          .user-identification-form-ele
+            = f.label "建物名"
+            %span.form-arbitrary
+              任意
+            = f.text_field :building, placeholder: "柳ビル103", class: "input-default"
+          = f.submit '登録する', class: "btn-default btn-red"
+          .user-identification-form-ele.text-right
+            %p
+              = link_to '#' do
+                本人情報の登録について
+                %i.fas.fa-angle-right
+  %aside.app-banner
+    = render partial: 'items/bottom-banner'
+  .mypage_footer
+    = render 'partial/footer'

@@ -63,7 +63,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'pry-doc'
-  gem 'capistrano'
+  gem 'capistrano', '3.11.0'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
@@ -74,8 +74,6 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'haml-rails'
 gem 'font-awesome-rails'
@@ -87,3 +85,6 @@ gem 'devise'
 gem 'faker'
 gem 'ancestry'
 gem 'active_hash'
+gem 'payjp'
+gem "jquery-rails"
+gem 'gretel'
