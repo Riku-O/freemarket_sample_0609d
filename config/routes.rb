@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_scope :user do
-    get "/sign_in" => "devise/sessions#new" # login/sign_inへのカスタムパス
+    get "/sign_in", to: "devise/sessions#new" # login/sign_inへのカスタムパス
     get "users/sign_up", to: "devise/registrations#index" # , as: "new_user_registration" # sign_up/registrationへのカスタムパス
     get "users/sign_up/registration", to: "devise/registrations#new" # メールアドレスの会員情報入力画面
     get "users/sign_up/facebook", to: "devise/registrations#new_facebook" # facebookの会員情報入力画面
