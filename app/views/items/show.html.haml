@@ -54,10 +54,10 @@
       %span.item-tax (税込)
       %span.shipping-fee
         = @item.post_burden.name
-    .container__purchace-button
-      = link_to '購入確認画面へ進む',new_item_deal_path(params[:id])
+      .container__purchace-button
+        = link_to '購入確認画面へ進む',new_item_deal_path(params[:id])
     .container__description
-      商品説明文
+      = @item.description
     .container__buttons
       .container__buttons__left
         = button_tag type: 'button', class: 'button-like' do
@@ -69,7 +69,14 @@
         = link_to '#', class: 'detail__others--right' do
           %i.fas.fa-lock
           %span あんしん・あんぜんへの取り組み
-  
+  .status-change-btn
+    .status-change-btn__edit
+      =link_to '商品の編集', '#' #edit_item_path(@item)←未作成
+    %p or
+    .status-change-btn__stop
+      = link_to '出品を一旦停止する', '#'
+    .status-change-btn__delete
+      = link_to 'この商品を削除する', item_path(@item), method: :destroy, data: {confirm: '削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？'} 
   .comment
     %p.comment__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     = form_tag '/', method: :get, class: 'comment__form' do
