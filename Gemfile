@@ -68,7 +68,6 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  gem 'rails-env-credentials'
 end
 
 group :production do
