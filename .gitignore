@@ -35,3 +35,6 @@
 
 # Ignore bundler gems.
 vendor/bundle
+
+# Ignore master key for decrypting credentials and more.
+/config/master-development.key
