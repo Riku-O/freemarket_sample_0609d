@@ -14,7 +14,6 @@
           Googleでログイン
         -# %ul.single-primary__inner__form__error
         -#   %li Facebookでの登録情報はありません。他の方法でログインをお試しください。
-      %form{action: "https://www.mercari.com/jp/login/", method: "post", novalidate: "novalidate"}
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .single-primary__inner__form__groups
           .single-primary__inner__form__groups__group
