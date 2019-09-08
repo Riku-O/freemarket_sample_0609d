@@ -7,7 +7,6 @@ class AddColumnToUsers < ActiveRecord::Migration[5.2]
     add_column :users, :birth_year, :integer
     add_column :users, :birth_month, :integer
     add_column :users, :birth_date, :integer
-    add_column :users, :phone_number, :integer
   end
 
   def down
@@ -18,6 +17,5 @@ class AddColumnToUsers < ActiveRecord::Migration[5.2]
     remove_column :users, :birth_year, :integer
     remove_column :users, :birth_month, :integer
     remove_column :users, :birth_date, :integer
-    remove_column :users, :phone_number, :integer
   end
 end
