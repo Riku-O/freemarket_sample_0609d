@@ -16,7 +16,7 @@ class DealsController < ApplicationController
     Payjp.api_key = Rails.application.credentials.payjp_secret_key
 
     # card = Card.where(user_id: current_user.id).first
-    card = Card.where(user_id: 1).first
+    card = Card.where(user_id: current_user.id).first
 
     @deal = new_with
 
@@ -40,7 +40,7 @@ class DealsController < ApplicationController
 
   def new_with
     # Deal.new(item_id: set_item.id, buyer_id: current_user.id, seller_id: set_item.user_id)
-    Deal.new(item_id: set_item.id, buyer_id: 1, seller_id: 2)
+    Deal.new(item_id: set_item.id, buyer_id: current_user.id, seller_id: set_item.user_id)
   end
 
   def set_item
