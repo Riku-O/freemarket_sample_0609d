@@ -64,7 +64,7 @@ class ItemRegistrationForm
       # shipping_method: shipping_method,
       source_area_id: source_area_id,
       category_id: category_id,
-      user_id: 1
+      user_id: user_id
     }
   end
 
