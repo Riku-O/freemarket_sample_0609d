@@ -5,24 +5,24 @@
   %main.single-body.mail-view
     %section.single-body__inner
       %h2.single-body__inner__registration-head 会員情報入力
-      = form_tag("/users", method: "post", class: "single-body__inner__registration-form") do
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), class: "single-body__inner__registration-form") do |f|
         .single-body__inner__registration-form__content
           .single-body__inner__registration-form__content__form
             %label{for: "nickname"} ニックネーム
             %span.single-body__inner__registration-form__content__form__require 必須
-            %input{type: "text", value: "", name: "nickname", placeholder: "例) メルカリ太郎", class: "single-body__inner__registration-form__content__form__default"}
+            = f.text_field :nickname, value: "", placeholder: "例) メルカリ太郎", class: "single-body__inner__registration-form__content__form__default"
           .single-body__inner__registration-form__content__form
             %label{for: "email"} メールアドレス
             %span.single-body__inner__registration-form__content__form__require 必須
-            %input{type: "email", value: "", name: "email", placeholder: "PC・携帯どちらでも可", class: "single-body__inner__registration-form__content__form__default"}
+            = f.email_field :email, autofocus: true, placeholder: "PC・携帯どちらでも可", class: "single-body__inner__registration-form__content__form__default"
           .single-body__inner__registration-form__content__form
             %label{for: "password"} パスワード
             %span.single-body__inner__registration-form__content__form__require 必須
-            %input{type: "password", name: "password", placeholder: "7文字以上", class: "single-body__inner__registration-form__content__form__default"}
+            = f.password_field :password, autocomplete: "off", placeholder: "7文字以上", class: "single-body__inner__registration-form__content__form__default"
           .single-body__inner__registration-form__content__form
             %label{for: "password-conformation"} パスワード (確認)
             %span.single-body__inner__registration-form__content__form__require 必須
-            %input{type: "password", name: "password-confirmation", placeholder: "7文字以上", class: "single-body__inner__registration-form__content__form__default"}
+            = f.password_field :password_confirmation, autocomplete: "off", placeholder: "7文字以上", class: "single-body__inner__registration-form__content__form__default"
           .single-body__inner__registration-form__content__form
             %h3.single-body__inner__registration-form__content__form__left-text 本人確認
             %p.single-body__inner__registration-form__content__form__single-text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
@@ -30,14 +30,14 @@
             %div
               %label お名前(全角)
               %span.single-body__inner__registration-form__content__form__require 必須
-            %input{type: "text", value: "", name: "last_name", placeholder: "例) 山田", class: "single-body__inner__registration-form__content__form__default-half"}
-            %input{type: "text", value: "", name: "first_name", placeholder: "例) 彩",  class: "single-body__inner__registration-form__content__form__default-half"}
+            = f.text_field :last_name, placeholder: "例) 山田", class: "single-body__inner__registration-form__content__form__default-half"
+            = f.text_field :first_name, placeholder: "例) 彩",  class: "single-body__inner__registration-form__content__form__default-half"
           .single-body__inner__registration-form__content__form
             %div
               %label{for: "family_name_kanji"} お名前カナ(全角)
               %span.single-body__inner__registration-form__content__form__require 必須
-            %input{type: "text", value: "", name: "last_name_kana", placeholder: "例) ヤマダ", class: "single-body__inner__registration-form__content__form__default-half"}
-            %input{type: "text", value: "", name: "first_name_kana", placeholder: "例) アヤ", class: "single-body__inner__registration-form__content__form__default-half"}
+            = f.text_field :last_name_kana, placeholder: "例) ヤマダ", class: "single-body__inner__registration-form__content__form__default-half"
+            = f.text_field :first_name_kana, placeholder: "例) アヤ", class: "single-body__inner__registration-form__content__form__default-half"
           .single-body__inner__registration-form__content__form
             %label{for: "birthday"} 生年月日
             %span.single-body__inner__registration-form__content__form__require 必須
@@ -45,21 +45,21 @@
             .single-body__inner__registration-form__content__form__birthday-box
               .single-body__inner__registration-form__content__form__birthday-box__single
                 = fa_icon 'angle-down', class: 'icon-down'
-                %select{name: "birth_year", class: "single-body__inner__registration-form__content__form__birthday-box__single__select"}
+                = f.select :birth_year, {}, {}, {class: "single-body__inner__registration-form__content__form__birthday-box__single__select"} do
                   %option{value: ""} --
                   - 2019.downto(1900) do |i|
                     %option{value: "#{i}"} #{i}
               %span 年
               .single-body__inner__registration-form__content__form__birthday-box__single.single-body__inner__registration-form__content__form__birthday-box__month
                 = fa_icon 'angle-down', class: 'icon-down'
-                %select{name: "birth_month", class: "single-body__inner__registration-form__content__form__birthday-box__single__select"}
+                = f.select :birth_month, {}, {}, {class: "single-body__inner__registration-form__content__form__birthday-box__single__select"} do
                   %option{value: ""} --
                   - 1.upto(12) do |i|
                     %option{value: "#{i}"} #{i}
               %span 月
               .single-body__inner__registration-form__content__form__birthday-box__single.single-body__inner__registration-form__content__form__birthday-box__day
                 = fa_icon 'angle-down', class: 'icon-down'
-                %select{name: "birth_date", class: "single-body__inner__registration-form__content__form__birthday-box__single__select"}
+                = f.select :birth_date, {}, {}, {class: "single-body__inner__registration-form__content__form__birthday-box__single__select"} do
                   %option{value: ""} --
                   - 1.upto(31) do |i|
                     %option{value: "#{i}"} #{i}
@@ -73,7 +73,7 @@
               「次へ進む」のボタンを押すことにより、
               = link_to "利用規約", "/jp/tos_list/", target: "_blank"
               に同意したものとみなします
-          %button{type: "submit", class: "single-body__inner__registration-form__content__btn-red"}次へ進む
+          = f.submit '次へ進む', class: "single-body__inner__registration-form__content__btn-red"
           .single-body__inner__registration-form__content__form.single-body__inner__registration-form__content__form__right-text
             %p
               = link_to "/jp/help_center/article/423/", target: "_blank" do
