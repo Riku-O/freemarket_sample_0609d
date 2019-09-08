@@ -1,4 +1,5 @@
 class ItemRegistrationFormsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @item_registration_form = ItemRegistrationForm.new
@@ -21,6 +22,6 @@ class ItemRegistrationFormsController < ApplicationController
                                           :shipping_date_id, :price, :description,
                                           :category_id,
                                           item_images_attributes: [:image])
-                                          .merge(user_id: 1)
+                                          .merge(user_id: current_user.id)
   end
 end

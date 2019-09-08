@@ -8,8 +8,7 @@
       .mypage__body__content--logout__container
         %form.mypage__body__content--logout__container__inner
           .log_out_content
-            %button.btn-default.btn-red{type: "submit"} ログアウト
-            = link_to  '','destroy_user_session_path', method: :delete
+            = link_to  'ログアウト', '/users/sign_out', method: :delete, class: "btn-default btn-red"
   %aside.app-banner
     = render partial: 'items/bottom-banner'
   .mypage__footer
