@@ -18,11 +18,12 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item.item_images.build
   end
 
   def update
     if @item.update(item_params)
-      redirect_to action: 'edit'
+      redirect_to action: 'show'
       flash[:success] = "変更しました。"
     else
       render edit
@@ -32,6 +33,10 @@ class ItemsController < ApplicationController
 
   private
   def set_item
-    @item = Item.fetch_item(item_params[:id])
+    @item = Item.fetch_item(params[:id])
+  end
+
+  def item_params
+    params.require(:item).permit(:item_images)
   end
 end

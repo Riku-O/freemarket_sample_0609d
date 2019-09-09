@@ -51,16 +51,6 @@ class ItemRegistrationForm
   #   attr_reader :brand_attributes
   # end
 
-  def update
-    false  if invalid?
-    if item.update(item_params)
-      item_images.update(item_images_attributes)
-    else
-      false
-    end
-
-  end
-
   private
 
   def item_params

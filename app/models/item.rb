@@ -25,6 +25,7 @@ class Item < ApplicationRecord
   validates :description, presence: true
   validates :status, presence: true
   # TODO:ブランドの実装は後日のためなしで
+  accepts_nested_attributes_for :item_images, allow_destroy: true
 
 
   enum status: {being_sold: 0, sold: 1, stopped_selling: 2}

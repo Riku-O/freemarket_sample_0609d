@@ -17,10 +17,7 @@ Rails.application.routes.draw do
     resources :user_information, only: [:new, :create, :edit, :update]
   end
   resources :item_registration_forms, only: [:new, :create]
-  get 'items/:id/edit', to: 'item_registration_forms#edit'
-  put 'items/:id', to: 'item_registration_forms#update'
-
-  resources :items, only: [:index, :show] do
+  resources :items, only: [:index, :show, :edit, :update] do
     resources :deals, only: [:new, :create]
   end
 
