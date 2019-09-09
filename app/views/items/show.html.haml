@@ -54,8 +54,8 @@
       %span.item-tax (税込)
       %span.shipping-fee
         = @item.post_burden.name
-      .container__purchace-button
-        = link_to '購入確認画面へ進む',new_item_deal_path(params[:id])
+    .container__purchace-button
+      = link_to '購入確認画面へ進む',new_item_deal_path(params[:id])
     .container__description
       = @item.description
     .container__buttons
@@ -65,50 +65,42 @@
           %span 0
         = button_tag type: 'button', class: 'report' do
           %span 不適切な商品の報告
-      .container__buttons__right
-        = link_to '#', class: 'detail__others--right' do
-          %i.fas.fa-lock
-          %span あんしん・あんぜんへの取り組み
+      = link_to '#', class: 'contaqiner__buttons__right' do
+        %span.fas.fa-lock
+        %span あんしん・あんぜんへの取り組み
   .status-change-btn
     .status-change-btn__edit
-      =link_to '商品の編集', '#' #edit_item_path(@item)←未作成
+      =link_to '商品の編集',edit_item_registration_form_path(params[:id])
     %p or
     .status-change-btn__stop
       = link_to '出品を一旦停止する', '#'
     .status-change-btn__delete
-      = link_to 'この商品を削除する', item_path(@item), method: :destroy, data: {confirm: '削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？'} 
+      = link_to 'この商品を削除する', item_path(params[:id]), method: :destroy, data: {confirm: '削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？'} 
   .comment
     %p.comment__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     = form_tag '/', method: :get, class: 'comment__form' do
-      = text_area_tag size: "650x85", class: "comment__form__body"
+      = text_area_tag "comment__form__body"
       = submit_tag "コメントする", class: 'comment__form__submit'
     
   .prev-next-page
     .prev-page
       = link_to '#' do
-        %i.fas.fa-chevron-left
+        %span.fas.fa-chevron-left
         %span 前の商品
     .next-page
       = link_to '#' do
         %span 次の商品
-        %i.fas.fa-chevron-right
+        %span.fas.fa-chevron-right
 
 
   .sns
     = link_to '#', class: 'sns__link' do
-      %i.fab.fa-facebook-square.sns-box__link__facebook
+      %span.fab.fa-facebook-square
     = link_to '#', class: 'sns__link' do
-      %i.fab.fa-twitter-square.sns-box__link__twitter
+      %span.fab.fa-twitter-square
     = link_to '#', class: 'sns__link' do
-      %i.fab.fa-pinterest-square.sns-box__link__pinterest
-
-  .other-items
-    = link_to "#さんのその他の出品", '#', class: 'other-items__header'
-    .other-items__card
-      アイテムカードへ、商品トップページからrender
-    = link_to "#のその他の商品", '#', class: "other-items__header"
-    .other-items__card
-      アイテムカードへ、商品トップページからrender
-
+      %span.fab.fa-pinterest-square
   .detail-footer
+    - breadcrumb :mypage
+    = breadcrumbs separator: " &rsaquo; "
     = render 'partial/footer'

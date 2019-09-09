@@ -6,13 +6,11 @@
     background-color: white;
     font-family: 'FontAwesome';
     .container__header {
-      width: 620px;
       font-size: 24px;
       text-align: center;
     }
     .container {
       margin-top: 16px;
-      width: 620px;
       height: 420px;
       &__left__contents {
         width: 300px;
@@ -61,7 +59,6 @@
     }
     .container__price {
       margin-top: 24px;
-      width: 620px;
       height: 50px;
       text-align: center;
       .price {
@@ -74,7 +71,6 @@
     }
     .container__purchace-button {
       margin-top: 16px;
-      width: 620px;
       height: 50px;
       text-align: center;
       line-height: 50px;
@@ -82,6 +78,7 @@
       font-weight: 600;
       color: white;
       background-color: red;
+      cursor: pointer;
       a {
         color: #fff;
       }
@@ -95,7 +92,6 @@
     .container__buttons {
       margin-top: 16px;
       height: 32px;
-      width: 620px;
       line-height: 32px;
       &__left {
         float: left;
@@ -131,17 +127,67 @@
           }
         }
       }
-      &__right {
+      a {
         float: right;
       }
     }
   }
   .status-change-btn {
     width: 700px;
-    height: 260px;
     margin: 24px auto;
-    padding: 8px 16px;
+    padding: 24px 40px 40px;
     background-color: white;
+    &__edit {
+      height: 50px;
+      border: 1px solid;
+      margin: 16px 0;
+      text-align: center;
+      line-height: 50px;
+      color: white;
+      background-color: red;
+      cursor: pointer;
+      a {
+        color: #fff;
+      }
+      p {
+        text-align: center;
+      }
+    }
+    p {
+      text-align: center;
+    }
+    &__stop {
+      height: 50px;
+      border: 1px solid;
+      margin: 16px 0;
+      text-align: center;
+      line-height: 50px;
+      color: white;
+      background-color:rgb(170, 170, 170);
+      cursor: pointer;
+      a {
+        color: #fff;
+      }
+      p {
+        text-align: center;
+      }
+    }
+    &__delete {
+      height: 50px;
+      border: 1px solid;
+      margin: 16px 0;
+      text-align: center;
+      line-height: 50px;
+      color: white;
+      background-color:rgb(170, 170, 170);
+      cursor: pointer;
+      a {
+        color: #fff;
+      }
+      p {
+        text-align: center;
+      }
+    }
   }
   .comment {
     width: 700px;
@@ -156,6 +202,12 @@
     .comment__form {
       width: 700px;
       margin-top: 8px;
+      textarea {
+        width: 678px;
+        height: 80px;
+        padding: 10px;
+        border:1px solid;
+      }
       &__submit {
         width: 700px;
         height: 50px;
@@ -170,15 +222,27 @@
     width: 780px;
     display: block;
     margin: 24px auto 0;
+    font-family: 'FontAwesome';
     .prev-page {
+      text-align: left;
     }
     .next-page {
+      text-align: right;
     }
   }
   .sns {
-    width: 700px;
+    width: 780px;
+    height: 150px;
     background-color: white;
     margin: 24px auto;
+    padding: 24px 0;
     clear: both;
+    text-align: center;
+    line-height: 150px;
+    font-family: 'FontAwesome';
+    span {
+      font-size: 44px;
+      margin-right: 8px;
+    }
   }
 }
