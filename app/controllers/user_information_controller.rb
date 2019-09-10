@@ -19,11 +19,11 @@ class UserInformationController < ApplicationController
 
   private
   def new_with
-    UserInformation.new(user_id: 1)
+    UserInformation.new(user_id: current_user.id)
   end
 
   def set_user
-    @user = User.find(1)
+    @user = User.find(current_user.id)
   end
 
 end

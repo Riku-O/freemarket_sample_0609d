@@ -7,13 +7,13 @@
       .single-body__inner__registration-form
         .single-body__inner__registration-form__items
           .single-body__inner__registration-form__items__btn-default
-            = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-mail"  do
+            = link_to users_sign_up_registration_path,class: "single-body__inner__registration-form__items__btn-default__btn-mail"  do
               = fa_icon 'envelope', class: 'icon'
               メールアドレスで登録する
-            = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-facebook"  do
+            = link_to "#",class: "single-body__inner__registration-form__items__btn-default__btn-facebook"  do
               = fa_icon 'facebook-square', class: 'icon'
               Facebookで登録する
-            = link_to "https://www.mercari.com/jp/signup/registration/",class: "single-body__inner__registration-form__items__btn-default__btn-google "  do
+            = link_to "#",class: "single-body__inner__registration-form__items__btn-default__btn-google "  do
               = fa_icon 'google', class: 'icon'
               Googleで登録する
 
