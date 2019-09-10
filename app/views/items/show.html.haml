@@ -77,9 +77,9 @@
         =link_to '商品の編集',edit_item_registration_form_path(params[:id])
       %p or
       .status-change-btn__stop
-        = link_to '出品を一旦停止する', '#' #2
+        = link_to '出品を一旦停止する', item_path(@item, status: 2), method: :patch
       .status-change-btn__delete
-        = link_to 'この商品を削除する', item_path(params[:id]), method: :delete, data: {confirm: '削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？'} 
+        = link_to 'この商品を削除する', item_path(@item), method: :delete, data: {confirm: '削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？'} 
   .comment
     %p.comment__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     = form_tag '/', method: :get, class: 'comment__form' do
