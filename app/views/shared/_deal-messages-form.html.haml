@@ -1,0 +1,7 @@
+.deal-message-content
+  = form_tag("/deals/#{@deal.id}/deal_messages", method: :post, class: "deal-message-form") do
+    %p
+      取引メッセージの内容は、必要に応じて事務局で確認しています
+    %textarea{type: "text", name: "message", value: "", class: "textarea-default"}
+    %button{type: "submit", class: "message-submit deal-message-btn deal-message-btn-gray"}
+      %span 取引メッセージを送る

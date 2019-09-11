@@ -1,0 +1,35 @@
+.main-container
+  .mypage__header
+    = render 'partial/header'
+	
+  %main.deal-container
+    .deal-container__content
+      %section.deal-chapter
+        %h2.deal-chapter--head
+          取引画面
+        .deal-chapter--transact-attention
+          %h3
+            %i.far.fa-clock
+            %span
+              発送をお待ちください
+          %p
+            出品者からの発送通知をお待ちください
+        %ul.deal-chapter--transact-guide.text-right
+          %li
+            = link_to '#' do
+              %span 購買代金の受け取りについて
+              %i.fas.fa-angle-right
+      .deal-chapter--deal-message-container
+        - if @deal.deal_messages.present?
+          = render partial: "shared/deal-messages-index", locals: { deal: @deal }
+        = render partial: "shared/deal-messages-form", locals: { deal: @deal }
+      .deal-chapter--deal-message-help
+        ※お困りの際は
+        = link_to 'よくある質問', '#'
+        をご覧ください
+    .deal-container__side-bar
+      = render partial: 'deals/side-bar', locals: { deal: @deal }
+  %aside.app-banner
+    = render partial: 'items/bottom-banner'
+  .mypage__footer
+    = render 'partial/footer'

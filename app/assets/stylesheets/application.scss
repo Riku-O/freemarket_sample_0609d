@@ -11,6 +11,10 @@
 @import "modules/item/item-index";
 @import "modules/item/item-registration";
 @import "modules/item/item-registration-thumbnail";
+@import "modules/item/item-show";
+@import "modules/deal-show";
+@import "modules/deal-done";
+@import "modules/deal-message";
 @import "bread-crumbs";
 @import "modules/deal_confirmation";
 @import "modules/mypage/mypage-nav-list";
@@ -19,7 +23,6 @@
 @import "modules/mypage/mypage-bottom.scss";
 @import "modules/mypage/show";
 @import "modules/mypage/edit-content";
-@import "modules/item/item-show";
 @import "modules/mypage/edit";
 @import "modules/mypage/mypage-log_out";
 @import "modules/mypage/mypage";

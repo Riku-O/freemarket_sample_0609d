@@ -12,13 +12,17 @@ Rails.application.routes.draw do
   end
   devise_for :users
   root 'items#index'
-  get "users/log_out", to: "users#destroy"
+  get 'users/log_out', to: 'users#destroy'
   resources :users, only: [:show] do
     resources :user_information, only: [:new, :create, :edit, :update]
   end
   resources :item_registration_forms, only: [:new, :create, :edit,]
   resources :items, only: [:index, :show, :edit, :update, :destroy] do
     resources :deals, only: [:new, :create]
+  end
+  get 'deals/:id/done', to: 'deals#done'
+  resources :deals, only: [:show] do
+    resources :deal_messages, only: [:new, :create]
   end
   resources :card, only: [:new, :show] do
     collection do
