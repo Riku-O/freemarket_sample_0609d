@@ -11,10 +11,11 @@ class ItemsController < ApplicationController
   def show
     #TODO:is_hosted_by?メソッドを使って、出品者以外が閲覧した際に編集ボタンが表示されないようにする。
     @item = Item.fetch_item(params[:id])
+    @user = User.find(params[:id])
   end
 
   def destroy
-    @item.destroy
+    @item.destroy(item_params)
   end
 
   def edit
@@ -32,6 +33,6 @@ class ItemsController < ApplicationController
 
   private
   def set_item
-    @item = Item.fetch_item(item_params[:id])
+    @item = Item.fetch_item(params[:id])
   end
 end
