@@ -1,25 +1,29 @@
 .header
   .header__top
     .header__top__logo
-      = link_to 'https://www.mercari.com/jp' do
+      = link_to items_path do
         = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2334484240', alt: 'mercari', height: '36', width: '134', class: 'header-top__image'
-    %form{action: "https://www.mercari.com/jp/search/", class: "search-form"}
+    %form{action: '#', class: "search-form"}
       %input{type: "search", placeholder: " 何かお探しですか？", class: "search-field"}
       %button{type: "submit", class: "search-button"}
-        %i.fas.fa-search
+        %span.fas.fa-search
   .header__nav-box
     %span.header__nav-box__left
       %span.header__nav-box__left__category
-        = link_to 'カテゴリーから探す', 'https://www.mercari.com/jp/search/?keyword=', class: 'header-nav-box__left__category__link'
+        = link_to 'カテゴリーから探す', '#'
       %span.header__nav-box__left__brand
-        = link_to 'ブランドから探す', 'https://www.mercari.com/jp/brand/', class: 'header-nav-box__left__brand__link'
+        = link_to 'ブランドから探す', '#'
     %span.header__nav-box__right
-      %span.header__nav-box__right__likes
-        = link_to 'いいね!一覧', 'https://www.mercari.com/jp/mypage/like/history/', class: 'header-nav-box__right__likes__link'
-      %span.header__nav-box__right__notice
-        = link_to 'お知らせ', 'https://www.mercari.com/jp/mypage/notification/', class: 'header-nav-box__right__notice__link'
-      %span.header__nav-box__right__todo
-        = link_to 'やることリスト', 'https://www.mercari.com/jp/mypage/todo/', class: 'header-nav-box__right__todo__link'
-      %span.header__nav-box__right__mypage
-        = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', height: '30', width: '30', class: 'user-icon'
-        = link_to 'マイページ', 'https://www.mercari.com/jp/mypage/', class: 'header-nav-box__right__mypage__link'
+      - if user_signed_in?
+        %span.header__nav-box__right__likes
+          = link_to 'いいね!一覧', '#'
+        %span.header__nav-box__right__notice
+          = link_to 'お知らせ', '#'
+        %span.header__nav-box__right__todo
+          = link_to 'やることリスト', '#'
+        %span.header__nav-box__right__mypage
+          = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', height: '30', width: '30', class: 'user-icon'
+          = link_to 'マイページ', '#'
+      - else
+        = link_to '新規会員登録', users_sign_up_path, class: "header__nav-box__right__sign-up"
+        = link_to 'ログイン', sign_in_path, class: "header__nav-box__right__sign-in"

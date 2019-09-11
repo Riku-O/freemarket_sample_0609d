@@ -14,6 +14,13 @@ class ItemRegistrationFormsController < ApplicationController
     end
   end
 
+  def edit
+    @item = Item.find_by(params[:id])
+  end
+
+  def update
+  end
+
   private
   # TODO:アイテムのブランドは後日実装
   def item_registration_params

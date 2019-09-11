@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :user_information, only: [:new, :create, :edit, :update]
   end
-  resources :item_registration_forms, only: [:new, :create]
-  resources :items, only: [:index, :show, :edit, :update] do
+  resources :item_registration_forms, only: [:new, :create, :edit,]
+  resources :items, only: [:index, :show, :edit, :update, :destroy] do
     resources :deals, only: [:new, :create]
   end
   resources :card, only: [:new, :show] do
