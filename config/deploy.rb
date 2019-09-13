@@ -6,7 +6,6 @@ set :application, "freemarket_sample_0609d"
 set :repo_url, "git@github.com:Riku-O/freemarket_sample_0609d.git"
 
 append :linked_files, 'config/credentials.yml.enc', 'config/master.key'
-append :linked_files, %w{.env}
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
