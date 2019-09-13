@@ -31,6 +31,13 @@ set :default_env, {
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
+  task upload_file: [:set_rails_env] do
+    on roles(:app) do |host|
+      upload!('config/master.key', "#{shared_path}/config/master.key")
+      upload!('config/credentials.yml.enc', "#{shared_path}/config/credentials.yml.enc")
+      execute 'echo "credentials.yml.enc upload!!"'
+    end
+  end
   task :restart do
     invoke 'unicorn:restart'
   end
