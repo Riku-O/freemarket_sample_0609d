@@ -1,3 +1,4 @@
+set :branch, "master"
 require "capistrano/setup"
 require "capistrano/deploy"
 require 'capistrano/rbenv'
