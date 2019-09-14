@@ -7,7 +7,7 @@
     .container
       .container__left__contents
         .container__left__contents__image-large
-          = image_tag @item.item_images.first.image.url, size: '300x360'
+          = image_tag @item.item_images.first.image.url, size: '360'
         .container__left__contents__image-small
       %table.container__right__contents
         %tbody.container__right__contents__table
@@ -54,11 +54,13 @@
       %span.item-tax (税込)
       %span.shipping-fee
         = @item.post_burden.name
-    .container__purchace-button
+    .container__purchace
       - if user_signed_in?
-        = link_to '購入確認画面へ進む', new_item_deal_path(params[:id]), class: 'container__purchace-button' unless current_user.id == @item.user_id
+        - if current_user.id == @item.user_id
+        - else
+          = link_to '購入画面へ進む', new_item_deal_path(params[:id]), class: 'container__purchace-button'
       - else
-        = link_to '購入画面へ進む', users_sign_up_path, class: 'container__purchace-button'
+        = link_to '購入画面へ進む', sign_in_path, class: 'container__purchace-button'
     .container__description
       = @item.description
     .container__buttons
@@ -71,15 +73,15 @@
       = link_to '#', class: 'contaqiner__buttons__right' do
         %span.fas.fa-lock
         %span あんしん・あんぜんへの取り組み
-  - if user_signed_in? && current_user.id == @item.user_id
-    .status-change-btn
+  .status-change-btn
+    - if user_signed_in? && current_user.id == @item.user_id
       .status-change-btn__edit
         =link_to '商品の編集',edit_item_registration_form_path(params[:id])
       %p or
       .status-change-btn__stop
-        = link_to '出品を一旦停止する', item_path(@item, status: 2), method: :patch
+        = link_to '出品を一旦停止する', '#'
       .status-change-btn__delete
-        = link_to 'この商品を削除する', item_path(@item), method: :delete, data: {confirm: '削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？'} 
+        = link_to 'この商品を削除する', item_path(params[:id]), method: :destroy, data: {confirm: '削除すると二度と復活できません。削除する代わりに停止することもできます。本当に削除しますか？'} 
   .comment
     %p.comment__caution 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
     = form_tag '/', method: :get, class: 'comment__form' do

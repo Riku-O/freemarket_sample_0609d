@@ -23,7 +23,7 @@
           = link_to 'やることリスト', '#'
         %span.header__nav-box__right__mypage
           = image_tag 'https://static.mercdn.net/images/member_photo_noimage_thumb.png', height: '30', width: '30', class: 'user-icon'
-          = link_to 'マイページ', '/users/current_user.id'
+          = link_to 'マイページ', user_path(current_user.id)
       - else
         = link_to '新規会員登録', users_sign_up_path, class: "header__nav-box__right__sign-up"
         = link_to 'ログイン', sign_in_path, class: "header__nav-box__right__sign-in"
