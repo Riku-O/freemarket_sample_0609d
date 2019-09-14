@@ -30,7 +30,7 @@ set :default_env, {
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
-  task upload_file: [:set_rails_env] do
+  task :upload do
     on roles(:app) do |host|
       upload!('config/master.key', "#{shared_path}/config/master.key")
     end
