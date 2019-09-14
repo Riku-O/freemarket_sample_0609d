@@ -8,7 +8,7 @@ class ItemRegistrationFormsController < ApplicationController
   def create
     @item_registration_form = ItemRegistrationForm.new(item_registration_params)
     if @item_registration_form.save
-      redirect_to item_path(id: @item.id)
+      redirect_to item_path(id: @item_registration_form.item.id)
     else
       render :new
     end
