@@ -5,8 +5,6 @@ set :log_level, :debug
 set :application, "freemarket_sample_0609d"
 set :repo_url, "git@github.com:Riku-O/freemarket_sample_0609d.git"
 
-set :linked_files, fetch(:linked_files, []).push('config/credentials.yml.enc')
-
 set :linked_files, fetch(:linked_files, []).push('config/master.key')
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
@@ -25,7 +23,6 @@ set :keep_releases, 5
 set :default_env, {
   rbenv_root: "/usr/local/rbenv",
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-  RAILS_MASTER_KEY: ENV["RAILS_MASTER_KEY"],
   SECRET_KEY_BASE: ENV["SECRET_KEY_BASE"],
   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
@@ -36,10 +33,10 @@ namespace :deploy do
   task upload_file: [:set_rails_env] do
     on roles(:app) do |host|
       upload!('config/master.key', "#{shared_path}/config/master.key")
-      upload!('config/credentials.yml.enc', "#{shared_path}/config/credentials.yml.enc")
-      execute 'echo "credentials.yml.enc upload!!"'
     end
   end
+  before :starting, 'deploy:upload'
+  after :finishing, 'deploy:cleanup'
   task :restart do
     invoke 'unicorn:restart'
   end
