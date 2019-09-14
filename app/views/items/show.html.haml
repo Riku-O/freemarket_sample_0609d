@@ -58,7 +58,7 @@
       - if user_signed_in?
         - if current_user.id == @item.user_id
         - else
-          = link_to '購入確認画面へ進む', new_item_deal_path(params[:id]), class: 'container__purchace-button'
+          = link_to '購入画面へ進む', new_item_deal_path(params[:id]), class: 'container__purchace-button'
       - else
         = link_to '購入画面へ進む', sign_in_path, class: 'container__purchace-button'
     .container__description
