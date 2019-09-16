@@ -8,31 +8,20 @@ class User < ApplicationRecord
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
-    if snscredential.present?
-      user = User.where(id: snscredential.user_id).first
-    else
-      user = User.where(email: auth.info.email).first
-      if user.present?
-        SnsCredential.create(
-          uid: uid,
-          provider: provider,
-          user_id: user.id
-          )
-      else
-        user = User.create(
-          nickname: auth.info.name,
-          email:    auth.info.email,
-          password: Devise.friendly_token[0, 20],
-          telephone: "08000000000"
-          )
-        SnsCredential.create(
-          uid: uid,
-          provider: provider,
-          user_id: user.id
-          )
-      end
+    
+    unless snscredential
+      user = User.create(
+        nickname: auth.info.name,
+        email:    auth.info.email,
+        password: Devise.friendly_token[0, 20]
+      )
+      SnsCredential.create(
+        uid: uid,
+        provider: provider,
+        user_id: user.id
+        )
     end
-    return user
+    user
   end
   
   has_many :items
