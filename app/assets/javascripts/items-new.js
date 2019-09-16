@@ -1,17 +1,19 @@
 $(function () {
     function calculate_fee() {
         var set_price = $('#input-price').val();
-        var fee = set_price * 0.1;
-        return fee
+        var fee = Math.ceil(set_price * 0.1);
+        return fee.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,');
     }
     function calculate_profit() {
         var set_price = $('#input-price').val();
-        var profit = set_price * 0.9;
-        return profit
+        var profit = Math.ceil(set_price * 0.9);
+        return profit.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,');
     }
     //金額を入力したら計算するメソッド
-    $('.input-default').change(function () {
-        $('.sell-fee').text(calculate_fee());
-        $('.sell-profit').text(calculate_profit());
+    $('.input-default').on('keyup',function () {
+        var fee = calculate_fee();
+        var profit = calculate_profit();
+        $('.sell-fee').text(`¥ ${fee}`);
+        $('.sell-profit').text(`¥ ${profit}`);
     })
 });
