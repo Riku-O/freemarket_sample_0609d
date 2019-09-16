@@ -30,6 +30,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @items = item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+  end
+
   private
   def set_item
     @item = Item.fetch_item(params[:id])
