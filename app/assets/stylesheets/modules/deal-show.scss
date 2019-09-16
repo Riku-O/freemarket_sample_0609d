@@ -1,0 +1,123 @@
+.deal-container {
+  margin: 40px auto 0;
+  width: 1020px;
+  height: 936px;
+  padding: 0 0 40px;
+  &__content {
+    float: right;
+    width: 700px;
+  }
+  &__side-bar {
+    float: left;
+    width: 280px;
+    margin: 0 40px 0 0;
+  }
+}
+
+.deal-chapter:first-child {
+  margin: 0;
+}
+
+.deal-chapter {
+  background: #fff;
+  &--head {
+    font-size: 24px;
+    padding: 8px 24px;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+  }
+  &--transact-attention {
+    position: relative;
+    padding: 24px 8px;
+    text-align: center;
+    font-size: 0;
+    background: #fff6de;
+    h3 {
+      font-size: 16px;
+      color: #ea352d;
+    }
+    span {
+      vertical-align: middle;
+    }
+    p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    i {
+      font-family: 'FontAwesome';
+      margin: 0 8px 0 0;
+      font-size: 32px;
+      color: #ea352d;
+      vertical-align: middle;
+    }
+  }
+  &--transact-guide {
+    padding: 16px;
+    i {
+      color: #0099e8;
+    }
+  }
+  .text-right {
+    text-align: right;
+  }
+  &--container:first-of-type {
+    margin: 0;
+  }
+  &--container {
+    &__inner {
+      padding: 64px;
+      border-top: 1px solid #f5f5f5;
+    }
+  }
+  &--deal-message-help {
+    padding: 24px;
+    background: #fff;
+  }
+}
+
+.side-bar-container:first-of-type {
+  margin: 0;
+}
+
+.side-bar-container {
+  &__transact-info-head {
+    padding: 0;
+    font-size: 16px;
+  }
+  &__transact-info-inner {
+    margin: 8px 0 0;
+    background: #fff;
+  }
+}
+.transact-info-list {
+  border: 1px solid #eee;
+  display: table;
+  width: 100%;
+  li {
+    line-height: 1.5;
+  }
+  &--row {
+    display: table-row;
+  }
+  &--cell:first-child {
+    width: 35%;
+  }
+  &--cell {
+    display: table-cell;
+    padding: 16px;
+    vertical-align: top;
+    word-wrap: break-word;
+    img {
+      width: 80px;
+    }
+    &__item-info {
+      margin: 8px 0 0;
+      color: #0099e8;
+      text-decoration: underline;
+      font-size: 16px;
+      word-break: break-all;
+      font-weight: 600;
+    }
+  }
+}

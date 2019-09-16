@@ -59,7 +59,7 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
-    capistrano (3.11.1)
+    capistrano (3.11.0)
       airbrussh (>= 1.0.0)
       i18n
       rake (>= 10.0.0)
@@ -118,10 +118,8 @@ GEM
     erubis (2.7.0)
     excon (0.66.0)
     execjs (2.7.0)
-    faker (2.2.1)
-      i18n (>= 0.8)
-    faraday (0.15.4)
-      multipart-post (>= 1.2, < 3)
+    faker (2.2.2)
+      i18n (~> 1.6.0)
     ffi (1.11.1)
     fog-aws (3.5.2)
       fog-core (~> 2.1)
@@ -192,9 +190,9 @@ GEM
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (0.9.2)
-    mime-types (3.2.2)
+    mime-types (3.3)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2019.0331)
+    mime-types-data (3.2019.0904)
     mimemagic (0.3.3)
     mini_magick (4.9.5)
     mini_mime (1.0.2)
@@ -366,7 +364,7 @@ DEPENDENCIES
   ancestry
   bootsnap (>= 1.1.0)
   byebug
-  capistrano
+  capistrano (= 3.11.0)
   capistrano-bundler
   capistrano-rails
   capistrano-rbenv

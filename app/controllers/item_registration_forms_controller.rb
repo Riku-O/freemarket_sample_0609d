@@ -1,4 +1,5 @@
 class ItemRegistrationFormsController < ApplicationController
+  before_action :authenticate_user!
 
   def new
     @item_registration_form = ItemRegistrationForm.new
@@ -7,10 +8,17 @@ class ItemRegistrationFormsController < ApplicationController
   def create
     @item_registration_form = ItemRegistrationForm.new(item_registration_params)
     if @item_registration_form.save
-      redirect_to @item
+      redirect_to item_path(id: @item_registration_form.item.id)
     else
       render :new
     end
+  end
+
+  def edit
+    @item = Item.find_by(params[:id])
+  end
+
+  def update
   end
 
   private
@@ -21,6 +29,6 @@ class ItemRegistrationFormsController < ApplicationController
                                           :shipping_date_id, :price, :description,
                                           :category_id,
                                           item_images_attributes: [:image])
-                                          .merge(user_id: 1)
+                                          .merge(user_id: current_user.id)
   end
 end

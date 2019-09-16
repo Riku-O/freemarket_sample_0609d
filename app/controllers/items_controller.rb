@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item.destroy
+    @item.destroy(item_params)
   end
 
   def edit
@@ -32,6 +32,6 @@ class ItemsController < ApplicationController
 
   private
   def set_item
-    @item = Item.fetch_item(item_params[:id])
+    @item = Item.fetch_item(params[:id])
   end
 end

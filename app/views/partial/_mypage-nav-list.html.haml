@@ -1,97 +1,97 @@
 %nav.mypage-nav
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/' do
+    = link_to user_path(current_user.id) do
       %p マイページ
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/notification/' do
+    = link_to '#' do
       %p お知らせ
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/todo/' do
+    = link_to '#' do
       %p やることリスト
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/like/history/' do
+    = link_to '#' do
       %p いいね！一覧
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/sell/' do
+    = link_to new_item_registration_form_path do
       %p 出品する
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/listings/listing/' do
+    = link_to '#' do
       %p 出品した商品-出品中
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/listings/in_progress/' do
+    = link_to '#' do
       %p 出品した商品-取引中
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/listings/completed/' do
+    = link_to '#' do
       %p 出品した商品-売却済み
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/purchase/' do
+    = link_to '#' do
       %p 購入した商品-取引中
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/purchased/' do
+    = link_to '#' do
       %p 購入した商品-過去の取引
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/news/' do
+    = link_to '#' do
       %p ニュース一覧
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/review/history/' do
+    = link_to '#' do
       %p 評価一覧
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/help_center/' do
+    = link_to '#' do
       %p ガイド
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/support/' do
+    = link_to '#' do
       %p お問い合わせ
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
 
   %h4.mypage-nav__head メルペイ
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/sales/' do
+    = link_to '#' do
       %p 売上・振込申請
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/point/' do
+    = link_to '#' do
       %p ポイント
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
 
   %h4.mypage-nav__head 設定
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/profile/' do
+    = link_to edit_user_registration_path do
       %p プロフィール
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/deliver_address/' do
+    = link_to '#' do
       %p 発送元・お届け先住所変更
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/card/' do
+    = link_to '#' do
       %p 支払い方法
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/email_password/' do
+    = link_to '#' do
       %p メール/パスワード
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/identification/' do
+    = link_to '#' do
       %p 本人情報
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/mypage/sms_confirmation/' do
+    = link_to '#' do
       %p 電話番号の確認
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right
   .mypage-nav__list
-    = link_to 'https://www.mercari.com/jp/logout/' do
+    = link_to '/users/log_out' do
       %p ログアウト
-      %i.fas.fa-chevron-right
+      %span.fas.fa-chevron-right

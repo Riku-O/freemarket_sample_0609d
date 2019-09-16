@@ -1,0 +1,46 @@
+%seciton.side-bar-container
+  %h3.side-bar-container__transact-info-head
+    取引情報
+  %section.side-bar-container__transact-info-inner
+    %ul.transact-info-list
+      %li.transact-info-list--row
+        %span.transact-info-list--cell
+          商品
+        %ul.transact-info-list--cell
+          %li
+            = link_to deal.item do
+              = image_tag deal.item.item_images.first.image.url
+              .transact-info-list--cell__item-info
+                = deal.item.name
+                %br
+                  = number_to_currency deal.item.price, unit: "¥", precision: 0
+      %li.transact-info-list--row
+        %span.transact-info-list--cell
+          送料
+        %ul.transact-info-list--cell
+          %li
+            = deal.item.post_burden.name
+      %li.transact-info-list--row
+        %span.transact-info-list--cell
+          販売手数料
+        %ul.transact-info-list--cell
+          %li
+            = number_to_currency deal.item.price * 0.1, unit: "¥", precision: 0
+      %li.transact-info-list--row
+        %span.transact-info-list--cell
+          販売利益
+        %ul.transact-info-list--cell
+          %li
+            = number_to_currency deal.item.price * 0.9, unit: "¥", precision: 0
+      %li.transact-info-list--row
+        %span.transact-info-list--cell
+          購入日時
+        %ul.transact-info-list--cell
+          %li
+            = deal.created_at.strftime("%Y年%m月%d日 %H:%M")
+      %li.transact-info-list--row
+        %span.transact-info-list--cell
+          商品ID
+        %ul.transact-info-list--cell
+          %li
+            = deal.item.id
