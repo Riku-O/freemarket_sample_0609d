@@ -175,14 +175,14 @@
                           .l-right.sell-price-input
                             ¥
                             %div
-                              = f.text_field :price, class: "input-default", value: "", placeholder: "例)  300"
+                              = f.text_field :price, class: "input-default", id: "input-price", value: "", placeholder: "例)  300"
                       %li.clearfix
                         .l-left
                           販売手数料(10%)
-                        .l-right -
+                        .l-right.sell-fee -
                       %li.clearfix.bold
                         .l-left 販売利益
-                      .l-right -
+                      .l-right.sell-profit.bold -
                 .modal{role: "dialog", tabindex: "-1"}
                   .model-inner
                 .sell-content.sell-btn-box
