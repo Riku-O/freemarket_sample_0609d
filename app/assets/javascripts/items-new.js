@@ -11,9 +11,9 @@ $(function () {
     }
     //金額を入力したら計算するメソッド
     $('.input-default').on('keyup',function () {
-        var fee = calculate_fee();
-        var profit = calculate_profit();
-        $('.sell-fee').text(`¥ ${fee}`);
-        $('.sell-profit').text(`¥ ${profit}`);
+            var fee = calculate_fee();
+            var profit = calculate_profit();
+            $('.sell-fee').text(`¥ ${fee}`);
+            $('.sell-profit').text(`¥ ${profit}`);
     })
 });
