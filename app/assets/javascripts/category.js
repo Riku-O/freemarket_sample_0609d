@@ -25,14 +25,13 @@ $(function () {
     }
 
     $('#parent-category').on('change', function () {
-        var category = $(this).val();
+        var category_id = $(this).val();
+        console.log(category_id);
         $.ajax({
             url: '/categories',
             type: 'GET',
-            data: {category_id: category},
-            dataType: 'json',
-            processData: false,
-            contentType: false
+            data: {category_id: category_id},
+            dataType: 'json'
         })
         .done(function () {
             buildSelect();
