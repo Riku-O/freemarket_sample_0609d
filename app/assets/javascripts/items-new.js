@@ -15,5 +15,5 @@ $(function () {
             var profit = calculate_profit();
             $('.sell-fee').text(`¥ ${fee}`);
             $('.sell-profit').text(`¥ ${profit}`);
-    })
+    });
 });

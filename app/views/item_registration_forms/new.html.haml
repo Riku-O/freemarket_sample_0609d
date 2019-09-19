@@ -47,7 +47,7 @@
                       = f.label "カテゴリー" do
                         カテゴリー
                         %span.form-require 必須
-                        %div
+                        %div#appending_form
                           .select-wrap
                             %i.fa.fa-angle-down
                             = f.select :category_id, {}, {}, {class: "select-default"} do
