@@ -24,13 +24,12 @@ $(function () {
               </div>`
     }
 
-    $().on('change', function () {
+    $('#parent-category').on('change', function () {
         var category = $(this).val();
-        var url = $(this).attr('action');
         $.ajax({
-            url: url,
+            url: '/categories',
             type: 'GET',
-            data: category,
+            data: {category_id: category},
             dataType: 'json',
             processData: false,
             contentType: false

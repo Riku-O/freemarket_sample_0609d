@@ -50,7 +50,7 @@
                         %div#appending_form
                           .select-wrap
                             %i.fa.fa-angle-down
-                            = f.select :category_id, {}, {}, {class: "select-default"} do
+                            = f.select :category_id, {}, {}, {class: "select-default", id: "parent-category"} do
                               %option{value: ""} ---
                               %option{value: "1"} レディース
                               %option{value: "2"} メンズ
