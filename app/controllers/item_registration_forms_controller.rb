@@ -6,6 +6,7 @@ class ItemRegistrationFormsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item_registration_form = ItemRegistrationForm.new(item_registration_params)
     if @item_registration_form.save
       redirect_to item_path(id: @item_registration_form.item.id)
