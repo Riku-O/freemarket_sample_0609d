@@ -3,7 +3,7 @@ $(function () {
         var html = `
             <div class="select-wrap" id="subcategory">
               <i class="fa fa-angle-down"></i>
-              <select class="select-default subcategory-select" name="category_id">
+              <select class="select-default subcategory-select" name="item_registration_form[category_id]" id="item_registration_form_category_id">
                 <option value=""> --- </option>
                 </select>
               </div>`
