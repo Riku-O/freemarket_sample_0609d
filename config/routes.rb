@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show, :edit, :update, :destroy, :search] do
     resources :deals, only: [:new, :create]
   end
+  resources :categories, only: [:index]
   get 'deals/:id/done', to: 'deals#done'
   resources :deals, only: [:show] do
     resources :deal_messages, only: [:new, :create]

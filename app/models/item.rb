@@ -30,7 +30,7 @@ class Item < ApplicationRecord
   enum status: {being_sold: 0, sold: 1, stopped_selling: 2}
 
   def self.fetch_items
-    Item.includes(:item_images).references(:item_images).last(4)
+    Item.includes(:item_images).last(4)
     # items = []
     # items << sort_lady
     # items << sort_men
