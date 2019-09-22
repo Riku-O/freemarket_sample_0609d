@@ -6,6 +6,9 @@ class ItemsController < ApplicationController
   def index
     # TODO:フロントの実装が完了したあとにSQL発行回数チェックしてリファクタリングが必須。
     @items = Item.fetch_items
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true)
+
   end
 
   def show
@@ -30,17 +33,17 @@ class ItemsController < ApplicationController
     end
   end
 
-  def search
-    @q = Item.ransack(params[:q])
-    @items = @q.result(distinct: true)
-  end
+  # def search
+  #   @q = Item.ransack(params[:q])
+  #   @items = @q.result(distinct: true)
+  # end
 
   private
   def set_item
     @item = Item.fetch_item(params[:id])
   end
 
-  def search_params
-    params.require(:q).permit!
-  end
+  # def search_params
+  #   params.require(:q).permit!
+  # end
 end
