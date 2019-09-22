@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     resources :user_information, only: [:new, :create, :edit, :update]
   end
   resources :item_registration_forms, only: [:new, :create, :edit,]
-  resources :items, only: [:index, :show, :edit, :update, :destroy] do
+  resources :items, only: [:index, :show, :edit, :update, :destroy, :search] do
     resources :deals, only: [:new, :create]
   end
   resources :categories, only: [:index]
