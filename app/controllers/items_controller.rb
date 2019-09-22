@@ -30,6 +30,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def search
+    @q = Item.ransack(params[:q])
+    @items = @q.result(distinct: true)
+  end
+
   private
   def set_item
     @item = Item.fetch_item(params[:id])
