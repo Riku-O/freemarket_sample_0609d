@@ -41,4 +41,7 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.fetch_item(params[:id])
   end
+
+  def search_params
+    params.require(:q).permit!
 end
