@@ -5,6 +5,8 @@
         = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2334484240', alt: 'mercari', height: '36', width: '134', class: 'header-top__image'
     %form{action: '#', class: "search-form"}
       %input{type: "search", placeholder: " 何かお探しですか？", class: "search-field"}
+        = f.label :name, "Keyword"
+        = f.search_field :name_cont
       %button{type: "submit", class: "search-button"}
         %span.fas.fa-search
   .header__nav-box
