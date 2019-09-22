@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+    @items = item.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
   private
