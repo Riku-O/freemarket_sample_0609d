@@ -6,6 +6,7 @@ class ItemRegistrationFormsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item_registration_form = ItemRegistrationForm.new(item_registration_params)
     if @item_registration_form.save
       redirect_to item_path(id: @item_registration_form.item.id)
@@ -28,7 +29,7 @@ class ItemRegistrationFormsController < ApplicationController
                                           :post_burden_id, :shipping_method_id, :source_area_id,
                                           :shipping_date_id, :price, :description,
                                           :category_id,
-                                          item_images_attributes: [:image])
+                                          {item_images_attributes: {image: []}})
                                           .merge(user_id: current_user.id)
   end
 end

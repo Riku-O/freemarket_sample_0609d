@@ -4,7 +4,7 @@
     %section.items-box
       = link_to item do
         %figure.items-box__photo
-          = image_tag item.item_images.first.image.url
+          = image_tag item.item_images.first.image[0].url
         .items-box__body
           %h3.items-box__body__name.font-2
             = item.name
