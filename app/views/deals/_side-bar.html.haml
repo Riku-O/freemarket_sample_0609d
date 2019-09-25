@@ -9,7 +9,7 @@
         %ul.transact-info-list--cell
           %li
             = link_to deal.item do
-              = image_tag deal.item.item_images.first.image.url
+              = image_tag deal.item.item_images.first.image[0].url
               .transact-info-list--cell__item-info
                 = deal.item.name
                 %br
