@@ -30,8 +30,16 @@ class ItemsController < ApplicationController
     end
   end
 
+  def categorized_index
+    @items = Item.fetch_categorized_items(category_params[:id])
+  end
+
   private
   def set_item
     @item = Item.fetch_item(params[:id])
+  end
+
+  def category_params
+    params.permit(:id)
   end
 end

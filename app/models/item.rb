@@ -31,9 +31,9 @@ class Item < ApplicationRecord
 
   def self.fetch_items
     Item.includes(:item_images).last(4)
-    # items = []
-    # items << sort_lady
-    # items << sort_men
+    items = []
+    items << sort_lady
+    items << sort_men
   end
 
   def is_hosted_by?(current_user_id)
@@ -48,14 +48,17 @@ class Item < ApplicationRecord
     Item.includes(:item_images, :category).find(item_id)
   end
 
-  private
-  # TODO:ブランド機能実装したら一覧も編集
-  # def self.sort_lady
-  #   Item.includes(:category, :item_images).where(category_id: 11..25).references(:categories).last(4)
-  # end
-  #
-  # def self.sort_men
-  #   Item.includes(:category, :item_images).where(category_id: 26..34).references(:categories).last(4)
-  # end
+  def self.fetch_categorized_items(category_id)
+    category_ids = Category.selected_category_ids(category_id)
+    Item.where(category_id: category_ids)
+  end
 
+  private
+  def self.sort_lady
+    Item.includes(:category, :item_images).where(category_id: 11..25).references(:categories).last(4)
+  end
+
+  def self.sort_men
+    Item.includes(:category, :item_images).where(category_id: 26..34).references(:categories).last(4)
+  end
 end

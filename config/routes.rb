@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show, :edit, :update, :destroy] do
     resources :deals, only: [:new, :create]
   end
+  get 'items/category/:id', to: 'items#categorized_index'
   resources :categories, only: [:index]
   get 'deals/:id/done', to: 'deals#done'
   resources :deals, only: [:show] do
