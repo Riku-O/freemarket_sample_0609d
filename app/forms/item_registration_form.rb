@@ -29,7 +29,12 @@ class ItemRegistrationForm
     end
 
     def item_images_attributes=(attributes)
-      @item_images_attributes = ItemImage.new(attributes)
+      @item_images_attributes = []
+      attributes[:image].each do |attribute|
+        item_images_attribute = ItemImage.new(image: attribute)
+        @item_images_attributes << item_images_attribute
+      end
+      @item_images_attributes
     end
 
   end
