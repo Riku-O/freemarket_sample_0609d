@@ -48,6 +48,7 @@ class Item < ApplicationRecord
     Item.includes(:item_images, :category).find(item_id)
   end
 
+  # カテゴリ毎で全件表示するメソッド画面実装のときに使う
   def self.fetch_categorized_items(category_id)
     category_ids = Category.selected_category_ids(category_id)
     Item.where(category_id: category_ids)

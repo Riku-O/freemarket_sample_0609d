@@ -18,4 +18,5 @@
               = number_to_currency item.price, unit: "¥", precision: 0
               %i.icon-like-border.font-2
 .all_items_link
-  = link_to "すべての商品を見る", action: 'categorized_index', id: category_id
+  = link_to "すべての商品を見る", '#'
+  -#上記のpathはaction: 'categorized_index', id: category_id

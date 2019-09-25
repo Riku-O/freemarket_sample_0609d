@@ -7,6 +7,7 @@ class Category < ApplicationRecord
     return category.children
   end
 
+  # カテゴリ毎で全件取得するメソッドのときに使う
   def self.selected_category_ids(category_id)
     category = Category.find(category_id)
     descendants = category.descendants

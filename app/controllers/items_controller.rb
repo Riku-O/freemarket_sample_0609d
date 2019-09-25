@@ -30,9 +30,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  def categorized_index
-    @items = Item.fetch_categorized_items(category_params[:id])
-  end
+  # TODO:カテゴリ毎で全件表示する
+  # def categorized_index
+  #   @items = Item.fetch_categorized_items(category_params[:id])
+  # end
 
   private
   def set_item

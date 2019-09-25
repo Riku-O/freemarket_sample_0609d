@@ -1,16 +1,17 @@
-= render partial: 'partial/header'
-%main.main-content
-  %section.main-content__pick-up
-    %h2
-      - if @items.first.category.root.id == 1
-        レディースアイテム一覧
-      - else
-        メンズアイテム一覧
-        
-
-
-%aside.app-banner
-  = render partial: 'items/bottom-banner'
-= render partial: 'partial/footer'
-= render partial: 'partial/item-buy-btn'
-
+-#TODO:カテゴリごとで全件表示するページ
+-#= render partial: 'partial/header'
+-#%main.main-content
+-#  %section.main-content__pick-up
+-#    %h2
+-#      - if @items.first.category.root.id == 1
+-#        レディースアイテム一覧
+-#      - else
+-#        メンズアイテム一覧
+-#
+-#
+-#
+-#%aside.app-banner
+-#  = render partial: 'items/bottom-banner'
+-#= render partial: 'partial/footer'
+-#= render partial: 'partial/item-buy-btn'
+-#
