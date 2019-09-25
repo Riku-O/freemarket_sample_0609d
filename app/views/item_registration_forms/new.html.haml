@@ -19,14 +19,12 @@
                       .sell-upload-items.have-item-0
                         %ul
                     .sell-upload-dropbox.have-item-0
-                      = f.fields_for :item_images, @item_registration_form do |c|
+                      = f.fields_for :item_images[], @item_registration_form do |c|
                         = c.label :image do
-                          = c.file_field :image, class: "sell-upload-drop-file-input", style: "display: none;"
+                          = c.file_field :image, class: "sell-upload-drop-file-input", style: "display: none;", multiple: true
                           .sell-upload-drop-file
                           %pre.visible-pc
-                            ドラッグアンドドロップ
-                            %br
-                              またはクリックしてファイルをアップロード
+                            クリックしてファイルをアップロード
                           %i.fas.fa-camera
                 .sell-content
                   .form-group

@@ -6,7 +6,7 @@ $(function () {
               <select class="select-default subcategory-select" name="item_registration_form[category_id]" id="item_registration_form_category_id">
                 <option value=""> --- </option>
                 </select>
-              </div>`
+              </div>`;
         $('#appending_form').append(html);
         $('.subcategory-select').on('change', function () {
             var sub_category_id = $(this).val();
@@ -45,7 +45,7 @@ $(function () {
               <div>
                 <input class="input-default" placeholder="例）シャネル" value="" name="brand">
                 </div>  
-              </div>`
+              </div>`;
         return html
     }
 
