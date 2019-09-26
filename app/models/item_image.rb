@@ -11,9 +11,9 @@ class ItemImage < ApplicationRecord
   end
   # imagesの数を制限するvalidation、validationがfalseしたときの挙動はどうしようか
   def check_number_of_images
-    if item.item_images.count > 11
+    if item.item_images.count > 6
       false
-      errors.add(:item_images, "画像は１０枚までしか保存できません。")
+      errors.add(:item_images, "画像は５枚までしか保存できません。")
     end
   end
 end
