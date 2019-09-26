@@ -5,6 +5,11 @@
       = link_to item do
         %figure.items-box__photo
           = image_tag item.item_images.first.image[0].url
+        - if item.sold?
+          %figcaption
+            .item-sold-out-badge
+              %div
+                SOLD
         .items-box__body
           %h3.items-box__body__name.font-2
             = item.name
@@ -13,4 +18,5 @@
               = number_to_currency item.price, unit: "¥", precision: 0
               %i.icon-like-border.font-2
 .all_items_link
-  = link_to "すべての商品を見る", "#"
+  = link_to "すべての商品を見る", '#'
+  -#上記のpathはaction: 'categorized_index', id: category_id

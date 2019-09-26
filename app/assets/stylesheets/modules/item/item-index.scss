@@ -44,6 +44,29 @@
             position: absolute;
             width: 100%;
           }
+          .item-sold-out-badge:after {
+            border-width: 100px 100px 0 0;
+            border-color: #ea352d transparent transparent transparent;
+            display: block;
+            content: '';
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            width: 0;
+            height: 0;
+            border-style: solid;
+          }
+          .item-sold-out-badge>div {
+            top: 20px;
+            font-size: 26px;
+            position: absolute;
+            left: 0;
+            z-index: 2;
+            color: #fff;
+            transform: rotate(-45deg);
+            letter-spacing: 2px;
+            font-weight: 600;
+          }
         }
         .items-box__body {
           padding: 16px;

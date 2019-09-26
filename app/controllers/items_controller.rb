@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :destroy]
-  # before_action :authenticate_user!, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update]
   # ログイン機能実装用のコードだが、出品ページ実装の際は便宜上コメントアウト
 
   def index
@@ -30,8 +30,17 @@ class ItemsController < ApplicationController
     end
   end
 
+  # TODO:カテゴリ毎で全件表示する
+  # def categorized_index
+  #   @items = Item.fetch_categorized_items(category_params[:id])
+  # end
+
   private
   def set_item
     @item = Item.fetch_item(params[:id])
+  end
+
+  def category_params
+    params.permit(:id)
   end
 end
