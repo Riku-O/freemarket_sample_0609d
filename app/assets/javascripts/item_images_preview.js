@@ -1,15 +1,12 @@
 $(document).on('turbolinks:load', function () {
-    var inputs = [];
+    var input_tag = $('.sell-upload-drop-file-input');
     var images = [];
     var preview = $('.sell-upload-items ul');
     var img_container = $('.sell-upload-items');
 
-    $('.sell-upload-drop-file-input').on('change', function () {
-        //TODO:イメージ読み込めているかログで確認
+    input_tag.on('change', function () {
         var file = $(this).prop('files')[0];
         var reader = new FileReader();
-        var img =
-        inputs.push($(this));
         var img = $(`<li class="sell-upload-item">
                   <figure class="sell-upload-figure landscape">
                     <img>
@@ -26,9 +23,7 @@ $(document).on('turbolinks:load', function () {
         images.push(img);
 
         if (images.length <= 4) {
-            $('.sell-upload-items').remove('li');
             $.each(images, function (index, image) {
-                image.data('image', index);
                 preview.append(image);
             });
             $('.sell-upload-dropbox').css({
@@ -40,9 +35,7 @@ $(document).on('turbolinks:load', function () {
                 display: 'block'
             });
         } else if (images.length === 5) {
-            $('.sell-upload-items').remove('li');
             $.each(images, function (index, image) {
-                image.data("image", index);
                 preview.append(image);
             });
             $('.sell-upload-dropbox').css({
@@ -52,9 +45,5 @@ $(document).on('turbolinks:load', function () {
                 width: '100%'
             })
         }
-
     });
-
-
-
 });

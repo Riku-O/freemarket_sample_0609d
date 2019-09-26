@@ -20,7 +20,7 @@
                         %ul
                     .sell-upload-dropbox.have-item-0
                       = f.fields_for :item_images_attributes, @item_registration_form do |c|
-                        = c.label :image do
+                        = c.label :image, class: "input-label" do
                           = c.file_field :image, class: "sell-upload-drop-file-input", style: "display: none;", multiple: true
                           .sell-upload-drop-file
                           %pre.visible-pc
