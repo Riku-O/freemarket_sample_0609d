@@ -13,7 +13,7 @@
                     出品画像
                     %span.form-require
                       必須
-                  %p 最大10枚までアップロードできます。
+                  %p 最大5枚までアップロードできます。
                   .sell-dropbox-container
                     .sell-upload-items-container
                       .sell-upload-items.have-item-0
@@ -21,7 +21,7 @@
                     .sell-upload-dropbox.have-item-0
                       = f.fields_for :item_images_attributes, @item_registration_form do |c|
                         = c.label :image do
-                          = c.file_field :image[], class: "sell-upload-drop-file-input", style: "display: none;", multiple: true
+                          = c.file_field :image, class: "sell-upload-drop-file-input", style: "display: none;", multiple: true
                           .sell-upload-drop-file
                           %pre.visible-pc
                             クリックしてファイルをアップロード
