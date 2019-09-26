@@ -19,6 +19,7 @@ $(document).on('turbolinks:load', function () {
                 src: e.target.result
             });
         };
+        //TODO:この辺の処理をメソッドで切り出して役割がわかりやすいように書き直す
         reader.readAsDataURL(file);
         images.push(img);
 
