@@ -11,7 +11,7 @@
       - @items.each do |item|
         %li 
           = link_to item.name, post
-          =
+          = item.created_at
   .header__nav-box
     %span.header__nav-box__left
       %span.header__nav-box__left__category
