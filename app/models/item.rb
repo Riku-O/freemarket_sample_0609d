@@ -48,6 +48,10 @@ class Item < ApplicationRecord
     Item.includes(:item_images, :category).find(item_id)
   end
 
+  def self.search_items(search)
+    Item.where('name LIKE(?)', "%#{params[:keyword]}%")
+  end
+
   private
   # TODO:ブランド機能実装したら一覧も編集
   # def self.sort_lady
