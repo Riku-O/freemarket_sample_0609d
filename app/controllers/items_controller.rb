@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   end
 
   def search
-    @items = Item.search_items(params[:search])
+    @items = Item.search_items(search_params[:search])
   end
 
   private
@@ -40,6 +40,6 @@ class ItemsController < ApplicationController
   end
 
   def search_params
-    params.require(:q).permit!
+    params.permit(:search)
   end
 end

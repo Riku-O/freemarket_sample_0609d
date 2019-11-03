@@ -48,8 +48,8 @@ class Item < ApplicationRecord
     Item.includes(:item_images, :category).find(item_id)
   end
 
-  def self.search_items(search)
-    Item.where('name LIKE(?)', "%#{params[:keyword]}%")
+  def self.search_items(keyword)
+    Item.where('name LIKE(?)', "%#{keyword}%")
   end
 
   private
