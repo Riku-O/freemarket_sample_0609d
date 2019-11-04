@@ -29,3 +29,10 @@ men_tops.children.create([{:name => 'Tシャツ/カットソー(半袖/袖なし
 men_jacket.children.create([{:name => 'テーラードジャケット'}, {:name => 'ノーカラージャケット'}, {:name => 'その他'}])
 men_pants.children.create([{:name => 'デニム/ジーンズ'}, {:name => 'ワークパンツ/カーゴパンツ'}, {:name => 'スラックス'}])
 
+# 商品名を作成
+Item.create(name: 'ショートパンツ')
+Item.create(name: 'Tシャツ')
+Item.create(name: 'スカート')
+Item.create(name: 'ワンピース')
+Item.create(name: 'パンツ')
+Item.create(name: 'ミニワンピース')

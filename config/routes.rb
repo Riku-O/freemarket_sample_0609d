@@ -17,7 +17,8 @@ Rails.application.routes.draw do
     resources :user_information, only: [:new, :create, :edit, :update]
   end
   resources :item_registration_forms, only: [:new, :create, :edit,]
-  resources :items, only: [:index, :show, :edit, :update, :destroy] do
+  get 'search', to: 'items#search'
+  resources :items, only: [:index, :show, :edit, :update, :destroy,] do
     resources :deals, only: [:new, :create]
   end
   # TODO:カテゴリごとで全件表示する

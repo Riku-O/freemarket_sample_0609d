@@ -3,9 +3,9 @@
     .header__top__logo
       = link_to items_path do
         = image_tag 'https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2334484240', alt: 'mercari', height: '36', width: '134', class: 'header-top__image'
-    %form{action: '#', class: "search-form"}
-      %input{type: "search", placeholder: " 何かお探しですか？", class: "search-field"}
-      %button{type: "submit", class: "search-button"}
+    = form_tag('/search', method: :get, class: "search-form") do
+      %input{type: "search", placeholder: "何かお探しですか？", name: "search", class: "search-field"}
+      %button{type: "submit", name: "name", class: "search-button"}
         %span.fas.fa-search
   .header__nav-box
     %span.header__nav-box__left

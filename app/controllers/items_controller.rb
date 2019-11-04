@@ -30,17 +30,17 @@ class ItemsController < ApplicationController
     end
   end
 
-  # TODO:カテゴリ毎で全件表示する
-  # def categorized_index
-  #   @items = Item.fetch_categorized_items(category_params[:id])
-  # end
+  def search
+    @items = Item.search_items(search_params[:search])
+    @search_word = search_params[:search]
+  end
 
   private
   def set_item
     @item = Item.fetch_item(params[:id])
   end
 
-  def category_params
-    params.permit(:id)
+  def search_params
+    params.permit(:search)
   end
 end
