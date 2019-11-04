@@ -32,6 +32,7 @@ class ItemsController < ApplicationController
 
   def search
     @items = Item.search_items(search_params[:search])
+    @search_word = search_params[:search]
   end
 
   private

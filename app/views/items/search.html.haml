@@ -1,7 +1,11 @@
 = render partial: 'partial/header'
 
-= render partial: 'items/item-container', locals: {items: @items}
+%h1.search-result-head 
+  = @search_word
+  %span.search-result-head-text の検索結果
 
-= render partial: 'items/bottom-banner'
+= render partial: 'items/item-container', locals: {items: @items}
+%aside.app-banner
+  = render partial: 'items/bottom-banner'
 
 = render partial: 'partial/footer'
