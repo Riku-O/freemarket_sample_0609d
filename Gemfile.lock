@@ -116,7 +116,7 @@ GEM
       html2haml
     erubi (1.8.0)
     erubis (2.7.0)
-    excon (0.66.0)
+    excon (0.71.0)
     execjs (2.7.0)
     faker (2.2.2)
       i18n (~> 1.6.0)
