@@ -6,10 +6,10 @@
         %p アカウントをお持ちでない方はこちら
         = link_to "新規会員登録", "/users/sign_up"
       .single-primary__inner__form
-        %button.single-primary__inner__form__btn-facebook
+        = link_to user_facebook_omniauth_authorize_path, class: "single-primary__inner__form__btn-facebook", method: :post do
           = fa_icon 'facebook-square', class: 'icon'
           Facebookでログイン
-        %button.single-primary__inner__form__btn-google
+        = link_to user_google_oauth2_omniauth_authorize_path, class: "single-primary__inner__form__btn-google", method: :post do
           = fa_icon 'google', class: 'icon'
           Googleでログイン
         -# %ul.single-primary__inner__form__error
@@ -24,7 +24,4 @@
           = f.submit "ログイン", class: "single-primary__inner__form__groups__login"
           = link_to "パスワードをお忘れの方", "https://www.mercari.com/jp/password/reset/start/"
       
-
-
-
   = render "devise/shared/footer"
