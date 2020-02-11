@@ -1,35 +1,8 @@
-.sell-upload-items.have-item-1 {
-  -webkit-box-flex: 1;
-  flex: 1;
-}
-
-.sell-upload-items.have-item-2 {
-  -webkit-box-flex: 2;
-  flex: 2;
-}
-
-.sell-upload-items.have-item-3 {
-  -webkit-box-flex: 3;
-  flex: 3;
-
-}
-
-.sell-upload-items.have-item-4 {
-  -webkit-box-flex: 4;
-  flex: 4;
-
- }
-
-.sell-upload-items.have-item-5 {
-
-}
-
-
 .sell-upload-item:first-child {
   margin-left: 0;
 }
 .sell-upload-item {
-  width: 116px;
+  width: 112px;
   margin: 0 0 10px 10px;
   position: relative;
   display: inline-block;
@@ -66,24 +39,4 @@
     cursor: pointer;
     color: #0099e8;
   }
-}
-
-.have-item-1.sell-upload-dropbox {
-  width: 491px;
-  float: left;
-}
-
-.have-item-2.sell-upload-dropbox {
-  width: 363px;
-  float: left;
-}
-
-.have-item-3.sell-upload-dropbox {
-  width: 234px;
-  float: left;
-
-}
-.have-item-4.sell-upload-dropbox {
-  width: 106px;
-  float: left;
 }

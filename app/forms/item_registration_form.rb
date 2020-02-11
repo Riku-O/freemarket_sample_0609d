@@ -29,7 +29,12 @@ class ItemRegistrationForm
     end
 
     def item_images_attributes=(attributes)
-      @item_images_attributes = ItemImage.new(attributes)
+      @item_images_attributes = []
+      attributes[:image].each do |attribute|
+        item_images_attribute = ItemImage.new(image: attribute)
+        @item_images_attributes << item_images_attribute
+      end
+      @item_images_attributes
     end
 
   end
@@ -64,7 +69,7 @@ class ItemRegistrationForm
       # shipping_method: shipping_method,
       source_area_id: source_area_id,
       category_id: category_id,
-      user_id: 1
+      user_id: user_id
     }
   end
 

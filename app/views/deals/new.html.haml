@@ -6,7 +6,7 @@
       %section.buy-content.item-info
         .buy-content__inner
           %h3.buy-content__inner__image
-            = image_tag @deal.item.item_images.first.image.url
+            = image_tag @deal.item.item_images.first.image[0].url
           %p.buy-content__inner__name.bold
             = @deal.item.name
           = form_for [@item, @deal], html: { class: "form_for_buy"} do |f|

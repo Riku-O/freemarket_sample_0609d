@@ -7,7 +7,7 @@
     .container
       .container__left__contents
         .container__left__contents__image-large
-          = image_tag @item.item_images.first.image.url, size: '360'
+          = image_tag @item.item_images.first.image[0].url, size: '360'
         .container__left__contents__image-small
       %table.container__right__contents
         %tbody.container__right__contents__table

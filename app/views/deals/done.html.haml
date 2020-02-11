@@ -15,7 +15,7 @@
       %section.deal-content.deal-item
         .deal-content__inner
           %h3.deal-item-image
-            = image_tag @deal.item.item_images.first.image.url
+            = image_tag @deal.item.item_images.first.image[0].url
           %p.deal-item-name
             = @deal.item.name
       %section.deal-content.deal-user-info.deal-item
